@@ -14,6 +14,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.agcforge.videodownloader.R
 import com.agcforge.videodownloader.data.model.LocalDownloadItem
+import com.agcforge.videodownloader.helper.BannerAdsHelper
+import com.agcforge.videodownloader.helper.NativeAdsHelper
 import com.agcforge.videodownloader.utils.LocalDownloadsScanner
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -36,7 +38,37 @@ class LocalDownloadAdapter(
     private val context: Context,
     private val onOpenClick: (LocalDownloadItem) -> Unit,
     private val onDeleteClick: (LocalDownloadItem) -> Unit
-) : RecyclerView.Adapter<LocalDownloadAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+	enum class AdSlotType {
+		NATIVE_SMALL,
+		NATIVE_MEDIUM,
+		BANNER
+	}
+
+	data class AdInsertionConfig(
+		val startAfter: Int = 3,
+		val interval: Int = 6,
+		val maxAds: Int? = null
+	)
+
+	private var nativeAdsHelper: NativeAdsHelper? = null
+	private var bannerAdsHelper: BannerAdsHelper? = null
+	private var adSlotType: AdSlotType = AdSlotType.NATIVE_SMALL
+	private var adConfig: AdInsertionConfig? = null
+
+	fun enableAds(
+		nativeAdsHelper: NativeAdsHelper? = null,
+		bannerAdsHelper: BannerAdsHelper? = null,
+		slotType: AdSlotType = AdSlotType.NATIVE_SMALL,
+		config: AdInsertionConfig = AdInsertionConfig()
+	) {
+		this.nativeAdsHelper = nativeAdsHelper
+		this.bannerAdsHelper = bannerAdsHelper
+		this.adSlotType = slotType
+		this.adConfig = config
+		notifyDataSetChanged()
+	}
 
     private val items = mutableListOf<LocalDownloadItem>()
     private val loadingThumbnails = mutableSetOf<Long>()
@@ -53,9 +85,13 @@ class LocalDownloadAdapter(
         .frame(1000000)
 
     fun addItems(newItems: List<LocalDownloadItem>) {
-        val startPosition = items.size
-        items.addAll(newItems)
-        notifyItemRangeInserted(startPosition, newItems.size)
+		val startPosition = items.size
+		items.addAll(newItems)
+		if (isAdsEnabled()) {
+			notifyDataSetChanged()
+		} else {
+			notifyItemRangeInserted(startPosition, newItems.size)
+		}
     }
 
     fun clearItems() {
@@ -66,7 +102,11 @@ class LocalDownloadAdapter(
         thumbnailJobs.values.forEach { it.cancel() }
         thumbnailJobs.clear()
 
-        notifyItemRangeRemoved(0, itemCount)
+		if (isAdsEnabled()) {
+			notifyDataSetChanged()
+		} else {
+			notifyItemRangeRemoved(0, itemCount)
+		}
     }
 
     fun removeItem(itemId: Long) {
@@ -78,7 +118,11 @@ class LocalDownloadAdapter(
             thumbnailJobs[itemId]?.cancel()
             thumbnailJobs.remove(itemId)
 
-            notifyItemRemoved(index)
+			if (isAdsEnabled()) {
+				notifyDataSetChanged()
+			} else {
+				notifyItemRemoved(index)
+			}
         }
     }
 
@@ -92,14 +136,21 @@ class LocalDownloadAdapter(
 
             LocalDownloadsScanner.ThumbnailCache.put(itemId, thumbnail)
 
-            notifyItemChanged(index)
+			val adapterPos = if (isAdsEnabled()) adapterPositionForContentIndex(index) else index
+			notifyItemChanged(adapterPos)
         }
     }
 
     fun getItems(): List<LocalDownloadItem> = items.toList()
 
     fun getItemAt(position: Int): LocalDownloadItem? {
-        return if (position in 0 until items.size) items[position] else null
+		if (!isAdsEnabled()) {
+			return if (position in 0 until items.size) items[position] else null
+		}
+		if (position !in 0 until itemCount) return null
+		if (isAdPosition(position)) return null
+		val contentIndex = contentIndexForAdapterPosition(position)
+		return items.getOrNull(contentIndex)
     }
 
     fun isThumbnailLoading(itemId: Long): Boolean = loadingThumbnails.contains(itemId)
@@ -157,24 +208,94 @@ class LocalDownloadAdapter(
         loadingThumbnails.clear()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_local_download, parent, false)
-        return ViewHolder(view, onOpenClick, onDeleteClick, this)
+	private fun isAdsEnabled(): Boolean {
+		val cfg = adConfig ?: return false
+		return cfg.interval > 0 && cfg.startAfter > 0 && (nativeAdsHelper != null || bannerAdsHelper != null)
+	}
+
+	private fun maxAdsForSize(contentSize: Int): Int {
+		val cfg = adConfig ?: return 0
+		if (!isAdsEnabled()) return 0
+		if (contentSize < cfg.startAfter) return 0
+		val computed = 1 + ((contentSize - cfg.startAfter) / cfg.interval)
+		val capped = cfg.maxAds?.let { computed.coerceAtMost(it.coerceAtLeast(0)) } ?: computed
+		return capped.coerceAtLeast(0)
+	}
+
+	private fun isAdPosition(adapterPosition: Int): Boolean {
+		val cfg = adConfig ?: return false
+		if (!isAdsEnabled()) return false
+		if (adapterPosition < cfg.startAfter) return false
+		val step = cfg.interval + 1
+		val diff = adapterPosition - cfg.startAfter
+		if (diff % step != 0) return false
+		val slotIndex = diff / step
+		return slotIndex in 0 until maxAdsForSize(items.size)
+	}
+
+	private fun adsBeforeAdapterPosition(adapterPosition: Int): Int {
+		val cfg = adConfig ?: return 0
+		if (!isAdsEnabled()) return 0
+		if (adapterPosition <= cfg.startAfter) return 0
+		val step = cfg.interval + 1
+		val diff = adapterPosition - cfg.startAfter - 1
+		val count = 1 + (diff / step)
+		return count.coerceAtMost(maxAdsForSize(items.size))
+	}
+
+	private fun contentIndexForAdapterPosition(adapterPosition: Int): Int {
+		val adsBefore = adsBeforeAdapterPosition(adapterPosition)
+		return adapterPosition - adsBefore
+	}
+
+	private fun adapterPositionForContentIndex(contentIndex: Int): Int {
+		val cfg = adConfig ?: return contentIndex
+		if (!isAdsEnabled()) return contentIndex
+		val n = contentIndex + 1
+		if (n <= cfg.startAfter) return contentIndex
+		val adsBefore = 1 + ((n - cfg.startAfter - 1) / cfg.interval)
+		val capped = adsBefore.coerceAtMost(maxAdsForSize(items.size))
+		return contentIndex + capped
+	}
+
+	override fun getItemViewType(position: Int): Int {
+		return if (isAdsEnabled() && isAdPosition(position)) VIEW_TYPE_AD else VIEW_TYPE_ITEM
+	}
+
+	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+		return if (viewType == VIEW_TYPE_AD) {
+			val view = LayoutInflater.from(parent.context)
+				.inflate(R.layout.item_recycler_ad_container, parent, false)
+			AdViewHolder(view)
+		} else {
+			val view = LayoutInflater.from(parent.context)
+				.inflate(R.layout.item_local_download, parent, false)
+			ItemViewHolder(view, onOpenClick, onDeleteClick, this)
+		}
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = items[position]
-        holder.bind(item, position)
+	override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+		if (holder is AdViewHolder) {
+			holder.bind(nativeAdsHelper, bannerAdsHelper, adSlotType)
+			return
+		}
+		val contentIndex = if (isAdsEnabled()) contentIndexForAdapterPosition(position) else position
+		val item = items[contentIndex]
+		(holder as ItemViewHolder).bind(item, contentIndex)
     }
 
-    override fun getItemCount(): Int = items.size
+	override fun getItemCount(): Int {
+		val contentSize = items.size
+		return contentSize + maxAdsForSize(contentSize)
+	}
 
-    override fun onViewRecycled(holder: ViewHolder) {
-        super.onViewRecycled(holder)
-        Glide.with(context).clear(holder.ivThumbnail)
+	override fun onViewRecycled(holder: RecyclerView.ViewHolder) {
+		super.onViewRecycled(holder)
+		if (holder is AdViewHolder) return
+		val itemHolder = holder as ItemViewHolder
+		Glide.with(context).clear(itemHolder.ivThumbnail)
 
-        val item = holder.getItem()
+		val item = itemHolder.getItem()
         item?.let {
             thumbnailJobs[it.id]?.cancel()
             thumbnailJobs.remove(it.id)
@@ -182,7 +303,7 @@ class LocalDownloadAdapter(
         }
     }
 
-    class ViewHolder(
+    class ItemViewHolder(
         itemView: View,
         private val onOpenClick: (LocalDownloadItem) -> Unit,
         private val onDeleteClick: (LocalDownloadItem) -> Unit,
@@ -375,6 +496,26 @@ class LocalDownloadAdapter(
             adapter.thumbnailJobs[item.id] = job
         }
     }
+
+	class AdViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+		private val container: ViewGroup = itemView.findViewById(R.id.adContainer)
+		private var isLoaded = false
+
+		fun bind(nativeAdsHelper: NativeAdsHelper?, bannerAdsHelper: BannerAdsHelper?, slotType: AdSlotType) {
+			if (isLoaded) return
+			isLoaded = true
+			when (slotType) {
+				AdSlotType.BANNER -> bannerAdsHelper?.loadAndAttachBanner(container)
+				AdSlotType.NATIVE_MEDIUM -> nativeAdsHelper?.loadAndAttachNativeAd(container, NativeAdsHelper.NativeAdSize.MEDIUM)
+				AdSlotType.NATIVE_SMALL -> nativeAdsHelper?.loadAndAttachNativeAd(container, NativeAdsHelper.NativeAdSize.SMALL)
+			}
+		}
+	}
+
+	companion object {
+		private const val VIEW_TYPE_ITEM = 0
+		private const val VIEW_TYPE_AD = 1
+	}
 
 }
 

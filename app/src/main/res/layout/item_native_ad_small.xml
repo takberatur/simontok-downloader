@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white">
+    android:background="@color/background">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -13,7 +13,8 @@
         app:cardCornerRadius="8dp"
         app:cardElevation="2dp"
         app:strokeWidth="1dp"
-        app:strokeColor="@color/gray_ads">
+        app:strokeColor="@color/gray_ads"
+        android:background="@color/background">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:textColor="#212121"
+                    android:textColor="@color/text_primary"
                     android:maxLines="2"
                     android:ellipsize="end"
                     tools:text="Ad Headline Here" />
@@ -62,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:textSize="12sp"
-                    android:textColor="#757575"
+                    android:textColor="@color/text_secondary"
                     android:maxLines="2"
                     android:ellipsize="end"
                     tools:text="Ad description goes here with more details" />
@@ -80,6 +81,8 @@
                 android:textSize="12sp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/primary"
                 tools:text="Install" />
 
         </LinearLayout>

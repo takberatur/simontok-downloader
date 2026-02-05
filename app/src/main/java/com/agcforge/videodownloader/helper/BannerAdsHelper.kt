@@ -47,7 +47,7 @@ class BannerAdsHelper(private val activity: Activity) {
         onBannerLoaded: ((AdsConfig.AdsProvider) -> Unit)? = null,
         onBannerFailed: ((AdsConfig.AdsProvider) -> Unit)? = null
     ) {
-        if (!AdsConfig.ENABLE_ADS) {
+		if (!AdsConfig.ADS_ALLOWED) {
             Log.d(TAG, "Ads disabled")
             container.visibility = View.GONE
             return
@@ -74,7 +74,7 @@ class BannerAdsHelper(private val activity: Activity) {
         onBannerLoaded: ((AdsConfig.AdsProvider) -> Unit)? = null,
         onBannerFailed: ((AdsConfig.AdsProvider) -> Unit)? = null
     ) {
-        if (!AdsConfig.ENABLE_ADS) {
+		if (!AdsConfig.ADS_ALLOWED) {
             Log.d(TAG, "Ads disabled")
             return
         }

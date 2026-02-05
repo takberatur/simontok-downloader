@@ -16,7 +16,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.agcforge.videodownloader.data.model.DownloadTask
 import com.agcforge.videodownloader.databinding.FragmentHistoryBinding
+import com.agcforge.videodownloader.helper.BannerAdsHelper
 import com.agcforge.videodownloader.ui.adapter.HistoryAdapter
+import com.agcforge.videodownloader.helper.BillingManager
+import com.agcforge.videodownloader.helper.NativeAdsHelper
 import com.agcforge.videodownloader.utils.PreferenceManager
 import com.agcforge.videodownloader.utils.showToast
 import kotlinx.coroutines.flow.first
@@ -29,6 +32,9 @@ class HistoryFragment : Fragment() {
 
     private lateinit var preferenceManager: PreferenceManager
     private lateinit var historyAdapter: HistoryAdapter
+	private var historyNativeAdsHelper: NativeAdsHelper? = null
+
+    private var bannerAdsHelper: BannerAdsHelper? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,6 +51,7 @@ class HistoryFragment : Fragment() {
 
         setupRecyclerView()
         observeHistory()
+		observePremiumAdsState()
 
         binding.btnClearHistory.setOnClickListener {
             viewLifecycleOwner.lifecycleScope.launch {
@@ -59,8 +66,16 @@ class HistoryFragment : Fragment() {
                 binding.swipeRefresh.isRefreshing = false
             }
         }
+
+        setupAds()
     }
 
+    private fun setupAds() {
+        val act = activity ?: return
+        bannerAdsHelper = BannerAdsHelper(act)
+
+        bannerAdsHelper?.loadAndAttachBanner(binding.adsBanner)
+    }
     private fun setupRecyclerView() {
         historyAdapter = HistoryAdapter(
             onCopyClick = {
@@ -87,12 +102,43 @@ class HistoryFragment : Fragment() {
                 }
             }
         )
+		applyPremiumAdsState(BillingManager.isPremiumNow())
 
         binding.rvHistory.apply {
             adapter = historyAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
     }
+
+	private fun observePremiumAdsState() {
+		viewLifecycleOwner.lifecycleScope.launch {
+			viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+				BillingManager.isPremium.collect { isPremium ->
+					applyPremiumAdsState(isPremium)
+				}
+			}
+		}
+	}
+
+	private fun applyPremiumAdsState(isPremium: Boolean) {
+		if (isPremium) {
+			historyNativeAdsHelper?.destroy()
+			historyNativeAdsHelper = null
+			historyAdapter.enableAds(
+				nativeAdsHelper = null,
+				bannerAdsHelper = null,
+				config = HistoryAdapter.AdInsertionConfig(startAfter = 0, interval = 0)
+			)
+			return
+		}
+		val act = activity ?: return
+		if (historyNativeAdsHelper == null) historyNativeAdsHelper = NativeAdsHelper(act)
+		historyAdapter.enableAds(
+			nativeAdsHelper = historyNativeAdsHelper,
+			slotType = HistoryAdapter.AdSlotType.NATIVE_SMALL,
+			config = HistoryAdapter.AdInsertionConfig(startAfter = 3, interval = 8)
+		)
+	}
 
     private fun observeHistory() {
         binding.progressBar.visibility = View.VISIBLE
@@ -114,11 +160,13 @@ class HistoryFragment : Fragment() {
         binding.rvHistory.visibility = if (isHistoryEmpty) View.GONE else View.VISIBLE
         binding.btnClearHistory.visibility = if (isHistoryEmpty) View.GONE else View.VISIBLE
 
-        historyAdapter.submitList(historyList) // Show the most recent items at the top
+		historyAdapter.submitTasks(historyList) // Show the most recent items at the top
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+		historyNativeAdsHelper?.destroy()
+		historyNativeAdsHelper = null
         _binding = null
     }
 }

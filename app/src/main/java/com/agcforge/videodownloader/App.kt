@@ -8,6 +8,7 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
 import com.agcforge.videodownloader.helper.AppOpenAdManager
+import com.agcforge.videodownloader.helper.BillingManager
 import com.agcforge.videodownloader.helper.CurrentActivityTracker
 import com.agcforge.videodownloader.utils.DownloadManagerCleaner
 
@@ -61,6 +62,7 @@ class App : Application(), DefaultLifecycleObserver {
 		})
 
 		DownloadManagerCleaner.clearFailedDownloads(this)
+		BillingManager.init(this)
 		AppOpenAdManager.loadAd(this)
 	}
 

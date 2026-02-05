@@ -34,7 +34,7 @@ class NativeAdsHelper(private val activity: Activity) {
         onAdLoaded: ((AdsConfig.AdsProvider) -> Unit)? = null,
         onAdFailed: ((AdsConfig.AdsProvider) -> Unit)? = null
     ) {
-        if (!AdsConfig.ENABLE_ADS) {
+		if (!AdsConfig.ADS_ALLOWED) {
             Log.d(TAG, "Ads disabled")
             container.visibility = View.GONE
             return
@@ -64,7 +64,7 @@ class NativeAdsHelper(private val activity: Activity) {
             return
         }
 
-        if (!AdsConfig.ENABLE_ADS) {
+		if (!AdsConfig.ADS_ALLOWED) {
             Log.d(TAG, "Ads disabled")
             onFailure?.invoke()
             return

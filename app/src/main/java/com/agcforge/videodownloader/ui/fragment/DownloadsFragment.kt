@@ -21,7 +21,9 @@ import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.media3.common.util.UnstableApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -32,6 +34,8 @@ import com.agcforge.videodownloader.ui.activities.player.AudioPlayerActivity
 import com.agcforge.videodownloader.ui.activities.player.VideoPlayerActivity
 import com.agcforge.videodownloader.ui.adapter.LocalDownloadAdapter
 import com.agcforge.videodownloader.ui.component.PlayerSelectionDialog
+import com.agcforge.videodownloader.helper.NativeAdsHelper
+import com.agcforge.videodownloader.helper.BillingManager
 import com.agcforge.videodownloader.utils.LocalDownloadsScanner
 import com.agcforge.videodownloader.utils.PreferenceManager
 import com.agcforge.videodownloader.utils.StorageFolderNavigator
@@ -43,6 +47,7 @@ import kotlinx.coroutines.withContext
 import java.io.File
 import androidx.core.net.toUri
 import androidx.documentfile.provider.DocumentFile
+import com.agcforge.videodownloader.helper.BannerAdsHelper
 import com.agcforge.videodownloader.ui.component.AppAlertDialog
 
 class DownloadsFragment : Fragment() {
@@ -52,11 +57,14 @@ class DownloadsFragment : Fragment() {
 
     private lateinit var preferenceManager: PreferenceManager
     private lateinit var adapter: LocalDownloadAdapter
+	private var listNativeAdsHelper: NativeAdsHelper? = null
 
     private var isLoading = false
     private var hasMoreItems = true
     private var currentOffset = 0
     private val pageSize = 20
+
+    private var bannerAdsHelper: BannerAdsHelper? = null
 
     private val readPermissionsLauncher = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
@@ -83,6 +91,8 @@ class DownloadsFragment : Fragment() {
         binding.btnOpenStorageFolder.setOnClickListener { openStorageFolder() }
 
         resetAndLoadDownloads()
+		setupAds()
+		observePremiumAdsState()
     }
 
     private fun openStorageFolder() {
@@ -91,6 +101,49 @@ class DownloadsFragment : Fragment() {
             StorageFolderNavigator.openStorageFolder(requireContext(), location)
         }
     }
+
+    private fun setupAds() {
+		applyPremiumAdsState(BillingManager.isPremiumNow())
+    }
+
+	private fun observePremiumAdsState() {
+		viewLifecycleOwner.lifecycleScope.launch {
+			viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+				BillingManager.isPremium.collect { isPremium ->
+					applyPremiumAdsState(isPremium)
+				}
+			}
+		}
+	}
+
+	private fun applyPremiumAdsState(isPremium: Boolean) {
+		if (isPremium) {
+			binding.adsBanner.visibility = View.GONE
+			bannerAdsHelper?.destroy()
+			bannerAdsHelper = null
+
+			listNativeAdsHelper?.destroy()
+			listNativeAdsHelper = null
+			adapter.enableAds(
+				nativeAdsHelper = null,
+				bannerAdsHelper = null,
+				config = LocalDownloadAdapter.AdInsertionConfig(startAfter = 0, interval = 0)
+			)
+			return
+		}
+
+		binding.adsBanner.visibility = View.VISIBLE
+		val act = activity ?: return
+		if (bannerAdsHelper == null) bannerAdsHelper = BannerAdsHelper(act)
+		bannerAdsHelper?.loadAndAttachBanner(binding.adsBanner)
+
+		if (listNativeAdsHelper == null) listNativeAdsHelper = NativeAdsHelper(act)
+		adapter.enableAds(
+			nativeAdsHelper = listNativeAdsHelper,
+			slotType = LocalDownloadAdapter.AdSlotType.NATIVE_SMALL,
+			config = LocalDownloadAdapter.AdInsertionConfig(startAfter = 3, interval = 8)
+		)
+	}
 
     private fun setupRecyclerView() {
         adapter = LocalDownloadAdapter(
@@ -263,16 +316,11 @@ class DownloadsFragment : Fragment() {
                 val endIndex = (lastVisible + 1).coerceAtMost(adapter.itemCount)
 
                 for (i in firstVisible until endIndex) {
-                    val item = adapter.getItems()[i]
-                    if (item.thumbnail == null) {
-                        val thumbnail = LocalDownloadsScanner.loadThumbnailForItem(
-                            requireContext(),
-                            item
-                        )
-                        thumbnail?.let {
-                            adapter.updateItemThumbnail(item.id, it)
-                        }
-                    }
+					val item = adapter.getItemAt(i) ?: continue
+					if (item.thumbnail == null) {
+						val thumbnail = LocalDownloadsScanner.loadThumbnailForItem(requireContext(), item)
+						thumbnail?.let { adapter.updateItemThumbnail(item.id, it) }
+					}
                 }
             }
         }
@@ -567,6 +615,10 @@ class DownloadsFragment : Fragment() {
         super.onDestroyView()
         adapter.cancelAllThumbnailLoading()
         LocalDownloadsScanner.ThumbnailCache.clear()
+		bannerAdsHelper?.destroy()
+		bannerAdsHelper = null
+		listNativeAdsHelper?.destroy()
+		listNativeAdsHelper = null
         _binding = null
     }
 

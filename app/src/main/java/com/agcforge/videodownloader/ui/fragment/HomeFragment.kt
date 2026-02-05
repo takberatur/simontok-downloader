@@ -48,6 +48,7 @@ import com.agcforge.videodownloader.ui.adapter.HistoryAdapter
 import com.agcforge.videodownloader.ui.component.AppAlertDialog
 import com.agcforge.videodownloader.ui.component.DownloadSettingsDialog
 import com.agcforge.videodownloader.helper.BannerAdsHelper
+import com.agcforge.videodownloader.helper.BillingManager
 import com.agcforge.videodownloader.helper.NativeAdsHelper
 
 class HomeFragment : Fragment() {
@@ -68,6 +69,7 @@ class HomeFragment : Fragment() {
 
 	private var bannerAdsHelper: BannerAdsHelper? = null
 	private var nativeAdsHelper: NativeAdsHelper? = null
+	private var historyNativeAdsHelper: NativeAdsHelper? = null
 
     private var allPlatforms: List<Platform> = emptyList()
     private val storagePermissionLauncher = registerForActivityResult(
@@ -104,15 +106,54 @@ class HomeFragment : Fragment() {
         viewModel.loadPlatforms()
         updateDownloadButtonState()
 		setupAds()
+		observePremiumAdsState()
     }
 
 	private fun setupAds() {
-		val act = activity ?: return
-		bannerAdsHelper = BannerAdsHelper(act)
-		nativeAdsHelper = NativeAdsHelper(act)
+		applyPremiumAdsState(BillingManager.isPremiumNow())
+	}
 
+	private fun observePremiumAdsState() {
+		viewLifecycleOwner.lifecycleScope.launch {
+			BillingManager.isPremium.collect { isPremium ->
+				applyPremiumAdsState(isPremium)
+			}
+		}
+	}
+
+	private fun applyPremiumAdsState(isPremium: Boolean) {
+		if (isPremium) {
+			binding.adsBanner.visibility = View.GONE
+			binding.adsNative.visibility = View.GONE
+			bannerAdsHelper?.destroy()
+			nativeAdsHelper?.destroy()
+			historyNativeAdsHelper?.destroy()
+			bannerAdsHelper = null
+			nativeAdsHelper = null
+			historyNativeAdsHelper = null
+
+			historyAdapter.enableAds(
+				nativeAdsHelper = null,
+				bannerAdsHelper = null,
+				config = HistoryAdapter.AdInsertionConfig(startAfter = 0, interval = 0)
+			)
+			return
+		}
+
+		binding.adsBanner.visibility = View.VISIBLE
+		binding.adsNative.visibility = View.VISIBLE
+		val act = activity ?: return
+		if (bannerAdsHelper == null) bannerAdsHelper = BannerAdsHelper(act)
+		if (nativeAdsHelper == null) nativeAdsHelper = NativeAdsHelper(act)
 		bannerAdsHelper?.loadAndAttachBanner(binding.adsBanner)
-		nativeAdsHelper?.loadAndAttachNativeAd(binding.adsNative, NativeAdsHelper.NativeAdSize.SMALL)
+		nativeAdsHelper?.loadAndAttachNativeAd(binding.adsNative, NativeAdsHelper.NativeAdSize.MEDIUM)
+
+		if (historyNativeAdsHelper == null) historyNativeAdsHelper = NativeAdsHelper(act)
+		historyAdapter.enableAds(
+			nativeAdsHelper = historyNativeAdsHelper,
+			slotType = HistoryAdapter.AdSlotType.NATIVE_SMALL,
+			config = HistoryAdapter.AdInsertionConfig(startAfter = 3, interval = 8)
+		)
 	}
 
 	override fun onResume() {
@@ -283,7 +324,7 @@ class HomeFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             preferenceManager.history.collect { items ->
-                historyAdapter.submitList(items)
+				historyAdapter.submitTasks(items)
             }
         }
 
@@ -718,8 +759,10 @@ class HomeFragment : Fragment() {
 
 		bannerAdsHelper?.destroy()
 		nativeAdsHelper?.destroy()
+		historyNativeAdsHelper?.destroy()
 		bannerAdsHelper = null
 		nativeAdsHelper = null
+		historyNativeAdsHelper = null
 
         super.onDestroyView()
         _binding = null

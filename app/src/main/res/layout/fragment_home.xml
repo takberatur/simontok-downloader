@@ -21,12 +21,14 @@
             <RelativeLayout
                 android:id="@+id/adsBanner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center">
+                android:layout_height="wrap_content">
 
                 <include
                     android:id="@+id/regular_banner_ad"
                     layout="@layout/item_banner_ad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
                     android:visibility="visible" />
 
             </RelativeLayout>
@@ -110,10 +112,10 @@
                 android:layout_height="wrap_content"
                 android:gravity="center">
 
-            <include
-                android:id="@+id/regular_native_ad"
-                layout="@layout/item_native_ad_small"
-                android:visibility="visible" />
+                <include
+                    android:id="@+id/regular_native_ad"
+                    layout="@layout/item_native_ad_medium"
+                    android:visibility="visible" />
 
             </RelativeLayout>
 

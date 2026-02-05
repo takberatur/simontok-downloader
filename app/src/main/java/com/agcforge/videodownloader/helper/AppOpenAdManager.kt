@@ -28,7 +28,7 @@ object AppOpenAdManager {
     }
 
     fun loadAd(context: Context) {
-		if (!AdsConfig.ENABLE_ADS || !AdsConfig.admobConfig.isAdmobEnabled()) return
+		if (!AdsConfig.ADS_ALLOWED || !AdsConfig.admobConfig.isAdmobEnabled()) return
 		if (isLoadingAd || isAdAvailable()) return
 
         isLoadingAd = true

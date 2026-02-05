@@ -39,7 +39,7 @@ android {
         minSdk = 24
         targetSdk = 36
         versionCode = 1
-        versionName = "1.0.0"
+        versionName = "0.0.1-beta"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 		ndk {
@@ -175,6 +175,7 @@ dependencies {
     implementation(libs.one.signal)
     implementation(libs.inapp.sdk)
     implementation(libs.billing)
+    implementation(libs.billing.ktx)
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
     implementation(libs.retrofit)

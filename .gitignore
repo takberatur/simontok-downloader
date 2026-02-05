@@ -18,3 +18,4 @@ local.properties
 *.p12
 keystore.properties
 app/google-services.json
+play-console-guide.txt

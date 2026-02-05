@@ -38,7 +38,7 @@ class RewardAdsHelper(private val activity: Activity) {
     }
 
     fun loadAd() {
-        if (!AdsConfig.ENABLE_ADS) {
+		if (!AdsConfig.ADS_ALLOWED) {
             Log.d(TAG, "Ads disabled in config")
             return
         }
@@ -60,7 +60,7 @@ class RewardAdsHelper(private val activity: Activity) {
         onAdClosed: ((AdsConfig.AdsProvider) -> Unit)? = null,
         onAdFailed: ((AdsConfig.AdsProvider) -> Unit)? = null
     ) {
-        if (!AdsConfig.ENABLE_ADS) {
+		if (!AdsConfig.ADS_ALLOWED) {
             Log.d(TAG, "Ads disabled")
             onAdFailed?.invoke(AdsConfig.AdsProvider.ADMOB)
             return

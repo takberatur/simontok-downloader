@@ -30,6 +30,9 @@ object AdsConfig {
 	const val COOLDOWN_FAILURE_THRESHOLD: Int = 2
 	const val COOLDOWN_DURATION_MS: Long = 5 * 60 * 1000L
 
+	val ADS_ALLOWED: Boolean
+		get() = ENABLE_ADS && !BillingManager.isPremiumNow()
+
     private var preferenceManager: PreferenceManager? = null
     private val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
 
