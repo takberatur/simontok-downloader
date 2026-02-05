@@ -71,14 +71,6 @@ android {
                 signingConfig = signingConfigs.getByName("githubPublish")
             }
         }
-        debug {
-            if (keystorePropertiesFile.exists()) {
-                signingConfig = signingConfigs.getByName("githubPublish")
-            }
-            applicationIdSuffix = ".debug"
-            versionNameSuffix = "-debug"
-            resValue("string", "app_name", "Simontok Downloader")
-        }
     }
 
     compileOptions {
