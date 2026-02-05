@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Simontok برنامج التنزيل</string>
     <string name="action_settings">إعدادات</string>
     <string name="first_fragment_label">الجزء الأول</string>
@@ -173,7 +173,7 @@
     <string name="video_mp4">فيديو (MP4)</string>
     <string name="download_started_please_check_background_status_bar">بدأ التنزيل، يرجى مراجعة شريط الحالة في الخلفية لمزيد من المعلومات حول مراقبة تقدم التنزيل.</string>
     <string name="no_platforms_available">لا توجد منصات متاحة</string>
-    <string name="copy">نسخ</string>
+    <string name="copy" tools:ignore="PrivateResource">نسخ</string>
     <string name="share">مشاركة</string>
     <string name="choose_action">اختر إجراء</string>
     <string-array name="choose_action_menu">
@@ -182,4 +182,13 @@
         <item>حذف</item>
     </string-array>
     <string name="view_all">عرض الكل</string>
+    <string name="subscription_description">قم بإزالة الإعلانات ودعم تطوير التطبيقات من خلال الاشتراك في Premium.</string>
+    <string name="subscription_1_month">قسط شهر واحد</string>
+    <string name="subscription_6_month">قسط 6 أشهر</string>
+    <string name="subscription_1_year">قسط لمدة سنة واحدة</string>
+    <string name="subscription_cta_buy">يشترك</string>
+    <string name="subscription_restore">استعادة الشراء</string>
+    <string name="subscription_status_premium">الحالة: بريميوم نشط</string>
+    <string name="subscription_status_free">الحالة: مجاني</string>
+    <string name="subscription_processing">يعالج…</string>
 </resources>

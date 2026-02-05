@@ -69,6 +69,16 @@ object BillingManager : PurchasesUpdatedListener {
 
 	fun isPremiumNow(): Boolean = _isPremium.value
 
+	fun getCachedFormattedPrice(plan: Plan): String? {
+		val details = productDetailsCache[plan.productId] ?: return null
+		val pricingPhase = details.subscriptionOfferDetails
+			?.firstOrNull()
+			?.pricingPhases
+			?.pricingPhaseList
+			?.firstOrNull()
+		return pricingPhase?.formattedPrice
+	}
+
 	fun launchPurchase(activity: Activity, plan: Plan, onResult: ((Boolean) -> Unit)? = null) {
 		val client = billingClient
 		if (client == null || !_isReady.value) {

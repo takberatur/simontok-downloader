@@ -182,4 +182,14 @@
         <item>Sil</item>
     </string-array>
     <string name="view_all">Tümünü görüntüle</string>
+    <string name="subscription_title">Premium Ugrade</string>
+    <string name="subscription_description">Reklamları kaldırın ve uygulama geliştirme desteği için Premium aboneliği alın.</string>
+    <string name="subscription_1_month">1 Ay Premium</string>
+    <string name="subscription_6_month">6 Ay Premium</string>
+    <string name="subscription_1_year">1 Yıl Premium</string>
+    <string name="subscription_cta_buy">Premium Al</string>
+    <string name="subscription_restore">Satın Alma İptal Et</string>
+    <string name="subscription_status_premium">Durum: Premium Aktif</string>
+    <string name="subscription_status_free">Durum: Ücretsiz</string>
+    <string name="subscription_processing">İşleniyor...</string>
 </resources>

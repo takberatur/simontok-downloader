@@ -182,4 +182,14 @@
         <item>Eliminar</item>
     </string-array>
     <string name="view_all">Ver todo</string>
+    <string name="subscription_title">Suscripción Premium</string>
+    <string name="subscription_description">Elimina las publicidades y ayuda a desarrollar la aplicación eliminando la publicidad y mejorando la experiencia del usuario.</string>
+    <string name="subscription_1_month">Suscripción mensual</string>
+    <string name="subscription_6_month">Suscripción trimestral</string>
+    <string name="subscription_1_year">Suscripción anual</string>
+    <string name="subscription_cta_buy">Comprar</string>
+    <string name="subscription_restore">Restaurar compra</string>
+    <string name="subscription_status_premium">Estado: Premium activo</string>
+    <string name="subscription_status_free">Estado: Gratis</string>
+    <string name="subscription_processing">Procesando...</string>
 </resources>

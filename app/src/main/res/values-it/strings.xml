@@ -182,4 +182,14 @@
         <item>Elimina</item>
     </string-array>
     <string name="view_all">Vedi tutto</string>
+    <string name="subscription_title">Abbonamento Premium</string>
+    <string name="subscription_description">Rimuovi le pubblicità e aiuta a migliorare l\'esperienza utente eliminando le pubblicità e migliorando l\'esperienza utente.</string>
+    <string name="subscription_1_month">Abbonamento mensile</string>
+    <string name="subscription_6_month">Abbonamento trimestrale</string>
+    <string name="subscription_1_year">Abbonamento annuale</string>
+    <string name="subscription_cta_buy">Acquista</string>
+    <string name="subscription_restore">Ripristina l\'acquisto</string>
+    <string name="subscription_status_premium">Stato: Abbonamento Premium attivo</string>
+    <string name="subscription_status_free">Stato: gratuito</string>
+    <string name="subscription_processing">Elaborazione...</string>
 </resources>

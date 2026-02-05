@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Simontok-Downloader</string>
     <string name="action_settings">Einstellungen</string>
     <string name="first_fragment_label">Erstes Fragment</string>
@@ -173,7 +173,7 @@
     <string name="video_mp4">Video (MP4)</string>
     <string name="download_started_please_check_background_status_bar">Download gestartet, bitte überprüfen Sie den Hintergrund-Statusleisten für weitere Informationen über den Downloadfortschritt.</string>
     <string name="no_platforms_available">Keine Plattformen verfügbar</string>
-    <string name="copy">Kopieren</string>
+    <string name="copy" tools:ignore="PrivateResource">Kopieren</string>
     <string name="share">Teilen</string>
     <string name="choose_action">Aktion wählen</string>
     <string-array name="choose_action_menu">
@@ -182,4 +182,13 @@
         <item>Löschen</item>
     </string-array>
     <string name="view_all">Alle anzeigen</string>
+    <string name="subscription_description">Entfernen Sie Werbung und unterstützen Sie die App-Entwicklung, indem Sie Premium abonnieren.</string>
+    <string name="subscription_1_month">1 Monatsprämie</string>
+    <string name="subscription_6_month">6-Monats-Prämie</string>
+    <string name="subscription_1_year">1 Jahr Prämie</string>
+    <string name="subscription_cta_buy">Abonnieren</string>
+    <string name="subscription_restore">Kauf wiederherstellen</string>
+    <string name="subscription_status_premium">Status: Premium aktiv</string>
+    <string name="subscription_status_free">Status: Kostenlos</string>
+    <string name="subscription_processing">Verarbeitung…</string>
 </resources>

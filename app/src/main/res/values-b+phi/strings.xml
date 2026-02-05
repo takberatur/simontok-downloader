@@ -182,4 +182,14 @@
         <item>Tanggalin</item>
     </string-array>
     <string name="view_all">Tingnan Lahat</string>
+    <string name="subscription_title">I-upgrade ang Premium</string>
+    <string name="subscription_description">Alisin ang mga ad at suportahan ang pagbuo ng app sa pamamagitan ng pag-subscribe sa Premium.</string>
+    <string name="subscription_1_month">1 Buwan na Premium</string>
+    <string name="subscription_6_month">6 na Buwan na Premium</string>
+    <string name="subscription_1_year">1 Taon na Premium</string>
+    <string name="subscription_cta_buy">Mag-subscribe</string>
+    <string name="subscription_restore">Ibalik ang Pagbili</string>
+    <string name="subscription_status_premium">Katayuan: Premium aktibo</string>
+    <string name="subscription_status_free">Katayuan: Libre</string>
+    <string name="subscription_processing">Pinoproseso…</string>
 </resources>

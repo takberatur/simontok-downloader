@@ -182,4 +182,14 @@
         <item>ลบ</item>
     </string-array>
     <string name="view_all">ดูทั้งหมด</string>
+    <string name="subscription_title">อัปเกรด Premium</string>
+    <string name="subscription_description">ลบโฆษณาและสนับสนุนการพัฒนาแอปพลิเคชันโดยการสมัครสมาชิก Premium。</string>
+    <string name="subscription_1_month">1 เดือน Premium</string>
+    <string name="subscription_6_month">6 เดือน Premium</string>
+    <string name="subscription_1_year">1 ปี Premium</string>
+    <string name="subscription_cta_buy">สมัครสมาชิก</string>
+    <string name="subscription_restore">還原การซื้อ</string>
+    <string name="subscription_status_premium">สถานะ: Premium กำลังใช้งาน</string>
+    <string name="subscription_status_free">สถานะ: ฟรี</string>
+    <string name="subscription_processing">กำลังประมวลผล…</string>
 </resources>

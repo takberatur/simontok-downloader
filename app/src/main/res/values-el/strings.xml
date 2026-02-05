@@ -182,4 +182,13 @@
         <item>Διαγραφή</item>
     </string-array>
     <string name="view_all">Εμφάνιση όλων</string>
+    <string name="subscription_description">Καταργήστε τις διαφημίσεις και υποστηρίξτε την ανάπτυξη εφαρμογών με την εγγραφή σας στο Premium.</string>
+    <string name="subscription_1_month">1 μήνας Premium</string>
+    <string name="subscription_6_month">Premium 6 μηνών</string>
+    <string name="subscription_1_year">Premium 1 έτους</string>
+    <string name="subscription_cta_buy">Συνεισφέρω</string>
+    <string name="subscription_restore">Επαναφορά αγοράς</string>
+    <string name="subscription_status_premium">Κατάσταση: Premium ενεργό</string>
+    <string name="subscription_status_free">Κατάσταση: Δωρεάν</string>
+    <string name="subscription_processing">Επεξεργασία…</string>
 </resources>

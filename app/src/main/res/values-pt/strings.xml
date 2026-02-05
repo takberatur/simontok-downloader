@@ -182,4 +182,14 @@
         <item>Excluir</item>
     </string-array>
     <string name="view_all">Ver tudo</string>
+    <string name="subscription_title">Upgrade Premium</string>
+    <string name="subscription_description">Remova anúncios e suporte o desenvolvimento da app por meio de um assinatura Premium.</string>
+    <string name="subscription_1_month">1 Mês Premium</string>
+    <string name="subscription_6_month">6 Meses Premium</string>
+    <string name="subscription_1_year">1 Ano Premium</string>
+    <string name="subscription_cta_buy">Assinar</string>
+    <string name="subscription_restore">Restaurar Assinatura</string>
+    <string name="subscription_status_premium">Status: Premium Ativo</string>
+    <string name="subscription_status_free">Status: Grátis</string>
+    <string name="subscription_processing">Processando…</string>
 </resources>

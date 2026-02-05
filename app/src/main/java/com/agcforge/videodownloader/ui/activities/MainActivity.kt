@@ -24,6 +24,7 @@ import com.agcforge.videodownloader.databinding.ActivityMainBinding
 import com.agcforge.videodownloader.databinding.NavHeaderBinding
 import com.agcforge.videodownloader.service.WebSocketService
 import com.agcforge.videodownloader.ui.activities.auth.LoginActivity
+import com.agcforge.videodownloader.ui.activities.SubscriptionActivity
 import com.agcforge.videodownloader.utils.PreferenceManager
 import com.agcforge.videodownloader.utils.loadImage
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -186,6 +187,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             R.id.nav_downloads -> navController.navigate(R.id.downloadsFragment)
             R.id.nav_settings -> navController.navigate(R.id.settingsFragment)
             R.id.nav_history -> navController.navigate(R.id.historyFragment)
+			R.id.nav_premium -> startActivity(Intent(this, SubscriptionActivity::class.java))
             R.id.nav_about -> {
                 showAboutDialog()
             }

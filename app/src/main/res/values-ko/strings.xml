@@ -182,4 +182,14 @@
         <item>삭제</item>
     </string-array>
     <string name="view_all">모두 보기</string>
+    <string name="subscription_title">프리미엄 구독</string>
+    <string name="subscription_description">광고를 제거하고 앱 개발을 지원하려면 프리미엄 구독을 신청하세요.</string>
+    <string name="subscription_1_month">1개월 프리미엄 구독</string>
+    <string name="subscription_6_month">6개월 프리미엄 구독</string>
+    <string name="subscription_1_year">1년 프리미엄 구독</string>
+    <string name="subscription_cta_buy">구독</string>
+    <string name="subscription_restore">구독 복원</string>
+    <string name="subscription_status_premium">상태: 프리미엄 구독이 활성화되었습니다</string>
+    <string name="subscription_status_free">상태: 무료</string>
+    <string name="subscription_processing">처리 중…</string>
 </resources>

@@ -182,4 +182,14 @@
         <item>Удалить</item>
     </string-array>
     <string name="view_all">Посмотреть все</string>
+    <string name="subscription_title">Premium Upgrade</string>
+    <string name="subscription_description">Удалите рекламу и поддерживайте разработку приложения, подписавшись на Premium.</string>
+    <string name="subscription_1_month">1 Месяц Premium</string>
+    <string name="subscription_6_month">6 Месяцев Premium</string>
+    <string name="subscription_1_year">1 Год Premium</string>
+    <string name="subscription_cta_buy">Подписаться</string>
+    <string name="subscription_restore">Восстановить Покупку</string>
+    <string name="subscription_status_premium">Статус: Premium Активен</string>
+    <string name="subscription_status_free">Статус: Свободный</string>
+    <string name="subscription_processing">Обработка…</string>
 </resources>

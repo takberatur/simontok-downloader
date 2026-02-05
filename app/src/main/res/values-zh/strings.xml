@@ -182,4 +182,13 @@
         <item>删除</item>
     </string-array>
     <string name="view_all">查看所有</string>
+    <string name="subscription_description">通过订阅 Premium 来删除广告并支持应用程序开发。</string>
+    <string name="subscription_1_month">1 个月保费</string>
+    <string name="subscription_6_month">6 个月保费</string>
+    <string name="subscription_1_year">1年保费</string>
+    <string name="subscription_cta_buy">订阅</string>
+    <string name="subscription_restore">恢复购买</string>
+    <string name="subscription_status_premium">状态：高级版活跃</string>
+    <string name="subscription_status_free">状态：免费</string>
+    <string name="subscription_processing">加工…</string>
 </resources>

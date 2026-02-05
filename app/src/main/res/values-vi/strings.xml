@@ -182,4 +182,14 @@
         <item>Xóa</item>
     </string-array>
     <string name="view_all">Xem tất cả</string>
+    <string name="subscription_title">Mua Premium</string>
+    <string name="subscription_description">Xóa quảng cáo và hỗ trợ phát triển ứng dụng bằng cách đăng ký Premium.</string>
+    <string name="subscription_1_month">1 tháng Premium</string>
+    <string name="subscription_6_month">6 tháng Premium</string>
+    <string name="subscription_1_year">1 năm Premium</string>
+    <string name="subscription_cta_buy">Mua Premium</string>
+    <string name="subscription_restore">Khôi phục mua hàng</string>
+    <string name="subscription_status_premium">Trạng thái: Premium đang hoạt động</string>
+    <string name="subscription_status_free">Trạng thái: Miễn phí</string>
+    <string name="subscription_processing">Đang xử lý...</string>
 </resources>

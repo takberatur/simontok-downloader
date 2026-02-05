@@ -182,4 +182,14 @@
         <item>Verwijderen</item>
     </string-array>
     <string name="view_all">Alle weergeven</string>
+    <string name="subscription_title">Premium abonnement</string>
+    <string name="subscription_description">Verwijder advertenties en ondersteun de ontwikkeling van de app door een Premium abonnement te nemen.</string>
+    <string name="subscription_1_month">Premium 1 maand</string>
+    <string name="subscription_6_month">Premium 6 maanden</string>
+    <string name="subscription_1_year">Premium 1 jaar</string>
+    <string name="subscription_cta_buy">Abonneren</string>
+    <string name="subscription_restore">Abonnement herstellen</string>
+    <string name="subscription_status_premium">Status: Premium actief</string>
+    <string name="subscription_status_free">Status: Gratis</string>
+    <string name="subscription_processing">Bezig met verwerken…</string>
 </resources>

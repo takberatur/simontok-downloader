@@ -182,4 +182,13 @@
         <item>Hapus</item>
     </string-array>
     <string name="view_all">Lihat Semua</string>
+    <string name="subscription_description">Alih keluar iklan dan menyokong pembangunan apl dengan melanggan Premium.</string>
+    <string name="subscription_1_month">Premium 1 Bulan</string>
+    <string name="subscription_6_month">Premium 6 Bulan</string>
+    <string name="subscription_1_year">Premium 1 Tahun</string>
+    <string name="subscription_cta_buy">Langgan</string>
+    <string name="subscription_restore">Pulihkan Pembelian</string>
+    <string name="subscription_status_premium">Status: Premium aktif</string>
+    <string name="subscription_status_free">Status: Percuma</string>
+    <string name="subscription_processing">Memproses…</string>
 </resources>

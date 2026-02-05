@@ -182,4 +182,14 @@
         <item>हटाएं</item>
     </string-array>
     <string name="view_all">सभी देखें</string>
+    <string name="subscription_title">प्रीमियम सदस्यता</string>
+    <string name="subscription_description">पब्लिकेशन्स निकालें और उपयोगकर्ता अनुभव को बढ़ाएंโดย निकालने के साथ।</string>
+    <string name="subscription_1_month">प्रति माह सदस्यता</string>
+    <string name="subscription_6_month">प्रति तीन महीने सदस्यता</string>
+    <string name="subscription_1_year">प्रति एक वर्ष सदस्यता</string>
+    <string name="subscription_cta_buy">खरीदें</string>
+    <string name="subscription_restore">खरीदी पुनर्प्राप्त करें</string>
+    <string name="subscription_status_premium">स्थिति: प्रीमियम सक्रिय</string>
+    <string name="subscription_status_free">स्थिति: निःशुल्क</string>
+    <string name="subscription_processing">प्रसंस्करण…</string>
 </resources>

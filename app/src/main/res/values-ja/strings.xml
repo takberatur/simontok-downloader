@@ -182,4 +182,14 @@
         <item>削除</item>
     </string-array>
     <string name="view_all">すべて表示</string>
+    <string name="subscription_title">プレミアムサブスクリプション</string>
+    <string name="subscription_description">広告を削除してユーザー体験を向上させます。</string>
+    <string name="subscription_1_month">1ヶ月分のサブスクリプション</string>
+    <string name="subscription_6_month">6ヶ月分のサブスクリプション</string>
+    <string name="subscription_1_year">1年分のサブスクリプション</string>
+    <string name="subscription_cta_buy">購入</string>
+    <string name="subscription_restore">購入を復元</string>
+    <string name="subscription_status_premium">ステータス: プレミアムサブスクリプションが有効です</string>
+    <string name="subscription_status_free">ステータス: 無料</string>
+    <string name="subscription_processing">処理中…</string>
 </resources>
