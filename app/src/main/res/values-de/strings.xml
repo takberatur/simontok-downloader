@@ -191,4 +191,25 @@
     <string name="subscription_status_premium">Status: Premium aktiv</string>
     <string name="subscription_status_free">Status: Kostenlos</string>
     <string name="subscription_processing">Verarbeitung…</string>
+    <string name="invalid_video_url">Ungültige Video-URL</string>
+    <string name="failed_to_initialize_player">Player konnte nicht initialisiert werden: %s</string>
+    <string name="playback_error">Wiedergabefehler: %s</string>
+    <string name="subtitle_feature_coming_soon">Untertitelfunktion in Kürze verfügbar</string>
+    <string name="controls_locked">Bedienelemente gesperrt</string>
+    <string name="controls_unlocked">Bedienelemente entsperrt</string>
+    <string name="no_quality_options_available">Keine Qualitätsoptionen verfügbar</string>
+    <string name="quality_selection_no_available">Qualitätsauswahl nicht verfügbar</string>
+    <string name="unknown_error">Unbekannter Fehler</string>
+    <string name="auto_quality_selected">Automatische Qualität ausgewählt</string>
+    <string name="quality_selected">Qualität ausgewählt</string>
+    <string name="speed_set_to">Geschwindigkeit auf %s eingestellt</string>
+    <string name="video_ended">Video beendet</string>
+    <string name="do_you_want_to_replay_video">Möchten Sie das Video wiedergeben?</string>
+    <string name="replay">Wiederholung</string>
+    <string name="close">Schließen</string>
+    <string name="exit_player">Spieler verlassen</string>
+    <string name="video_is_still_playing_what_would_you_like_to_do">Das Video wird noch abgespielt. </string>
+    <string name="exit">Ausfahrt</string>
+    <string name="pause_exit">Anhalten und beenden</string>
+    <string name="press_back_again_to_exit">Drücken Sie erneut die Zurück-Taste, um den Vorgang zu beenden</string>
 </resources>

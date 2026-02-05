@@ -192,4 +192,25 @@
     <string name="subscription_status_premium">Статус: Premium Активен</string>
     <string name="subscription_status_free">Статус: Свободный</string>
     <string name="subscription_processing">Обработка…</string>
+    <string name="invalid_video_url">Неверный URL-адрес видео</string>
+    <string name="failed_to_initialize_player">Не удалось инициализировать проигрыватель: %s.</string>
+    <string name="playback_error">Ошибка воспроизведения: %s</string>
+    <string name="subtitle_feature_coming_soon">Функция субтитров скоро появится</string>
+    <string name="controls_locked">Элементы управления заблокированы</string>
+    <string name="controls_unlocked">Элементы управления разблокированы</string>
+    <string name="no_quality_options_available">Нет доступных вариантов качества</string>
+    <string name="quality_selection_no_available">Выбор качества недоступен</string>
+    <string name="unknown_error">Неизвестная ошибка</string>
+    <string name="auto_quality_selected">Выбрано автоматическое качество</string>
+    <string name="quality_selected">Качество выбрано</string>
+    <string name="speed_set_to">Скорость установлена ​​на %s.</string>
+    <string name="video_ended">Видео закончилось</string>
+    <string name="do_you_want_to_replay_video">Вы хотите воспроизвести видео?</string>
+    <string name="replay">Повтор</string>
+    <string name="close">Закрывать</string>
+    <string name="exit_player">Выход из проигрывателя</string>
+    <string name="video_is_still_playing_what_would_you_like_to_do">Видео все еще воспроизводится. </string>
+    <string name="exit">Выход</string>
+    <string name="pause_exit">Пауза и выход</string>
+    <string name="press_back_again_to_exit">Нажмите назад еще раз, чтобы выйти</string>
 </resources>

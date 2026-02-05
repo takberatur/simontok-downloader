@@ -192,4 +192,25 @@
     <string name="subscription_status_premium">Status: Premium actief</string>
     <string name="subscription_status_free">Status: Gratis</string>
     <string name="subscription_processing">Bezig met verwerken…</string>
+    <string name="invalid_video_url">Ongeldige video-URL</string>
+    <string name="failed_to_initialize_player">Kan speler niet initialiseren: %s</string>
+    <string name="playback_error">Afspeelfout: %s</string>
+    <string name="subtitle_feature_coming_soon">Ondertitelfunctie binnenkort beschikbaar</string>
+    <string name="controls_locked">Bediening vergrendeld</string>
+    <string name="controls_unlocked">Bediening ontgrendeld</string>
+    <string name="no_quality_options_available">Geen kwaliteitsopties beschikbaar</string>
+    <string name="quality_selection_no_available">Kwaliteitsselectie niet beschikbaar</string>
+    <string name="unknown_error">Onbekende fout</string>
+    <string name="auto_quality_selected">Automatische kwaliteit geselecteerd</string>
+    <string name="quality_selected">Kwaliteit geselecteerd</string>
+    <string name="speed_set_to">Snelheid ingesteld op %s</string>
+    <string name="video_ended">Video beëindigd</string>
+    <string name="do_you_want_to_replay_video">Wilt u de video opnieuw afspelen</string>
+    <string name="replay">Opnieuw afspelen</string>
+    <string name="close">Dichtbij</string>
+    <string name="exit_player">Sluit Speler af</string>
+    <string name="video_is_still_playing_what_would_you_like_to_do">Video wordt nog steeds afgespeeld. </string>
+    <string name="exit">Uitgang</string>
+    <string name="pause_exit">Pauzeren en afsluiten</string>
+    <string name="press_back_again_to_exit">Druk nogmaals op Terug om af te sluiten</string>
 </resources>

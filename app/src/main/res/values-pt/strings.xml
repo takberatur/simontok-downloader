@@ -192,4 +192,25 @@
     <string name="subscription_status_premium">Status: Premium Ativo</string>
     <string name="subscription_status_free">Status: Grátis</string>
     <string name="subscription_processing">Processando…</string>
+    <string name="invalid_video_url">URL de vídeo inválido</string>
+    <string name="failed_to_initialize_player">Falha ao inicializar o player: %s</string>
+    <string name="playback_error">Erro de reprodução: %s</string>
+    <string name="subtitle_feature_coming_soon">Recurso de legenda em breve</string>
+    <string name="controls_locked">Controles bloqueados</string>
+    <string name="controls_unlocked">Controles desbloqueados</string>
+    <string name="no_quality_options_available">Nenhuma opção de qualidade disponível</string>
+    <string name="quality_selection_no_available">Seleção de qualidade não disponível</string>
+    <string name="unknown_error">Erro desconhecido</string>
+    <string name="auto_quality_selected">Qualidade automática selecionada</string>
+    <string name="quality_selected">Qualidade selecionada</string>
+    <string name="speed_set_to">Velocidade definida como %s</string>
+    <string name="video_ended">Vídeo finalizado</string>
+    <string name="do_you_want_to_replay_video">Você quer reproduzir o vídeo</string>
+    <string name="replay">Repetir</string>
+    <string name="close">Fechar</string>
+    <string name="exit_player">Sair do jogador</string>
+    <string name="video_is_still_playing_what_would_you_like_to_do">O vídeo ainda está sendo reproduzido. </string>
+    <string name="exit">Saída</string>
+    <string name="pause_exit">Pausar e sair</string>
+    <string name="press_back_again_to_exit">Pressione voltar novamente para sair</string>
 </resources>

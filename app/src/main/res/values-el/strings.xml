@@ -191,4 +191,25 @@
     <string name="subscription_status_premium">Κατάσταση: Premium ενεργό</string>
     <string name="subscription_status_free">Κατάσταση: Δωρεάν</string>
     <string name="subscription_processing">Επεξεργασία…</string>
+    <string name="invalid_video_url">Μη έγκυρη διεύθυνση URL βίντεο</string>
+    <string name="failed_to_initialize_player">Απέτυχε η προετοιμασία του προγράμματος αναπαραγωγής: %s</string>
+    <string name="playback_error">Σφάλμα αναπαραγωγής: %s</string>
+    <string name="subtitle_feature_coming_soon">Σύντομα η λειτουργία υπότιτλων</string>
+    <string name="controls_locked">Τα χειριστήρια είναι κλειδωμένα</string>
+    <string name="controls_unlocked">Τα χειριστήρια ξεκλειδώθηκαν</string>
+    <string name="no_quality_options_available">Δεν υπάρχουν διαθέσιμες επιλογές ποιότητας</string>
+    <string name="quality_selection_no_available">Η επιλογή ποιότητας δεν είναι διαθέσιμη</string>
+    <string name="unknown_error">Άγνωστο σφάλμα</string>
+    <string name="auto_quality_selected">Επιλέχθηκε η αυτόματη ποιότητα</string>
+    <string name="quality_selected">Επιλεγμένη ποιότητα</string>
+    <string name="speed_set_to">Η ταχύτητα ορίστηκε σε %s</string>
+    <string name="video_ended">Το βίντεο έληξε</string>
+    <string name="do_you_want_to_replay_video">Θέλετε να επαναλάβετε το βίντεο</string>
+    <string name="replay">Ξαναπαίζω</string>
+    <string name="close">Κοντά</string>
+    <string name="exit_player">Έξοδος από το πρόγραμμα αναπαραγωγής</string>
+    <string name="video_is_still_playing_what_would_you_like_to_do">Το βίντεο συνεχίζει να παίζει. </string>
+    <string name="exit">Εξοδος</string>
+    <string name="pause_exit">Παύση και έξοδος</string>
+    <string name="press_back_again_to_exit">Πατήστε ξανά πίσω για έξοδο</string>
 </resources>

@@ -1,14 +1,21 @@
 package com.agcforge.videodownloader.ui.activities.player
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
 import android.view.WindowManager
+import android.widget.ImageButton
+import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.net.toUri
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -18,16 +25,16 @@ import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.trackselection.DefaultTrackSelector
+import androidx.media3.ui.PlayerView
+import com.agcforge.videodownloader.R
 import com.agcforge.videodownloader.databinding.ActivityVideoPlayerBinding
+import com.agcforge.videodownloader.ui.activities.BaseActivity
+import com.agcforge.videodownloader.ui.component.AppAlertDialog
 import com.agcforge.videodownloader.utils.showToast
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import androidx.core.net.toUri
-import androidx.core.view.GravityCompat
-import com.agcforge.videodownloader.R
-
 
 @UnstableApi
-class VideoPlayerActivity : AppCompatActivity() {
+class VideoPlayerActivity : BaseActivity() {
     private lateinit var binding: ActivityVideoPlayerBinding
     private var player: ExoPlayer? = null
     private var trackSelector: DefaultTrackSelector? = null
@@ -37,6 +44,13 @@ class VideoPlayerActivity : AppCompatActivity() {
     private var currentPlaybackPosition: Long = 0
     private var isLocked = false
     private var isFullscreen = false
+    private var isInterstitialLoaded = false
+
+    private var backPressedTime: Long = 0
+    private val EXIT_DELAY = 2000L // 2 second interval for double tap exit
+
+    private var lastTouchTime: Long = 0
+    private val DOUBLE_TAP_DELAY = 300L // 300ms
 
     companion object {
         private const val KEY_VIDEO_URI = "video_uri"
@@ -58,7 +72,13 @@ class VideoPlayerActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupBackPressedCallback()
+        initializeData(savedInstanceState)
+        setupUI()
+        setupPlayer()
+        setupListeners()
+    }
 
+    private fun initializeData(savedInstanceState: Bundle?) {
         if (intent.action == Intent.ACTION_VIEW) {
             videoUri = intent.data
             videoTitle = videoUri?.lastPathSegment ?: "External Video"
@@ -67,147 +87,216 @@ class VideoPlayerActivity : AppCompatActivity() {
             videoTitle = intent.getStringExtra(KEY_VIDEO_TITLE) ?: getString(R.string.app_name)
         }
 
-
-        if (savedInstanceState != null) {
-            currentPlaybackPosition = savedInstanceState.getLong(KEY_PLAYBACK_POSITION, 0)
+        if (videoUri == null || videoUri.toString().isEmpty()) {
+            showToast("Invalid video URL")
+            finish()
+            return
         }
 
-        setupUI()
-        setupPlayer()
-        setupListeners()
+        // Restore saved state
+        if (savedInstanceState != null) {
+            currentPlaybackPosition = savedInstanceState.getLong(KEY_PLAYBACK_POSITION, 0)
+            isFullscreen = savedInstanceState.getBoolean("isFullscreen", false)
+            isLocked = savedInstanceState.getBoolean("isLocked", false)
+        }
     }
 
     private fun setupUI() {
-        // Set video title
         binding.tvVideoTitle.text = videoTitle
-
-        // Hide system UI for immersive mode
         hideSystemUI()
-
-        // Keep screen on
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        setupTouchGestures()
+        setupCustomControls()
     }
 
-    private fun setupPlayer() {
-        // Create track selector for quality selection
-        trackSelector = DefaultTrackSelector(this).apply {
-            setParameters(buildUponParameters().setMaxVideoSizeSd())
-        }
-
-        // Initialize ExoPlayer
-        player = ExoPlayer.Builder(this)
-            .setTrackSelector(trackSelector!!)
-            .build()
-            .also { exoPlayer ->
-                // IMPORTANT: Bind player to PlayerView first
-                binding.playerView.player = exoPlayer
-
-                // Configure PlayerView
-                binding.playerView.apply {
-                    // Show controls
-                    controllerShowTimeoutMs = 3000 // Hide after 3 seconds
-                    controllerHideOnTouch = true
-
-                    // Use default controller (it handles duration properly)
-                    useController = true
-
-                    setFullscreenButtonState(true)
-
-                }
-
-                // Set media item
-                videoUri?.let { uri ->
-                    val mediaItem = MediaItem.fromUri(uri)
-                    exoPlayer.setMediaItem(mediaItem)
-                    exoPlayer.prepare()
-
-                    // Seek to saved position
-                    if (currentPlaybackPosition > 0) {
-                        exoPlayer.seekTo(currentPlaybackPosition)
-                    }
-
-                    exoPlayer.playWhenReady = true
-                }
-
-                // Add player listener
-                exoPlayer.addListener(object : Player.Listener {
-                    override fun onPlaybackStateChanged(playbackState: Int) {
-                        when (playbackState) {
-                            Player.STATE_BUFFERING -> {
-                                binding.progressLoading.visibility = View.VISIBLE
-                            }
-                            Player.STATE_READY -> {
-                                binding.progressLoading.visibility = View.GONE
-                                binding.llError.visibility = View.GONE
-
-                                // Debug log
-                                android.util.Log.d("VideoPlayer", "Duration: ${exoPlayer.duration}ms = ${formatDuration(exoPlayer.duration)}")
-                                android.util.Log.d("VideoPlayer", "Current position: ${exoPlayer.currentPosition}ms")
-                            }
-                            Player.STATE_ENDED -> {
-                                // Video ended - show replay option
-                                showToast("Video ended")
-                            }
-                        }
-                    }
-
-                    override fun onPlayerError(error: PlaybackException) {
-                        showError("Failed to play video: ${error.message}")
-                    }
-                    override fun onIsPlayingChanged(isPlaying: Boolean) {
-                        // Show/hide loading based on playing state
-                        if (isPlaying) {
-                            binding.progressLoading.visibility = View.GONE
-                        }
-                    }
-                })
-
-            }
-    }
-
-    private fun setupListeners() {
-        // Back button
+    private fun setupCustomControls() {
         binding.btnBack.setOnClickListener {
-            finish()
+            handleBackPress()
         }
-
-        // Lock button
         binding.btnLock.setOnClickListener {
             toggleLock()
         }
-
-        // Retry button
         binding.btnRetry.setOnClickListener {
-            binding.llError.visibility = View.GONE
-            releasePlayer()
+            retryPlayback()
+        }
+    }
+
+    private fun initializePlayer() {
+        showInterstitial {
+            // Debug: Interstitial callback triggered
+            showToast("Interstitial shown, initializing player")
             setupPlayer()
+            setupListeners()
+            isInterstitialLoaded = true
         }
 
-        // Get custom control buttons from PlayerView
-        val playerControlView = binding.playerView
+        // Fallback: If interstitial does not show within 3 seconds, initialize player anyway
+        binding.playerView.postDelayed({
+            if (!isInterstitialLoaded) {
+                showToast("Interstitial not loaded, initializing player anyway")
+                setupPlayer()
+                setupListeners()
+                isInterstitialLoaded = true
+            }
+        }, 3000)
+    }
 
-        playerControlView.setFullscreenButtonClickListener {
+    private fun setupPlayer() {
+        try {
+            // Create track selector
+            trackSelector = DefaultTrackSelector(this).apply {
+                setParameters(buildUponParameters().setMaxVideoSizeSd())
+            }
+
+            // Initialize ExoPlayer
+            player = ExoPlayer.Builder(this)
+                .setTrackSelector(trackSelector!!)
+                .build()
+                .also { exoPlayer ->
+                    // Setup PlayerView
+                    setupPlayerView(exoPlayer)
+
+                    // Setup media
+                    setupMedia(exoPlayer)
+
+                    // Setup listeners
+                    setupPlayerListeners(exoPlayer)
+                }
+        } catch (e: Exception) {
+            showError(getString(R.string.failed_to_initialize_player, e.localizedMessage ?: getString(R.string.unknown_error)))
+        }
+    }
+
+    private fun setupPlayerView(exoPlayer: ExoPlayer) {
+        binding.playerView.player = exoPlayer
+        binding.playerView.apply {
+            useController = true
+            controllerShowTimeoutMs = 3000
+            controllerHideOnTouch = true
+            setShowBuffering(PlayerView.SHOW_BUFFERING_WHEN_PLAYING)
+        }
+    }
+
+    private fun setupMedia(exoPlayer: ExoPlayer) {
+        videoUri?.let { uri ->
+            val mediaItem = MediaItem.fromUri(uri)
+            exoPlayer.setMediaItem(mediaItem)
+            exoPlayer.prepare()
+
+            // Restore playback position
+            if (currentPlaybackPosition > 0) {
+                exoPlayer.seekTo(currentPlaybackPosition)
+            }
+
+            exoPlayer.playWhenReady = true
+        }
+    }
+
+    private fun setupPlayerListeners(exoPlayer: ExoPlayer) {
+        exoPlayer.addListener(object : Player.Listener {
+            override fun onPlaybackStateChanged(playbackState: Int) {
+                when (playbackState) {
+                    Player.STATE_BUFFERING -> {
+                        binding.progressLoading.visibility = View.VISIBLE
+                    }
+                    Player.STATE_READY -> {
+                        binding.progressLoading.visibility = View.GONE
+                        binding.llError.visibility = View.GONE
+                        updateVideoInfo()
+                    }
+                    Player.STATE_ENDED -> {
+                        showVideoEndedDialog()
+                    }
+                }
+            }
+
+            override fun onPlayerError(error: PlaybackException) {
+                showError(getString(R.string.playback_error, error.localizedMessage ?: getString(R.string.unknown_error)))
+            }
+
+            override fun onIsPlayingChanged(isPlaying: Boolean) {
+                if (isPlaying) {
+                    binding.progressLoading.visibility = View.GONE
+                }
+            }
+        })
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun updateVideoInfo() {
+        player?.let { exoPlayer ->
+            val duration = exoPlayer.duration
+            if (duration > 0) {
+                binding.tvVideoTitle.text = "$videoTitle • ${formatDuration(duration)}"
+            }
+        }
+    }
+
+    private fun setupListeners() {
+        setupPlayerViewControls()
+
+        binding.playerView.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
+            handleOrientationChange()
+        }
+    }
+
+    private fun setupPlayerViewControls() {
+        setupCustomControllerButtons()
+        addQualityButtonToController()
+    }
+
+    private fun setupCustomControllerButtons() {
+        val fullscreenButton = binding.playerView.findViewById<ImageButton>(R.id.btnFullscreen)
+        val qualityButton = binding.playerView.findViewById<ImageButton>(R.id.btnQuality)
+        val speedButton = binding.playerView.findViewById<TextView>(R.id.btnSpeed)
+        val subtitleButton = binding.playerView.findViewById<ImageButton>(R.id.btnSubtitle)
+
+        fullscreenButton?.setOnClickListener {
             toggleFullscreen()
         }
 
-        // Quality button
-        playerControlView.findViewById<View>(R.id.btnQuality)?.setOnClickListener {
+        qualityButton?.setOnClickListener {
             showQualityDialog()
         }
 
-        // Speed button
-        playerControlView.findViewById<View>(R.id.btnSpeed)?.setOnClickListener {
+        speedButton?.setOnClickListener {
             showSpeedDialog()
         }
 
-        // Fullscreen button
-        playerControlView.findViewById<View>(R.id.btnFullscreen)?.setOnClickListener {
-            toggleFullscreen()
+        subtitleButton?.setOnClickListener {
+            showToast(getString(R.string.subtitle_feature_coming_soon))
         }
+    }
 
-        // Subtitle button
-        playerControlView.findViewById<View>(R.id.btnSubtitle)?.setOnClickListener {
-            showToast("Subtitle feature coming soon")
+    private fun addQualityButtonToController() {
+        // If custom controller doesn't have quality button, add it
+        val controllerView = binding.playerView.findViewById<ViewGroup>(R.id.llBottomControls)
+        if (controllerView?.findViewById<ImageButton>(R.id.btnQuality) == null) {
+            val qualityButton = createQualityButton()
+            controllerView?.addView(qualityButton)
+        }
+    }
+
+    private fun createQualityButton(): ImageButton {
+        return ImageButton(this).apply {
+            id = R.id.btnQuality
+            setImageResource(R.drawable.ic_settings)
+            contentDescription = getString(R.string.quality)
+            layoutParams = ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.WRAP_CONTENT,
+                ConstraintLayout.LayoutParams.WRAP_CONTENT
+            )
+            setOnClickListener {
+                showQualityDialog()
+            }
+        }
+    }
+
+    private fun handleOrientationChange() {
+        val isLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+        if (isLandscape != isFullscreen) {
+            isFullscreen = isLandscape
+            updateFullscreenUI()
         }
     }
 
@@ -215,46 +304,116 @@ class VideoPlayerActivity : AppCompatActivity() {
         isLocked = !isLocked
 
         if (isLocked) {
-            // Hide all controls except lock button
-            binding.playerView.hideController()
-            binding.playerView.useController = false
-            binding.btnBack.visibility = View.GONE
-            binding.tvVideoTitle.visibility = View.GONE
-            binding.btnLock.setImageResource(R.drawable.ic_lock_white)
-            showToast("Controls locked")
+            enterLockMode()
         } else {
-            // Show controls
-            binding.playerView.useController = true
-            binding.playerView.showController()
-            binding.btnBack.visibility = View.VISIBLE
-            binding.tvVideoTitle.visibility = View.VISIBLE
-            binding.btnLock.setImageResource(R.drawable.ic_lock_open_white)
-            showToast("Controls unlocked")
+            exitLockMode()
         }
+    }
+
+    private fun enterLockMode() {
+        binding.playerView.hideController()
+        binding.playerView.useController = false
+        binding.btnBack.visibility = View.GONE
+        binding.tvVideoTitle.visibility = View.GONE
+        binding.btnLock.setImageResource(R.drawable.ic_lock_white)
+        showToast(getString(R.string.controls_locked))
+    }
+
+    private fun exitLockMode() {
+        binding.playerView.useController = true
+        binding.playerView.showController()
+        binding.btnBack.visibility = View.VISIBLE
+        binding.tvVideoTitle.visibility = View.VISIBLE
+        binding.btnLock.setImageResource(R.drawable.ic_lock_open_white)
+        showToast(getString(R.string.controls_unlocked))
     }
 
     private fun toggleFullscreen() {
         isFullscreen = !isFullscreen
 
-        if (isFullscreen) {
-            // Enter fullscreen (landscape)
-            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+        requestedOrientation = if (isFullscreen) {
+            ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
         } else {
-            // Exit fullscreen (portrait)
-            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        }
+
+        if (isFullscreen) {
+            hideSystemUI()
+        } else {
+            showSystemUI()
+        }
+
+        updateFullscreenUI()
+    }
+
+    private fun updateFullscreenUI() {
+        if (isFullscreen) {
+            binding.btnBack.visibility = View.GONE
+            binding.tvVideoTitle.visibility = View.GONE
+            binding.btnLock.visibility = View.GONE
+        } else {
+            binding.btnBack.visibility = View.VISIBLE
+            binding.tvVideoTitle.visibility = View.VISIBLE
+            binding.btnLock.visibility = View.VISIBLE
         }
     }
 
     private fun showQualityDialog() {
-        val qualities = arrayOf("Auto", "1080p", "720p", "480p", "360p")
-
-        MaterialAlertDialogBuilder(this)
-            .setTitle(getString(R.string.video_quality))
-            .setItems(qualities) { dialog, which ->
-                showToast("Quality set to ${qualities[which]}")
-                dialog.dismiss()
+        trackSelector?.let { selector ->
+            val mappedTrackInfo = selector.currentMappedTrackInfo
+            if (mappedTrackInfo == null) {
+                showToast(getString(R.string.no_quality_options_available))
+                return
             }
-            .show()
+
+            val videoTrackGroups = mappedTrackInfo.getTrackGroups(0)
+            if (videoTrackGroups.length == 0) {
+                showToast(getString(R.string.no_quality_options_available))
+                return
+            }
+
+            val qualityOptions = mutableListOf<String>()
+            qualityOptions.add("Auto")
+
+            for (i in 0 until videoTrackGroups.length) {
+                val trackGroup = videoTrackGroups.get(i)
+                for (j in 0 until trackGroup.length) {
+                    val format = trackGroup.getFormat(j)
+                    format.height?.let { height ->
+                        val quality = "${height}p"
+                        if (!qualityOptions.contains(quality)) {
+                            qualityOptions.add(quality)
+                        }
+                    }
+                }
+            }
+
+            MaterialAlertDialogBuilder(this)
+                .setTitle(getString(R.string.video_quality))
+                .setItems(qualityOptions.toTypedArray()) { dialog, which ->
+                    handleQualitySelection(which, selector, qualityOptions)
+                    dialog.dismiss()
+                }
+                .show()
+        } ?: showToast(getString(R.string.quality_selection_no_available))
+    }
+
+    private fun handleQualitySelection(
+        which: Int,
+        selector: DefaultTrackSelector,
+        qualityOptions: List<String>
+    ) {
+        if (which == 0) {
+            selector.parameters = selector.parameters
+                .buildUpon()
+                .clearSelectionOverrides()
+                .build()
+            showToast(getString(R.string.auto_quality_selected))
+        } else {
+            val selectedQuality = qualityOptions[which]
+            showToast(getString(R.string.quality_selected) + selectedQuality)
+            // Implement specific quality selection here
+        }
     }
 
     private fun showSpeedDialog() {
@@ -268,14 +427,30 @@ class VideoPlayerActivity : AppCompatActivity() {
             .setTitle(getString(R.string.playback_speed))
             .setSingleChoiceItems(speeds, currentIndex) { dialog, which ->
                 player?.setPlaybackSpeed(speedValues[which])
-
-                // Update speed text in controls if exists
-                binding.playerView.findViewById<android.widget.TextView>(R.id.btnSpeed)?.text = speeds[which]
-
-                showToast("Speed set to ${speeds[which]}")
+                showToast(getString(R.string.speed_set_to, speeds[which]))
                 dialog.dismiss()
             }
             .show()
+    }
+
+    private fun showVideoEndedDialog() {
+        AppAlertDialog.Builder(this)
+            .setTitle(getString(R.string.video_ended))
+            .setMessage(getString(R.string.do_you_want_to_replay_video))
+            .setPositiveButtonText(getString(R.string.replay))
+            .setNegativeButtonText(getString(R.string.close))
+            .setOnPositiveClick {
+                player?.seekTo(0)
+                player?.playWhenReady = true
+            }
+            .show()
+    }
+
+    private fun retryPlayback() {
+        binding.llError.visibility = View.GONE
+        binding.progressLoading.visibility = View.VISIBLE
+        releasePlayer()
+        setupPlayer()
     }
 
     private fun showError(message: String) {
@@ -286,12 +461,20 @@ class VideoPlayerActivity : AppCompatActivity() {
 
     private fun hideSystemUI() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
-        WindowInsetsControllerCompat(window, binding.root).let { controller ->
+        WindowInsetsControllerCompat(window, window.decorView).let { controller ->
             controller.hide(WindowInsetsCompat.Type.systemBars())
-            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            controller.systemBarsBehavior =
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
     }
 
+    private fun showSystemUI() {
+        WindowCompat.setDecorFitsSystemWindows(window, true)
+        WindowInsetsControllerCompat(window, window.decorView)
+            .show(WindowInsetsCompat.Type.systemBars())
+    }
+
+    @SuppressLint("DefaultLocale")
     private fun formatDuration(durationMs: Long): String {
         if (durationMs <= 0) return "00:00"
 
@@ -303,49 +486,137 @@ class VideoPlayerActivity : AppCompatActivity() {
         return if (hours > 0) {
             String.format("%d:%02d:%02d", hours, minutes, seconds)
         } else {
-            String.format("%d:%02d", minutes, seconds)
+            String.format("%02d:%02d", minutes, seconds)
         }
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putLong(KEY_PLAYBACK_POSITION, player?.currentPosition ?: 0)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        player?.pause()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        currentPlaybackPosition = player?.currentPosition ?: 0
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        releasePlayer()
-    }
-
-    private fun releasePlayer() {
-        player?.let {
-            currentPlaybackPosition = it.currentPosition
-            it.release()
-        }
-        player = null
-        trackSelector = null
     }
 
     private fun setupBackPressedCallback() {
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                if (isFullscreen) {
-                    toggleFullscreen()
-                } else {
-                    onBackPressedDispatcher.onBackPressed()
-                }
+                handleBackPress()
             }
         }
         onBackPressedDispatcher.addCallback(this, callback)
+    }
+
+    private fun handleBackPress() {
+        when {
+            isLocked -> {
+                toggleLock()
+            }
+            isFullscreen -> {
+                toggleFullscreen()
+            }
+            player?.isPlaying == true -> {
+                showExitConfirmationDialog()
+            }
+            else -> {
+                handleDoubleTapExit()
+            }
+        }
+    }
+
+    private fun showExitConfirmationDialog() {
+        AppAlertDialog.Builder(this)
+            .setTitle(getString(R.string.exit_player))
+            .setMessage(getString(R.string.video_is_still_playing_what_would_you_like_to_do))
+            .setPositiveButtonText(getString(R.string.exit))
+            .setNegativeButtonText(getString(R.string.cancel))
+            .setOnPositiveClick {
+                savePlaybackPosition()
+                exitPlayer()
+            }
+            .setOnNegativeClick {
+                player?.pause()
+                savePlaybackPosition()
+            }
+            .show()
+    }
+
+    private fun handleDoubleTapExit() {
+        if (backPressedTime + EXIT_DELAY > System.currentTimeMillis()) {
+            exitPlayer()
+        } else {
+            showToast(getString(R.string.press_back_again_to_exit))
+            backPressedTime = System.currentTimeMillis()
+        }
+    }
+
+    private fun exitPlayer() {
+        savePlaybackPosition()
+        releasePlayer()
+        finish()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+    }
+
+    private fun savePlaybackPosition() {
+        player?.let {
+            currentPlaybackPosition = it.currentPosition
+        }
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun setupTouchGestures() {
+        binding.playerView.setOnTouchListener { view, event ->
+            if (isLocked && event.action == MotionEvent.ACTION_DOWN) {
+                handleLockedTouch(event)
+                return@setOnTouchListener true
+            }
+            return@setOnTouchListener false
+        }
+    }
+
+    private fun handleLockedTouch(event: MotionEvent) {
+        val currentTime = System.currentTimeMillis()
+        if (currentTime - lastTouchTime < DOUBLE_TAP_DELAY) {
+            toggleLock()
+        }
+        lastTouchTime = currentTime
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        savePlaybackPosition()
+        outState.putLong(KEY_PLAYBACK_POSITION, currentPlaybackPosition)
+        outState.putBoolean("isFullscreen", isFullscreen)
+        outState.putBoolean("isLocked", isLocked)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        isFullscreen = savedInstanceState.getBoolean("isFullscreen", false)
+        isLocked = savedInstanceState.getBoolean("isLocked", false)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        player?.pause()
+        savePlaybackPosition()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        savePlaybackPosition()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        releasePlayer()
+        window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+    }
+
+    private fun releasePlayer() {
+        player?.release()
+        player = null
+        trackSelector = null
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        val newIsFullscreen = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE
+        if (newIsFullscreen != isFullscreen) {
+            isFullscreen = newIsFullscreen
+            updateFullscreenUI()
+        }
     }
 }

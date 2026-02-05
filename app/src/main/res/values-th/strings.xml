@@ -192,4 +192,25 @@
     <string name="subscription_status_premium">สถานะ: Premium กำลังใช้งาน</string>
     <string name="subscription_status_free">สถานะ: ฟรี</string>
     <string name="subscription_processing">กำลังประมวลผล…</string>
+    <string name="invalid_video_url">URL ของวิดีโอไม่ถูกต้อง</string>
+    <string name="failed_to_initialize_player">ไม่สามารถเริ่มต้นเครื่องเล่น: %s</string>
+    <string name="playback_error">ข้อผิดพลาดในการเล่น: %s</string>
+    <string name="subtitle_feature_coming_soon">คุณสมบัติคำบรรยายในเร็ว ๆ นี้</string>
+    <string name="controls_locked">ล็อคการควบคุมแล้ว</string>
+    <string name="controls_unlocked">ปลดล็อคการควบคุมแล้ว</string>
+    <string name="no_quality_options_available">ไม่มีตัวเลือกคุณภาพ</string>
+    <string name="quality_selection_no_available">ไม่มีการเลือกคุณภาพ</string>
+    <string name="unknown_error">ข้อผิดพลาดที่ไม่รู้จัก</string>
+    <string name="auto_quality_selected">เลือกคุณภาพอัตโนมัติแล้ว</string>
+    <string name="quality_selected">คัดสรรคุณภาพ</string>
+    <string name="speed_set_to">ตั้งค่าความเร็วเป็น %s</string>
+    <string name="video_ended">วิดีโอสิ้นสุดแล้ว</string>
+    <string name="do_you_want_to_replay_video">คุณต้องการเล่นวิดีโอซ้ำ</string>
+    <string name="replay">เล่นซ้ำ</string>
+    <string name="close">ปิด</string>
+    <string name="exit_player">ออกจากเครื่องเล่น</string>
+    <string name="video_is_still_playing_what_would_you_like_to_do">วิดีโอยังคงเล่นอยู่ </string>
+    <string name="exit">ออก</string>
+    <string name="pause_exit">หยุดชั่วคราวและออก</string>
+    <string name="press_back_again_to_exit">กดกลับอีกครั้งเพื่อออก</string>
 </resources>

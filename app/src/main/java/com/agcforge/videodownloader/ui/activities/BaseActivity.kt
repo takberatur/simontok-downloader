@@ -1,5 +1,6 @@
 package com.agcforge.videodownloader.ui.activities
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
@@ -75,6 +76,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun attachBaseContext(newBase: Context) {
         preferenceManager = PreferenceManager(newBase)
         val languageCode = runBlocking { preferenceManager.language.first() }
@@ -142,6 +144,7 @@ abstract class BaseActivity : AppCompatActivity() {
         nativeAdsHelper.destroy()
     }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onResume() {
         super.onResume()
 		CurrentActivityTracker.set(this)

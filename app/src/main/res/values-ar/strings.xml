@@ -191,4 +191,25 @@
     <string name="subscription_status_premium">الحالة: بريميوم نشط</string>
     <string name="subscription_status_free">الحالة: مجاني</string>
     <string name="subscription_processing">يعالج…</string>
+    <string name="invalid_video_url">عنوان URL للفيديو غير صالح</string>
+    <string name="failed_to_initialize_player">فشل في تهيئة المشغل: %s</string>
+    <string name="playback_error">خطأ في التشغيل: %s</string>
+    <string name="subtitle_feature_coming_soon">ميزة الترجمة قريبا</string>
+    <string name="controls_locked">الضوابط مقفلة</string>
+    <string name="controls_unlocked">الضوابط مقفلة</string>
+    <string name="no_quality_options_available">لا توجد خيارات الجودة المتاحة</string>
+    <string name="quality_selection_no_available">اختيار الجودة غير متاح</string>
+    <string name="unknown_error">خطأ غير معروف</string>
+    <string name="auto_quality_selected">تم تحديد الجودة التلقائية</string>
+    <string name="quality_selected">الجودة مختارة</string>
+    <string name="speed_set_to">تم ضبط السرعة على %s</string>
+    <string name="video_ended">انتهى الفيديو</string>
+    <string name="do_you_want_to_replay_video">هل تريد إعادة تشغيل الفيديو</string>
+    <string name="replay">إعادة التشغيل</string>
+    <string name="close">يغلق</string>
+    <string name="exit_player">خروج اللاعب</string>
+    <string name="video_is_still_playing_what_would_you_like_to_do">لا يزال الفيديو قيد التشغيل. </string>
+    <string name="exit">مخرج</string>
+    <string name="pause_exit">وقفة والخروج</string>
+    <string name="press_back_again_to_exit">اضغط مرة أخرى للخروج</string>
 </resources>

@@ -82,7 +82,7 @@ class FormatSelectionAdapter(
                 format.getQualityLabel()
             }
             tvDirectBadge.visibility = if (isDirect) View.VISIBLE else View.GONE
-            tvExtension.text = format.ext?.uppercase() ?: task?.format?.uppercase() ?: "MP4"
+            tvExtension.text = if (task?.platformType?.endsWith("to-mp3") == true) "MP3" else format.ext?.uppercase() ?: "MP4"
             tvFileSize.text = format.getFileSizeFormatted()
             tvCodecInfo.text = format.getCodecInfo()
 

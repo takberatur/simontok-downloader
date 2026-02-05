@@ -192,4 +192,25 @@
     <string name="subscription_status_premium">Katayuan: Premium aktibo</string>
     <string name="subscription_status_free">Katayuan: Libre</string>
     <string name="subscription_processing">Pinoproseso…</string>
+    <string name="invalid_video_url">Di-wastong URL ng video</string>
+    <string name="failed_to_initialize_player">Nabigong simulan ang player: %s</string>
+    <string name="playback_error">Error sa pag-playback: %s</string>
+    <string name="subtitle_feature_coming_soon">Paparating na ang tampok na subtitle</string>
+    <string name="controls_locked">Naka-lock ang mga kontrol</string>
+    <string name="controls_unlocked">Na-unlock ang mga kontrol</string>
+    <string name="no_quality_options_available">Walang available na opsyon sa kalidad</string>
+    <string name="quality_selection_no_available">Hindi available ang pagpili ng kalidad</string>
+    <string name="unknown_error">Hindi Alam na Error</string>
+    <string name="auto_quality_selected">Napili ang kalidad ng sasakyan</string>
+    <string name="quality_selected">Napili ang kalidad</string>
+    <string name="speed_set_to">Ang bilis ay itinakda sa %s</string>
+    <string name="video_ended">Natapos ang Video</string>
+    <string name="do_you_want_to_replay_video">Gusto mo bang i-replay ang video</string>
+    <string name="replay">I-replay</string>
+    <string name="close">Isara</string>
+    <string name="exit_player">Lumabas sa Manlalaro</string>
+    <string name="video_is_still_playing_what_would_you_like_to_do">Nagpe-play pa ang video. </string>
+    <string name="exit">Lumabas</string>
+    <string name="pause_exit">I-pause At Lumabas</string>
+    <string name="press_back_again_to_exit">Pindutin muli upang lumabas</string>
 </resources>

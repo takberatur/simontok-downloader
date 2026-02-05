@@ -196,4 +196,25 @@
     <string name="subscription_status_premium">Status: Premium active</string>
     <string name="subscription_status_free">Status: Free</string>
     <string name="subscription_processing">Processing…</string>
+    <string name="invalid_video_url">Invalid video URL</string>
+    <string name="failed_to_initialize_player">Failed to initialize player: %s</string>
+    <string name="playback_error">Playback error: %s</string>
+    <string name="subtitle_feature_coming_soon">Subtitle feature coming soon</string>
+    <string name="controls_locked">Controls locked</string>
+    <string name="controls_unlocked">Controls unlocked</string>
+    <string name="no_quality_options_available">No quality options available</string>
+    <string name="quality_selection_no_available">Quality selection not available</string>
+    <string name="unknown_error">Unknown Error</string>
+    <string name="auto_quality_selected">Auto quality selected</string>
+    <string name="quality_selected">Quality selected</string>
+    <string name="speed_set_to">Speed set to %s</string>
+    <string name="video_ended">Video Ended</string>
+    <string name="do_you_want_to_replay_video">Do you want to replay video</string>
+    <string name="replay">Replay</string>
+    <string name="close">Close</string>
+    <string name="exit_player">Exit Player</string>
+    <string name="video_is_still_playing_what_would_you_like_to_do">Video is still playing. What would you like to do?</string>
+    <string name="exit">Exit</string>
+    <string name="pause_exit">Pause And Exit</string>
+    <string name="press_back_again_to_exit">Press back again to exit</string>
 </resources>

@@ -191,5 +191,26 @@
     <string name="subscription_restore">Restaurer l\'achat</string>
     <string name="subscription_status_premium">Statut : Abonnement Premium actif</string>
     <string name="subscription_status_free">Statut :gratuit</string>
-    <string name="subscription_processing">Traitement en cours...</string>
+    <string name="subscription_processing">Traitement en cours…</string>
+    <string name="invalid_video_url">URL de la vidéo invalide</string>
+    <string name="failed_to_initialize_player">Échec de l\`initialisation du lecteur : %s</string>
+    <string name="playback_error">Erreur de lecture : %s</string>
+    <string name="subtitle_feature_coming_soon">Fonctionnalité de sous-titres bientôt disponible</string>
+    <string name="controls_locked">Commandes verrouillées</string>
+    <string name="controls_unlocked">Commandes déverrouillées</string>
+    <string name="no_quality_options_available">Aucune option de qualité disponible</string>
+    <string name="quality_selection_no_available">Sélection de qualité non disponible</string>
+    <string name="unknown_error">Erreur inconnue</string>
+    <string name="auto_quality_selected">Qualité automatique sélectionnée</string>
+    <string name="quality_selected">Qualité sélectionnée</string>
+    <string name="speed_set_to">Vitesse réglée sur %s</string>
+    <string name="video_ended">Vidéo terminée</string>
+    <string name="do_you_want_to_replay_video">Voulez-vous relire la vidéo</string>
+    <string name="replay">Rejouer</string>
+    <string name="close">Fermer</string>
+    <string name="exit_player">Quitter le lecteur</string>
+    <string name="video_is_still_playing_what_would_you_like_to_do">La vidéo est toujours en cours de lecture. </string>
+    <string name="exit">Sortie</string>
+    <string name="pause_exit">Pause et sortie</string>
+    <string name="press_back_again_to_exit">Appuyez à nouveau pour quitter</string>
 </resources>

@@ -191,4 +191,25 @@
     <string name="subscription_status_premium">状态：高级版活跃</string>
     <string name="subscription_status_free">状态：免费</string>
     <string name="subscription_processing">加工…</string>
+    <string name="invalid_video_url">视频网址无效</string>
+    <string name="failed_to_initialize_player">无法初始化播放器：%s</string>
+    <string name="playback_error">播放错误：%s</string>
+    <string name="subtitle_feature_coming_soon">字幕功能即将推出</string>
+    <string name="controls_locked">控制锁定</string>
+    <string name="controls_unlocked">控件已解锁</string>
+    <string name="no_quality_options_available">没有可用的质量选项</string>
+    <string name="quality_selection_no_available">无法选择质量</string>
+    <string name="unknown_error">未知错误</string>
+    <string name="auto_quality_selected">选择自动质量</string>
+    <string name="quality_selected">品质精选</string>
+    <string name="speed_set_to">速度设置为 %s</string>
+    <string name="video_ended">视频结束</string>
+    <string name="do_you_want_to_replay_video">您想重播视频吗</string>
+    <string name="replay">重播</string>
+    <string name="close">关闭</string>
+    <string name="exit_player">退出播放器</string>
+    <string name="video_is_still_playing_what_would_you_like_to_do">视频仍在播放。</string>
+    <string name="exit">出口</string>
+    <string name="pause_exit">暂停并退出</string>
+    <string name="press_back_again_to_exit">再按一次返回即可退出</string>
 </resources>

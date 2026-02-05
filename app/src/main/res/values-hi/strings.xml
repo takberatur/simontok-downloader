@@ -192,4 +192,25 @@
     <string name="subscription_status_premium">स्थिति: प्रीमियम सक्रिय</string>
     <string name="subscription_status_free">स्थिति: निःशुल्क</string>
     <string name="subscription_processing">प्रसंस्करण…</string>
+    <string name="invalid_video_url">अमान्य वीडियो यूआरएल</string>
+    <string name="failed_to_initialize_player">प्लेयर प्रारंभ करने में विफल: %s</string>
+    <string name="playback_error">प्लेबैक त्रुटि: %s</string>
+    <string name="subtitle_feature_coming_soon">उपशीर्षक सुविधा जल्द ही आ रही है</string>
+    <string name="controls_locked">नियंत्रण लॉक कर दिया गया</string>
+    <string name="controls_unlocked">नियंत्रण अनलॉक किया गया</string>
+    <string name="no_quality_options_available">कोई गुणवत्ता विकल्प उपलब्ध नहीं है</string>
+    <string name="quality_selection_no_available">गुणवत्ता चयन उपलब्ध नहीं है</string>
+    <string name="unknown_error">अज्ञात त्रुटि</string>
+    <string name="auto_quality_selected">स्वतः गुणवत्ता चयनित</string>
+    <string name="quality_selected">गुणवत्ता चयनित</string>
+    <string name="speed_set_to">गति %s पर सेट की गई</string>
+    <string name="video_ended">वीडियो ख़त्म</string>
+    <string name="do_you_want_to_replay_video">क्या आप वीडियो दोबारा चलाना चाहते हैं</string>
+    <string name="replay">REPLAY</string>
+    <string name="close">बंद करना</string>
+    <string name="exit_player">प्लेयर से बाहर निकलें</string>
+    <string name="video_is_still_playing_what_would_you_like_to_do">वीडियो अभी भी चल रहा है. </string>
+    <string name="exit">बाहर निकलना</string>
+    <string name="pause_exit">रोकें और बाहर निकलें</string>
+    <string name="press_back_again_to_exit">बाहर निकलने के लिए फिर से वापस दबाएँ</string>
 </resources>

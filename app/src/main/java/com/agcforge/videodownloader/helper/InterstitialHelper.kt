@@ -1,5 +1,6 @@
 package com.agcforge.videodownloader.helper
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.util.Log
 import com.google.android.gms.ads.AdError
@@ -142,6 +143,7 @@ class InterstitialHelper (private val activity: Activity) {
         return (currentTime - lastShownTime) >= intervalMillis
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun loadAdmobInterstitial() {
 		if (!AdsConfig.admobConfig.isInterstitialEnabled() || isAdmobLoading) return
 

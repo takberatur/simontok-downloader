@@ -191,5 +191,26 @@
     <string name="subscription_restore">Khôi phục mua hàng</string>
     <string name="subscription_status_premium">Trạng thái: Premium đang hoạt động</string>
     <string name="subscription_status_free">Trạng thái: Miễn phí</string>
-    <string name="subscription_processing">Đang xử lý...</string>
+    <string name="subscription_processing">Đang xử lý…</string>
+    <string name="invalid_video_url">URL video không hợp lệ</string>
+    <string name="failed_to_initialize_player">Không khởi tạo được trình phát: %s</string>
+    <string name="playback_error">Lỗi phát lại: %s</string>
+    <string name="subtitle_feature_coming_soon">Tính năng phụ đề sắp ra mắt</string>
+    <string name="controls_locked">Đã khóa điều khiển</string>
+    <string name="controls_unlocked">Đã mở khóa điều khiển</string>
+    <string name="no_quality_options_available">Không có tùy chọn chất lượng có sẵn</string>
+    <string name="quality_selection_no_available">Lựa chọn chất lượng không có sẵn</string>
+    <string name="unknown_error">Lỗi không xác định</string>
+    <string name="auto_quality_selected">Đã chọn chất lượng tự động</string>
+    <string name="quality_selected">Đã chọn chất lượng</string>
+    <string name="speed_set_to">Tốc độ được đặt thành %s</string>
+    <string name="video_ended">Video đã kết thúc</string>
+    <string name="do_you_want_to_replay_video">Bạn có muốn phát lại video</string>
+    <string name="replay">Phát lại</string>
+    <string name="close">Đóng</string>
+    <string name="exit_player">Thoát trình phát</string>
+    <string name="video_is_still_playing_what_would_you_like_to_do">Video vẫn đang phát. </string>
+    <string name="exit">Ra</string>
+    <string name="pause_exit">Tạm dừng và thoát</string>
+    <string name="press_back_again_to_exit">Nhấn lại lần nữa để thoát</string>
 </resources>

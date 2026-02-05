@@ -191,4 +191,25 @@
     <string name="subscription_status_premium">Status: Premium aktif</string>
     <string name="subscription_status_free">Status: Free</string>
     <string name="subscription_processing">Memproses…</string>
+    <string name="invalid_video_url">URL video tidak valid</string>
+    <string name="failed_to_initialize_player">Gagal menginisialisasi pemutar: %s</string>
+    <string name="playback_error">Kesalahan pemutaran: %s</string>
+    <string name="subtitle_feature_coming_soon">Fitur subtitle segera hadir</string>
+    <string name="controls_locked">Kontrol terkunci</string>
+    <string name="controls_unlocked">Kontrol tidak terkunci</string>
+    <string name="no_quality_options_available">Tidak ada pilihan kualitas yang tersedia</string>
+    <string name="quality_selection_no_available">Pilihan kualitas tidak tersedia</string>
+    <string name="unknown_error">Kesalahan Tidak Diketahui</string>
+    <string name="auto_quality_selected">Kualitas otomatis dipilih</string>
+    <string name="quality_selected">Kualitas dipilih</string>
+    <string name="speed_set_to">Kecepatan disetel ke %s</string>
+    <string name="video_ended">Video Berakhir</string>
+    <string name="do_you_want_to_replay_video">Apakah Anda ingin memutar ulang video</string>
+    <string name="replay">Memutar ulang</string>
+    <string name="close">Menutup</string>
+    <string name="exit_player">Keluar dari Pemain</string>
+    <string name="video_is_still_playing_what_would_you_like_to_do">Video masih diputar. </string>
+    <string name="exit">KELUAR</string>
+    <string name="pause_exit">Jeda Dan Keluar</string>
+    <string name="press_back_again_to_exit">Tekan kembali lagi untuk keluar</string>
 </resources>

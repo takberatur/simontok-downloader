@@ -10,6 +10,29 @@
     tools:context=".ui.activities.player.VideoPlayerActivity">
 
     <!-- ExoPlayer View -->
+<!--    <androidx.media3.ui.PlayerView-->
+<!--        android:id="@+id/playerView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:keepScreenOn="true"-->
+<!--        app:resize_mode="fit"-->
+<!--        app:show_buffering="when_playing"-->
+<!--        app:use_controller="true"-->
+<!--        app:show_subtitle_button="true"-->
+<!--        app:show_next_button="true"-->
+<!--        app:show_previous_button="true"-->
+<!--        app:show_shuffle_button="true"-->
+<!--        app:fullscreen_enter_icon="@drawable/ic_fullscreen"-->
+<!--        app:fullscreen_exit_icon="@drawable/ic_fullscreen"-->
+<!--        app:controller_layout_id="@layout/exo_player_control_view"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:hide_on_touch="true"-->
+<!--        app:show_timeout="3000"-->
+<!--        tools:ignore="PrivateResource" />-->
+
     <androidx.media3.ui.PlayerView
         android:id="@+id/playerView"
         android:layout_width="match_parent"
@@ -17,14 +40,7 @@
         android:keepScreenOn="true"
         app:resize_mode="fit"
         app:show_buffering="when_playing"
-        app:use_controller="true"
-        app:show_subtitle_button="true"
-        app:show_next_button="true"
-        app:show_previous_button="true"
-        app:show_shuffle_button="true"
-        app:fullscreen_enter_icon="@drawable/ic_fullscreen"
-        app:fullscreen_exit_icon="@drawable/ic_fullscreen"
-        app:controller_layout_id="@layout/exo_player_control_view"
+        app:controller_layout_id="@layout/custom_player_controls"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

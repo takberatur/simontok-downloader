@@ -55,9 +55,9 @@ class SubscriptionActivity : BaseActivity() {
 					getString(R.string.subscription_status_free)
 				}
                 binding.tvStatus.setTextColor(if (isPremium)
-                    ContextCompat.getColor(this@SubscriptionActivity, R.color.text_secondary)
+                    ContextCompat.getColor(this@SubscriptionActivity, R.color.chartreuse)
                 else
-                    ContextCompat.getColor(this@SubscriptionActivity, R.color.chartreuse))
+                    ContextCompat.getColor(this@SubscriptionActivity, R.color.text_secondary))
 
 
 				binding.btnBuy1Month.isEnabled = !isPremium && BillingManager.isReady.value

@@ -191,5 +191,26 @@
     <string name="subscription_restore">Satın Alma İptal Et</string>
     <string name="subscription_status_premium">Durum: Premium Aktif</string>
     <string name="subscription_status_free">Durum: Ücretsiz</string>
-    <string name="subscription_processing">İşleniyor...</string>
+    <string name="subscription_processing">İşleniyor…</string>
+    <string name="invalid_video_url">Geçersiz video URL\`si</string>
+    <string name="failed_to_initialize_player">Oynatıcı başlatılamadı: %s</string>
+    <string name="playback_error">Oynatma hatası: %s</string>
+    <string name="subtitle_feature_coming_soon">Altyazı özelliği yakında geliyor</string>
+    <string name="controls_locked">Kontroller kilitli</string>
+    <string name="controls_unlocked">Kontrollerin kilidi açıldı</string>
+    <string name="no_quality_options_available">Kalite seçeneği mevcut değil</string>
+    <string name="quality_selection_no_available">Kalite seçimi mevcut değil</string>
+    <string name="unknown_error">Bilinmeyen Hata</string>
+    <string name="auto_quality_selected">Otomatik kalite seçildi</string>
+    <string name="quality_selected">Seçilen kalite</string>
+    <string name="speed_set_to">Hız %s olarak ayarlandı</string>
+    <string name="video_ended">Video Sona Erdi</string>
+    <string name="do_you_want_to_replay_video">Videoyu tekrar oynatmak istiyor musunuz?</string>
+    <string name="replay">Tekrar oynat</string>
+    <string name="close">Kapalı</string>
+    <string name="exit_player">Oynatıcıdan Çık</string>
+    <string name="video_is_still_playing_what_would_you_like_to_do">Video hâlâ oynatılıyor. </string>
+    <string name="exit">Çıkış</string>
+    <string name="pause_exit">Duraklat ve Çık</string>
+    <string name="press_back_again_to_exit">Çıkmak için tekrar geri tuşuna basın</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.agcforge.videodownloader.helper
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
 import com.agcforge.videodownloader.data.model.Application
@@ -33,6 +34,7 @@ object AdsConfig {
 	val ADS_ALLOWED: Boolean
 		get() = ENABLE_ADS && !BillingManager.isPremiumNow()
 
+    @SuppressLint("StaticFieldLeak")
     private var preferenceManager: PreferenceManager? = null
     private val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
 

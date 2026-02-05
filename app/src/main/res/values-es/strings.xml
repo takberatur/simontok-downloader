@@ -191,5 +191,26 @@
     <string name="subscription_restore">Restaurar compra</string>
     <string name="subscription_status_premium">Estado: Premium activo</string>
     <string name="subscription_status_free">Estado: Gratis</string>
-    <string name="subscription_processing">Procesando...</string>
+    <string name="subscription_processing">Procesando…</string>
+    <string name="invalid_video_url">URL del vídeo no válida</string>
+    <string name="failed_to_initialize_player">No se pudo inicializar el reproductor: %s</string>
+    <string name="playback_error">Error de reproducción: %s</string>
+    <string name="subtitle_feature_coming_soon">Función de subtítulos próximamente</string>
+    <string name="controls_locked">Controles bloqueados</string>
+    <string name="controls_unlocked">Controles desbloqueados</string>
+    <string name="no_quality_options_available">No hay opciones de calidad disponibles</string>
+    <string name="quality_selection_no_available">Selección de calidad no disponible</string>
+    <string name="unknown_error">Error desconocido</string>
+    <string name="auto_quality_selected">Calidad automática seleccionada</string>
+    <string name="quality_selected">Calidad seleccionada</string>
+    <string name="speed_set_to">Velocidad establecida en %s</string>
+    <string name="video_ended">Vídeo finalizado</string>
+    <string name="do_you_want_to_replay_video">¿Quieres reproducir el vídeo?</string>
+    <string name="replay">Repetición</string>
+    <string name="close">Cerca</string>
+    <string name="exit_player">Salir del jugador</string>
+    <string name="video_is_still_playing_what_would_you_like_to_do">El vídeo todavía se está reproduciendo. </string>
+    <string name="exit">Salida</string>
+    <string name="pause_exit">Pausa y salida</string>
+    <string name="press_back_again_to_exit">Presione Atrás nuevamente para salir.</string>
 </resources>
