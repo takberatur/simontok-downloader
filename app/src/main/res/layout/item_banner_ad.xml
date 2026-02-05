@@ -13,8 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:visibility="gone"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/admob_id" />
+        ads:adSize="BANNER" />
 
     <!-- Unity Banner Container -->
     <FrameLayout

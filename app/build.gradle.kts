@@ -1,4 +1,8 @@
+
+import org.gradle.language.nativeplatform.internal.Dimensions.applicationVariants
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import java.io.FileInputStream
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
@@ -8,11 +12,27 @@ plugins {
     alias(libs.plugins.kotlin.parcelize)
 }
 
+val keystorePropertiesFile: File = rootProject.file("keystore.properties")
+
 android {
     namespace = "com.agcforge.videodownloader"
     compileSdk {
         version = release(36)
     }
+
+    if (keystorePropertiesFile.exists()) {
+        val keystoreProperties = Properties()
+        keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+        signingConfigs {
+            create("githubPublish") {
+                keyAlias = keystoreProperties["keyAlias"].toString()
+                keyPassword = keystoreProperties["keyPassword"].toString()
+                storeFile = file(keystoreProperties["storeFile"]!!)
+                storePassword = keystoreProperties["storePassword"].toString()
+            }
+        }
+    }
+
 
     defaultConfig {
         applicationId = "com.agcforge.videodownloader"
@@ -29,6 +49,13 @@ android {
 
     }
     ndkVersion = "29.0.14033849 rc4"
+    buildFeatures {
+        compose = true
+        dataBinding = true
+        viewBinding = true
+        buildConfig = true
+        resValues = true
+    }
     buildTypes {
         getByName("debug") {
             enableUnitTestCoverage = true
@@ -40,23 +67,33 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            if (keystorePropertiesFile.exists()) {
+                signingConfig = signingConfigs.getByName("githubPublish")
+            }
+        }
+        debug {
+            if (keystorePropertiesFile.exists()) {
+                signingConfig = signingConfigs.getByName("githubPublish")
+            }
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-debug"
+            resValue("string", "app_name", "Simontok Downloader")
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    buildFeatures {
-        compose = true
-        dataBinding = true
-        viewBinding = true
-        buildConfig = true
-    }
+
+
     lint {
         abortOnError = true
         checkReleaseBuilds = false
         baseline = file("lint-baseline.xml")
+        disable.addAll(listOf("MissingTranslation", "ExtraTranslation", "MissingQuantity"))
     }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL,AL2.0,LGPL2.1}"
@@ -66,12 +103,22 @@ android {
         }
         jniLibs.useLegacyPackaging = true
     }
-
 	externalNativeBuild {
 		cmake {
 			path = file("src/main/jni/CMakeLists.txt")
 		}
 	}
+
+    flavorDimensions += "publishChannel"
+
+    productFlavors {
+        create("generic") {
+            dimension = "publishChannel"
+            isDefault = true
+        }
+    }
+
+    lint { disable.addAll(listOf("MissingTranslation", "ExtraTranslation", "MissingQuantity")) }
 
 }
 
@@ -159,3 +206,4 @@ dependencies {
     // Permission handling
     implementation(libs.permissionx)
 }
+
