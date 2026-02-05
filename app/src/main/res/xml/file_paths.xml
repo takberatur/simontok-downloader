@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <external-path name="downloads_public" path="Download/"/>
+    <external-files-path name="downloads_private" path="."/>
+    <external-path name="downloads" path="Download/"/>
+    <external-files-path name="private" path="."/>
+    <external-path name="external_files" path="." />
+    <external-files-path name="external_files" path="." />
+    <cache-path name="cache" path="." />
+    <external-cache-path name="external_cache" path="." />
+</paths>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Custom colors for dark theme -->
+    <color name="primary">#64B5F6</color> <!-- Lighter Blue -->
+    <color name="primary_dark">#2196F3</color> <!-- Original Primary -->
+    <color name="primary_light">#000000</color> <!-- Lighter Blue -->
+    <color name="accent">#E91E63</color> <!-- A slightly different pink/magenta -->
+    <color name="background">#121212</color>
+    <color name="surface">#1E1E1E</color>
+    <color name="selected_item_background">#18D4EF</color>
+
+    <!-- Status colors can often remain the same -->
+    <color name="status_completed">#4CAF50</color>
+    <color name="status_processing">#FF9800</color>
+    <color name="status_failed">#F44336</color>
+    <color name="status_pending">#9E9E9E</color>
+
+    <color name="colorlightdark">#211F1F</color>
+    <color name="ads_text">#000000</color>
+    <color name="black_ads">#1a1a1a</color>
+    <color name="gray_ads">#4c4c4c</color>
+
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B3B3B3</color>
+
+    <color name="bg_menu_primary">#4c4c4c</color>
+    <color name="bg_menu_secondary">#616161</color>
+
+</resources>

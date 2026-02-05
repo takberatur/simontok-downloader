@@ -1,0 +1,22 @@
+{
+	"kotlin.languageServer.enabled": true,
+	"kotlin.java.home": "C:/Program Files/Android/Android Studio/jbr",
+	"java.jdt.ls.java.home": "C:/Program Files/Android/Android Studio/jbr",
+	"java.configuration.runtimes": [
+		{
+			"name": "JavaSE-17",
+			"path": "C:/Program Files/Android/Android Studio/jbr",
+			"default": true
+		}
+	],
+	"java.project.importHint": "gradle",
+	"java.configuration.updateBuildConfiguration": "automatic",
+	"java.import.gradle.enabled": true,
+	"java.import.gradle.wrapper.enabled": true,
+	"java.import.gradle.offline.enabled": false,
+	"java.import.gradle.arguments": "--no-daemon",
+	"java.import.gradle.jvmArguments": "-Xmx2G -Dfile.encoding=UTF-8",
+	"java.server.launchMode": "Hybrid",
+	"kotlin.indexing.enabled": true,
+	"kotlin.externalAnnotations.enabled": true
+}
