@@ -17,3 +17,4 @@ local.properties
 *.keystore
 *.p12
 keystore.properties
+app/google-services.json
