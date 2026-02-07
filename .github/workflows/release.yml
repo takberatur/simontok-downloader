@@ -1,0 +1,52 @@
+name: Android Release Build
+
+on:
+  push:
+    tags:
+    - 'v*' # Workflow jalan saat kamu push tag: git push origin v1.0.0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        cache: gradle
+
+    # LANGKAH KEAMANAN: Membuat file keystore.jks dari GitHub Secrets
+    - name: Decode Keystore
+      run: |
+        echo "${{ secrets.KEYSTORE_FILE_BASE64 }}" | base64 --decode > agcforge
+
+    # LANGKAH KEAMANAN: Membuat file keystore.properties secara otomatis
+    - name: Create Keystore Properties
+      run: |
+        echo "storePassword=${{ secrets.STORE_PASSWORD }}" > keystore.properties
+        echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> keystore.properties
+        echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> keystore.properties
+        echo "storeFile=agcforge" >> keystore.properties
+
+    - name: Grant Execute Permission for Gradlew
+      run: chmod +x gradlew
+
+    - name: Build Release APK
+      run: ./gradlew assembleRelease --stacktrace
+
+    - name: Upload Release to GitHub
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: |
+          app/build/outputs/apk/release/*.apk
+        body: "Otomatis dibuat oleh GitHub Actions untuk versi ${{ github.ref_name }}"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Android: Build Debug APK",
+            "type": "shell",
+            "command": "./gradlew assembleDebug",
+            "group": "build",
+            "problemMatcher": ["$kotlin-gradle"]
+        },
+        {
+            "label": "Android: Install & Run",
+            "type": "shell",
+            "command": "./gradlew installDebug && adb shell am start -n com.agcforge.videodownloader/.MainActivity",
+            "dependsOn": "Android: Build Debug APK",
+            "problemMatcher": []
+        },
+        {
+            "label": "Android: Start Emulator",
+            "type": "shell",
+            "command": "emulator -avd Agc_Forge_Android",
+            "isBackground": true,
+            "problemMatcher": []
+        },
+        {
+            "label": "Android: Clean Project",
+            "type": "shell",
+            "command": "./gradlew clean",
+            "problemMatcher": []
+        }
+    ]
+}

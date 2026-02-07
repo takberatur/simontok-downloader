@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Simontok Downloader</string>
+    <string name="action_settings">Settings</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="admob_id" translatable="false">ca-app-pub-4603244057078716~5857131488</string>
+    <string name="star_app_id" translatable="false">201372634</string>
+    <string name="site_url" translatable="false">https://simontokz.com</string>
+    <string name="privacy_policy_url" translatable="false">https://simontokz.com/privacy</string>
+    <string name="contact_url" translatable="false">https://simontokz.com/contact</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="paste_url_hint">Paste video URL here</string>
+    <string name="download_button">Download</string>
+    <string name="supported_platforms">Supported Platforms</string>
+    <string name="no_downloads">No downloads yet</string>
+    <string name="download_details">Download Details</string>
+    <string name="settings_title">Settings</string>
+    <string name="download_quality">Download Quality</string>
+    <string name="storage_location">Storage Location</string>
+    <string name="error_invalid_url">Please enter a valid URL</string>
+    <string name="error_network">Network error. Please try again.</string>
+    <string name="error_unknown">An unknown error occurred</string>
+    <string name="forgot_password_description">Forgot Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="email">Email</string>
+    <string name="forgot_email_description">Enter your email address and we\'ll send you a link to reset your password</string>
+    <string name="send_reset_link">Send Reset Link</string>
+    <string name="remember_your_password">Remember your password?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="app_logo">App Logo</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="sign_in_to_continue">Sign in to continue</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="or">OR</string>
+    <string name="google">Google</string>
+    <string name="facebook">Facebook</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="create_account">Create Account</string>
+    <string name="create_your_account_to_get_started">Create your account to get started</string>
+    <string name="full_name">Full Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="i_agree_to_terms_amp_conditions"><![CDATA[I agree to Terms & Conditions]]></string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="reset_password_description">Your new password must be different from previously used passwords</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="password_must_contain">Password must contain:</string>
+    <string name="at_least_8_characters">At least 8 characters</string>
+    <string name="one_uppercase_letter">One uppercase letter</string>
+    <string name="one_number">One number</string>
+    <string name="no_downloads_yet">No downloads yet</string>
+    <string name="download_video">Download Video</string>
+    <string name="paste_video_url_here">Paste video URL here</string>
+    <string name="download">Download</string>
+    <string name="general_settings">General Settings</string>
+    <string name="app_settings">App Settings</string>
+    <string name="clear_cache">Clear Cache</string>
+    <string name="about">About</string>
+    <string name="version_1_0">Version 1.0</string>
+    <string name="premium">Premium</string>
+    <string name="user_avatar">User Avatar</string>
+    <string name="guest_user">Guest User</string>
+    <string name="guest_example_com">guest@example.com</string>
+    <string name="home">Home</string>
+    <string name="downloads">Downloads</string>
+    <string name="settings">Settings</string>
+    <string name="my_downloads">My Downloads</string>
+    <string name="other">Other</string>
+    <string name="logout">Logout</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="app_version">Version 1.0</string>
+    <string name="language">Language</string>
+    <string name="quality_dialog_title">Select Download Quality</string>
+    <string name="quality_set_toast">Download quality set to %s</string>
+    <string name="storage_settings_soon">Storage settings will be available soon</string>
+    <string name="storage_location_dialog_title">Select a save location</string>
+    <string name="storage_location_app">App folder</string>
+    <string name="storage_location_downloads">Downloads folder</string>
+    <string name="storage_location_saved">Saved storage location</string>
+    <string name="open_storage_folder">Open storage folder</string>
+    <string name="cache_cleared_success">Cache cleared successfully</string>
+    <string name="cache_cleared_fail">Failed to clear cache</string>
+    <string name="about_dialog_message">This app was created by %1$s as a fun project. It uses the %2$s to download videos from supported platforms.</string>
+    <string name="ok">OK</string>
+    <string name="email_is_required">Email is required</string>
+    <string name="invalid_format_email">Invalid email format</string>
+    <string name="reset_link_sent_to_email">Reset link sent to %s</string>
+    <string name="failed_to_send_reset_link">Failed to send reset link</string>
+    <string name="check_your_email">Check Your Email</string>
+    <string name="cancel">Cancel</string>
+    <string name="no_browser_installed">No browser installed</string>
+    <string name="site">Site</string>
+    <string name="paste">Paste</string>
+    <string name="audio_only">Audio Only</string>
+    <string name="mp3">MP3</string>
+    <string name="select_quality">Select Quality</string>
+    <string name="open">Open</string>
+    <string name="delete">Delete</string>
+    <string name="retry">Retry</string>
+    <string name="failed_to_load_video">Failed to load video</string>
+    <string name="back">Back</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="stop">Stop</string>
+    <string name="lock">Lock</string>
+    <string name="shuffle">Shuffle</string>
+    <string name="play_pause">Play/Pause</string>
+    <string name="repeat">Repeat</string>
+    <string name="timer">Timer</string>
+    <string name="eq">EQ</string>
+    <string name="rewind_10s">Rewind 10s</string>
+    <string name="forward_10s">Forward 10s</string>
+    <string name="quality">Quality</string>
+    <string name="subtitle">Subtitle</string>
+    <string name="fullscreen">Fullscreen</string>
+    <string name="video_quality">Video Quality</string>
+    <string name="playback_speed">Playback Speed</string>
+    <string name="sleep_timer">Sleep Timer</string>
+    <string name="unknown_artist">Unknown Artist</string>
+    <string name="select_player">Select Player</string>
+    <string name="external_player">External Player</string>
+    <string name="internal_player">Internal Player</string>
+    <string name="video">Video</string>
+    <string name="audio">Audio</string>
+    <string name="open_with">Open With</string>
+    <string name="no_application_player_installed">No application player installed</string>
+    <string name="storage_permission_denied">Storage permission denied</string>
+    <string name="download_started">Download started</string>
+    <string name="download_failed">Download failed</string>
+    <string name="download_completed">Download completed</string>
+    <string name="download_cancelled">Download cancelled</string>
+    <string name="download_error">Download error</string>
+    <string name="no_format_available_to_download">No format available to download</string>
+    <string name="confirm_download">Confirm Download</string>
+    <string name="confirm_download_message">Download %1$s - %2$s?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="history">History</string>
+    <string name="please_enter_valid_url">Please enter a valid URL</string>
+    <string name="please_select_a_platform">Please select a platform</string>
+    <string name="failed_to_load_platform">Failed to load platform</string>
+    <string name="password_is_required">Password is required</string>
+    <string name="password_must_be_at_least_6_characters">Password must be at least 6 characters</string>
+    <string name="no_history_yet">No history yet</string>
+    <string name="clear_history">Clear History</string>
+    <string name="delete_file">Delete File</string>
+    <string name="title_dialog_delete_file">Are you sure you want to delete \'%1$s\'?</string>
+    <string name="delete_file_success">File deleted successfully</string>
+    <string name="delete_file_failed">Failed to delete file</string>
+    <string name="error">Error: %s</string>
+    <string name="no_media_files_found">No media files found</string>
+    <string name="failed_to_load_downloads">Failed to load downloads: %s</string>
+    <string name="history_cleared">History cleared</string>
+    <string name="manage_external_storage_permission_denied">Manage external storage permission denied</string>
+    <string name="access_folder_canceled">Access folder canceled</string>
+    <string name="audio_not_ready_to_download">Audio is not ready to download, please try again.</string>
+    <string name="audio_being_processed_to_download">Audio is being processed to download, please wait.</string>
+    <string name="cannot_open_file_location">Cannot open file location</string>
+    <string name="permission_required">Permission required</string>
+    <string name="in_the_queue">In the queue</string>
+    <string name="please_wait">Please wait</string>
+    <string name="processing">Processing</string>
+    <string name="being_processed">Being processed</string>
+    <string name="done_preparing_download">Done preparing download</string>
+    <string name="failed_to_process_audio">Failed to process audio</string>
+    <string name="download_settings">Download Settings</string>
+    <string name="select_download_type">Select Download Type</string>
+    <string name="audio_mp3">Audio (MP3)</string>
+    <string name="video_mp4">Video (MP4)</string>
+    <string name="download_started_please_check_background_status_bar">Download started, please check background status bar for more information for monitoring download progress.</string>
+    <string name="no_platforms_available">No platforms available</string>
+    <string name="copy" tools:ignore="PrivateResource">Copy</string>
+    <string name="share">Share</string>
+    <string name="choose_action">Choose Action</string>
+    <string-array name="choose_action_menu">
+        <item>Copy</item>
+        <item>Share</item>
+        <item>Delete</item>
+    </string-array>
+    <string name="view_all">View All</string>
+    <string name="subscription_title">Upgrade Premium</string>
+    <string name="subscription_description">Remove ads and support app development by subscribing to Premium.</string>
+    <string name="subscription_1_month">1 Month Premium</string>
+    <string name="subscription_6_month">6 Month Premium</string>
+    <string name="subscription_1_year">1 Year Premium</string>
+    <string name="subscription_cta_buy">Subscribe</string>
+    <string name="subscription_restore">Restore Purchase</string>
+    <string name="subscription_status_premium">Status: Premium active</string>
+    <string name="subscription_status_free">Status: Free</string>
+    <string name="subscription_processing">Processing…</string>
+    <string name="invalid_video_url">Invalid video URL</string>
+    <string name="failed_to_initialize_player">Failed to initialize player: %s</string>
+    <string name="playback_error">Playback error: %s</string>
+    <string name="subtitle_feature_coming_soon">Subtitle feature coming soon</string>
+    <string name="controls_locked">Controls locked</string>
+    <string name="controls_unlocked">Controls unlocked</string>
+    <string name="no_quality_options_available">No quality options available</string>
+    <string name="quality_selection_no_available">Quality selection not available</string>
+    <string name="unknown_error">Unknown Error</string>
+    <string name="auto_quality_selected">Auto quality selected</string>
+    <string name="quality_selected">Quality selected</string>
+    <string name="speed_set_to">Speed set to %s</string>
+    <string name="video_ended">Video Ended</string>
+    <string name="do_you_want_to_replay_video">Do you want to replay video</string>
+    <string name="replay">Replay</string>
+    <string name="close">Close</string>
+    <string name="exit_player">Exit Player</string>
+    <string name="video_is_still_playing_what_would_you_like_to_do">Video is still playing. What would you like to do?</string>
+    <string name="exit">Exit</string>
+    <string name="pause_exit">Pause And Exit</string>
+    <string name="press_back_again_to_exit">Press back again to exit</string>
+    <string name="convert">Convert</string>
+	<string name="convert_to_audio">Convert to Audio</string>
+	<string name="are_you_sure_you_want_to_convert_to_audio">Are you sure you want to convert to audio?</string>
+	<string name="convert_to_mp3">Convert to Audio</string>
+	<string name="are_you_sure_you_want_to_convert_to_mp3">Are you sure you want to convert to audio?</string>
+	<string name="feature_currently_not_found_title">The Feature Currently Not Found</string>
+	<string name="feature_currently_not_found_message">This feature is temporarily unavailable. Please try again later.</string>
+    <string name="processing_convert">Processing Convert</string>
+    <string name="covert_successfully">Convert successfully</string>
+    <string name="convert_failed">Convert failed: %s</string>
+    <string name="please_select_video_to_convert">Please select video to convert</string>
+    <string name="no_video_selected">No video selected</string>
+    <string name="converter_complete">Converter complete</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="video_has_no_audio_track">Video has no audio track!</string>
+    <string name="select_format">Select Format</string>
+    <string name="enter_file_name">Enter file name</string>
+    <string-array name="format_audio_list" translatable="false">
+        <item>M4A</item>
+        <item>AAC</item>
+    </string-array>
+    <string-array name="audio_quality_list" translatable="false">
+        <item>LOW</item>
+        <item>MEDIUM</item>
+        <item>HIGH</item>
+        <item>VERY_HIGH</item>
+    </string-array>
+    <string-array name="audio_quality_mp3" translatable="false">
+        <item>LOW</item>
+        <item>MEDIUM</item>
+        <item>HIGH</item>
+        <item>VERY_HIGH</item>
+    </string-array>
+    <string-array name="audio_quality_aac" translatable="false">
+        <item>LOW (64 kbps)</item>
+        <item>MEDIUM (96 kbps)</item>
+        <item>HIGH (128 kbps)</item>
+        <item>VERY_HIGH (256 kbps)</item>
+    </string-array>
+    <string-array name="audio_quality_wav" translatable="false">
+        <item>STANDARD (16-bit)</item>
+        <item>HIGH (24-bit)</item>
+        <item>LOSSLESS (32-bit)</item>
+    </string-array>
+    <string-array name="audio_quality_flac" translatable="false">
+        <item>LOW (compression 5)</item>
+        <item>MEDIUM (compression 8)</item>
+        <item>HIGH (compression 12)</item>
+    </string-array>
+    <string-array name="audio_quality_ogg" translatable="false">
+        <item>LOW (compression 5)</item>
+        <item>MEDIUM (compression 8)</item>
+        <item>HIGH (compression 12)</item>
+    </string-array>
+    <string name="detail">Detail</string>
+    <string name="video_converter">Video Converter</string>
+    <string name="select_video_to_convert">Select Video to Convert</string>
+    <string name="select_video">Select Video (MP4, MOV, AVI, MPEG)</string>
+    <string name="loading_video">Loading Video…</string>
+    <string name="preparing_video_for_conversion">Preparing video for conversion…</string>
+    <string name="please_select_video_file">Please select a video file</string>
+    <string name="video_loaded_successfully">Video loaded successfully</string>
+    <string name="error_loading_video">Error loading video: %s</string>
+    <string name="estimated_size">Estimated size: %s</string>
+    <string name="go_to_downloads">Go to Downloads</string>
+    <string name="output">Output: %s</string>
+    <string name="file_name_is_required">File name is required</string>
+    <string name="logout_confirm">Are you sure you want to logout?</string>
+    <string name="send_report">Send Report</string>
+    <string name="send_report_to_us">Want to Send an Error Report to us?</string>
+    <string name="subject">Subject</string>
+    <string name="platform">Platform</string>
+    <string name="message">Message</string>
+    <string name="url">URL</string>
+    <string name="name_required">Name Required</string>
+    <string name="subject_minimum_length">Subject minimum 5 characters</string>
+    <string name="message_minimum_length">Message must be at least 10 characters long</string>
+</resources>

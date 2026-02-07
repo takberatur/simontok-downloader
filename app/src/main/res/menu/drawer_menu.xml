@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/home" />
+
+        <item
+            android:id="@+id/nav_downloads"
+            android:icon="@drawable/ic_download"
+            android:title="@string/my_downloads" />
+
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_history"
+            android:title="@string/history" />
+
+        <item
+            android:id="@+id/nav_video_converter"
+            android:icon="@drawable/ic_converter"
+            android:title="@string/video_converter" />
+
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/settings" />
+
+        <item
+            android:id="@+id/nav_premium"
+            android:icon="@drawable/ic_crown"
+            android:title="@string/premium" />
+
+        <item
+            android:id="@+id/nav_site"
+            android:icon="@drawable/ic_portal"
+            android:title="@string/site" />
+
+    </group>
+
+    <item android:title="@string/other">
+        <menu>
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_info"
+                android:title="@string/about" />
+
+            <item
+                android:id="@+id/nav_report"
+                android:icon="@drawable/ic_report"
+                android:title="@string/send_report" />
+
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_logout"
+                android:title="@string/logout"
+                android:visible="false"/>
+
+            <item
+                android:id="@+id/nav_login"
+                android:icon="@drawable/ic_account"
+                android:title="@string/login"
+                android:visible="false"/>
+        </menu>
+    </item>
+</menu>
