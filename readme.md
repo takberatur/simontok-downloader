@@ -1,8 +1,8 @@
 # Video Downloader - Android Kotlin App
 
-Aplikasi Android untuk mendownload video dari berbagai platform seperti YouTube, Instagram, TikTok, Facebook, Twitter, Vimeo, Dailymotion, dan Rumble.
+Android app to download videos from various platforms such as YouTube, Instagram, TikTok, Facebook, Twitter, Vimeo, Dailymotion, and Rumble.
 
-## 📁 Struktur Project
+## 📁 Project Structure
 
 ```
 app/
@@ -17,32 +17,32 @@ app/
 │   │   │       └── VideoDownloaderRepository.kt # Repository layer
 │   │   │
 │   │   ├── ui/
-│   │   │   ├── MainActivity.kt                  # Main activity dengan drawer
+│   │   │   ├── MainActivity.kt                  # Main activity with drawer
 │   │   │   ├── SplashActivity.kt                # Splash screen
 │   │   │   ├── fragment/
-│   │   │   │   ├── HomeFragment.kt              # Fragment home dengan download form
-│   │   │   │   ├── DownloadsFragment.kt         # Fragment daftar downloads
+│   │   │   │   ├── HomeFragment.kt              # Fragment home with download form
+│   │   │   │   ├── DownloadsFragment.kt         # Fragment list downloads
 │   │   │   │   └── SettingsFragment.kt          # Fragment settings
 │   │   │   ├── adapter/
-│   │   │   │   ├── PlatformAdapter.kt           # RecyclerView adapter untuk platform
-│   │   │   │   ├── DownloadTaskAdapter.kt       # RecyclerView adapter untuk downloads
-│   │   │   │   └── DownloadFormatAdapter.kt     # Adapter untuk format selection
+│   │   │   │   ├── PlatformAdapter.kt           # RecyclerView adapter for platform
+│   │   │   │   ├── DownloadTaskAdapter.kt       # RecyclerView adapter for downloads
+│   │   │   │   └── DownloadFormatAdapter.kt     # Adapter for format selection
 │   │   │   └── viewmodel/
-│   │   │       ├── HomeViewModel.kt             # ViewModel untuk home
-│   │   │       ├── DownloadsViewModel.kt        # ViewModel untuk downloads
-│   │   │       └── AuthViewModel.kt             # ViewModel untuk authentication
+│   │   │       ├── HomeViewModel.kt             # ViewModel for home
+│   │   │       ├── DownloadsViewModel.kt        # ViewModel for downloads
+│   │   │       └── AuthViewModel.kt             # ViewModel for authentication
 │   │   │
 │   │   ├── utils/
 │   │   │   ├── PreferenceManager.kt             # DataStore preferences manager
 │   │   │   ├── Extensions.kt                    # Kotlin extension functions
-│   │   │   ├── Resource.kt                      # Sealed class untuk UI state
+│   │   │   ├── Resource.kt                      # Sealed class for UI state
 │   │   │   └── UrlValidator.kt                  # URL validation utilities
 │   │   │
 │   │   └── VideoDownloaderApp.kt                # Application class
 │   │
 │   ├── res/
 │   │   ├── layout/
-│   │   │   ├── activity_main.xml                # Layout main dengan drawer
+│   │   │   ├── activity_main.xml                # Layout main with drawer
 │   │   │   ├── activity_splash.xml              # Layout splash screen
 │   │   │   ├── fragment_home.xml                # Layout home fragment
 │   │   │   ├── fragment_downloads.xml           # Layout downloads fragment
@@ -60,7 +60,7 @@ app/
 │   │   │   └── nav_graph.xml                    # Navigation graph
 │   │   │
 │   │   ├── drawable/
-│   │   │   ├── bg_platform_tag.xml              # Background untuk tag platform
+│   │   │   ├── bg_platform_tag.xml              # Background for tag platform
 │   │   │   ├── ic_home.xml                      # Icon home
 │   │   │   ├── ic_download.xml                  # Icon download
 │   │   │   ├── ic_settings.xml                  # Icon settings
@@ -85,7 +85,7 @@ app/
 
 ### 1. **Modern UI/UX**
 - Material Design 3
-- Splash screen dengan SplashScreen API
+- Splash screen with SplashScreen API
 - Bottom navigation
 - Navigation drawer
 - Swipe to refresh
@@ -100,15 +100,24 @@ app/
 ### 3. **Architecture**
 - MVVM (Model-View-ViewModel)
 - Repository pattern
-- Kotlin Coroutines untuk async operations
-- StateFlow untuk reactive UI
-- DataStore untuk preferences
+- Kotlin Coroutines for async operations
+- StateFlow for reactive UI
+- DataStore for preferences
 
 ### 4. **Network Layer**
-- Retrofit untuk REST API
-- OkHttp dengan interceptors
-- Logging interceptor untuk debugging
-- Authentication dengan Bearer token
+- Retrofit for REST API
+- OkHttp with interceptors
+- Logging interceptor for debugging
+- Authentication with Bearer token
+
+### 5. **1i18n Support**
+- Multiple languages support
+- String resources for easy localization
+- Dynamic text updates
+- Support RTL languages
+- Locale selection in settings
+- Date and number formatting based on locale
+- Language fallback mechanism
 
 ## 📦 Dependencies Utama
 
@@ -155,9 +164,9 @@ cd VideoDownloader
 ```
 
 ### 2. Konfigurasi API
-Edit `ApiClient.kt` untuk mengubah BASE_URL jika diperlukan:
+Edit `ApiClient.kt` for mengubah BASE_URL if needed:
 ```kotlin
-private const val BASE_URL = "https://api-simontok.agcforge.com/"
+private const val BASE_URL = "https://your-end-point-api.com/"
 ```
 
 ### 3. Build & Run
@@ -167,7 +176,7 @@ private const val BASE_URL = "https://api-simontok.agcforge.com/"
 
 ## 🔌 API Integration
 
-### Endpoints yang Digunakan
+### Endpoints Used
 
 #### **1. Get Platforms**
 ```
@@ -212,7 +221,7 @@ Response: {
 ```
 
 ### Authentication
-Setiap request yang memerlukan autentikasi akan menyertakan header:
+Every request that requires authentication will include the header:
 ```
 Authorization: Bearer {token}
 ```
@@ -220,32 +229,32 @@ Authorization: Bearer {token}
 ## 📱 Cara Penggunaan
 
 ### Download Video
-1. Buka aplikasi
-2. Paste URL video di halaman Home
-3. Klik tombol "Download"
-4. Pilih kualitas jika tersedia
-5. Video akan mulai didownload
+1. Open the app
+2. Paste the video URL on the Home page
+3. Click the "Download" button
+4. Select the quality if available
+5. The video will begin downloading
 
-### Melihat History
-1. Buka tab "Downloads"
-2. Lihat semua video yang pernah didownload
-3. Klik item untuk melihat detail
-4. Klik tombol download untuk mengakses file
+### Viewing History
+1. Open the "Downloads" tab
+2. View all previously downloaded videos
+3. Click an item to view details
+4. Click the download button to access the file
 
 ### Settings
-1. Buka tab "Settings"
-2. Atur kualitas default download
-3. Ubah lokasi penyimpanan
-4. Clear cache jika diperlukan
+1. Open the "Settings" tab
+2. Set the default download quality
+3. Change the save location
+4. Clear the cache if necessary
 
 ## 🛠 Customization
 
-### Menambah Platform Baru
-1. Tambahkan icon di `res/drawable/`
-2. Platform akan otomatis muncul dari API response
-3. Tidak perlu modifikasi code
+### Adding a New Platform
+1. Add an icon in `res/drawable/`
+2. The platform will automatically appear in the API response.
+3. No code modifications required.
 
-### Mengubah Tema
+### Changing the Theme
 Edit `res/values/themes.xml`:
 ```xml
 <item name="colorPrimary">@color/your_color</item>
@@ -253,46 +262,45 @@ Edit `res/values/themes.xml`:
 <item name="colorAccent">@color/your_color</item>
 ```
 
-### Menambah Fragment Baru
-1. Buat fragment class di `ui/fragment/`
-2. Buat layout di `res/layout/`
-3. Tambahkan ke `nav_graph.xml`
-4. Update menu jika diperlukan
+### Adding a New Fragment
+1. Create a fragment class in `ui/fragment/`
+2. Create a layout in `res/layout/`
+3. Add it to `nav_graph.xml`
+4. Update the menu if necessary.
 
 ## 🐛 Troubleshooting
 
 ### Network Error
-- Pastikan internet tersambung
-- Check BASE_URL sudah benar
-- Verifikasi API backend sudah running
+- Ensure internet connection
+- Check BASE_URL is correct
+- Verify backend API is working Running
 
 ### Build Error
 - Clean project: `./gradlew clean`
-- Sync gradle files
+- Sync Gradle files
 - Invalidate caches and restart Android Studio
 
-### Download Tidak Berfungsi
-- Cek permission di AndroidManifest
-- Verifikasi URL valid
-- Check API response di Logcat
-
+### Download Not Working
+- Check permissions in AndroidManifest
+- Verify URL is valid
+- Check API response in Logcat
 ## 📄 License
 
 Copyright © 2026 AGCForge. All rights reserved.
 
 ## 👨‍💻 Developer Notes
 
-### Best Practices yang Digunakan
-1. **Separation of Concerns** - Data, UI, dan Business Logic terpisah
-2. **Reactive Programming** - Menggunakan Flow untuk reactive updates
-3. **Error Handling** - Comprehensive error handling di semua layer
-4. **Resource Management** - Proper lifecycle management untuk fragments
-5. **Type Safety** - Sealed classes untuk UI states
+### Best Practices Used
+1. **Separation of Concerns** - Separate data, UI, and business logic
+2. **Reactive Programming** - Use Flow for reactive updates
+3. **Error Handling** - Comprehensive error handling across all layers
+4. **Resource Management** - Proper lifecycle management for fragments
+5. **Type Safety** - Sealed classes for UI states
 
 ### Next Steps
 - [ ] Implement download progress tracking
-- [ ] Add offline support dengan Room database
-- [ ] Implement WorkManager untuk background downloads
+- [ ] Add offline support with Room database
+- [ ] Implement WorkManager for background downloads
 - [ ] Add video player integration
 - [ ] Implement analytics
 - [ ] Add crash reporting
@@ -300,4 +308,4 @@ Copyright © 2026 AGCForge. All rights reserved.
 - [ ] Add notification for download completion
 
 ### Contact & Support
-Untuk pertanyaan atau support, hubungi: support@agcforge.com
+For questions or support, contact: support@agcforge.com
