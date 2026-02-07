@@ -19,3 +19,4 @@ local.properties
 keystore.properties
 app/google-services.json
 play-console-guide.txt
+**/ApiClient.kt

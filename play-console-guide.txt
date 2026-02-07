@@ -1,8 +1,0 @@
-Bagian: Instruksi Akses (Access Details)
-Nama Instruksi: General Access and Premium Ad-Free Feature
-Username/Phone: Not Required (atau sediakan akun tester jika login opsionalmu memberikan fitur khusus).
-Password: Not Required
-Instructions (Tulis di kolom teks):
-"All core features of the app, including the video downloader, audio player, and video player, are accessible without mandatory login. The login feature is optional for user personalization.
-The app contains an In-App Purchase option to remove advertisements. To review the ad-free experience or specific premium interfaces, no special credentials are required as the core functionality remains the same for free users.
-Additionally, the app requires storage permissions to save and play media files. This permission request will appear when the user first accesses the downloader or player features."
