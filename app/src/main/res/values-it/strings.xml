@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <resources xmlns:tools="http://schemas.android.com/tools">
+=======
+<resources>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="app_name">Simontok - Scaricatore</string>
     <string name="action_settings">Impostazioni</string>
     <string name="first_fragment_label">Primo frammento</string>
@@ -173,7 +177,11 @@
     <string name="video_mp4">Video (MP4)</string>
     <string name="download_started_please_check_background_status_bar">Download iniziato, per favore controlla lo stato del download nel background.</string>
     <string name="no_platforms_available">Nessuna piattaforma disponibile</string>
+<<<<<<< HEAD
     <string name="copy" tools:ignore="PrivateResource">Copia</string>
+=======
+    <string name="copy">Copia</string>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="share">Condividi</string>
     <string name="choose_action">Scegli azione</string>
     <string-array name="choose_action_menu">
@@ -213,6 +221,7 @@
     <string name="exit">Uscita</string>
     <string name="pause_exit">Pausa ed esci</string>
     <string name="press_back_again_to_exit">Premi nuovamente indietro per uscire</string>
+<<<<<<< HEAD
     <string name="convert">Converti</string>
     <string name="convert_to_mp3">Converti in MP3</string>
     <string name="are_you_sure_you_want_to_convert_to_mp3">Sei sicuro di voler convertire in MP3?</string>
@@ -251,4 +260,6 @@
     <string name="name_required">Nome Obbligatorio</string>
     <string name="subject_minimum_length">Oggetto minimo 5 caratteri</string>
     <string name="message_minimum_length">Il messaggio deve contenere almeno 10 caratteri</string>
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 </resources>

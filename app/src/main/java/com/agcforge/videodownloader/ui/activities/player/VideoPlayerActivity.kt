@@ -7,26 +7,39 @@ import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
+<<<<<<< HEAD
 import android.util.TypedValue
 import android.view.GestureDetector
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+<<<<<<< HEAD
 import android.webkit.MimeTypeMap
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
+=======
+import android.widget.ImageButton
+import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.net.toUri
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+<<<<<<< HEAD
 import androidx.lifecycle.lifecycleScope
 import androidx.media3.common.C
 import androidx.media3.common.MediaItem
 import androidx.media3.common.MimeTypes
+=======
+import androidx.media3.common.MediaItem
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import androidx.media3.common.PlaybackException
 import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
@@ -37,11 +50,16 @@ import com.agcforge.videodownloader.R
 import com.agcforge.videodownloader.databinding.ActivityVideoPlayerBinding
 import com.agcforge.videodownloader.ui.activities.BaseActivity
 import com.agcforge.videodownloader.ui.component.AppAlertDialog
+<<<<<<< HEAD
 import com.agcforge.videodownloader.utils.PreferenceManager
 import com.agcforge.videodownloader.utils.showToast
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+=======
+import com.agcforge.videodownloader.utils.showToast
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
 @UnstableApi
 class VideoPlayerActivity : BaseActivity() {
@@ -49,13 +67,21 @@ class VideoPlayerActivity : BaseActivity() {
     private var player: ExoPlayer? = null
     private var trackSelector: DefaultTrackSelector? = null
 
+<<<<<<< HEAD
     private lateinit var preferenceManager: PreferenceManager
 
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     private var videoUri: Uri? = null
     private var videoTitle: String = ""
     private var currentPlaybackPosition: Long = 0
     private var isLocked = false
     private var isFullscreen = false
+<<<<<<< HEAD
+=======
+    private var isInterstitialLoaded = false
+
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     private var backPressedTime: Long = 0
     private val EXIT_DELAY = 2000L // 2 second interval for double tap exit
 
@@ -82,9 +108,12 @@ class VideoPlayerActivity : BaseActivity() {
         setContentView(binding.root)
 
         setupBackPressedCallback()
+<<<<<<< HEAD
 
         preferenceManager = PreferenceManager(this)
 
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
         initializeData(savedInstanceState)
         setupUI()
         setupPlayer()
@@ -134,6 +163,29 @@ class VideoPlayerActivity : BaseActivity() {
         }
     }
 
+<<<<<<< HEAD
+=======
+    private fun initializePlayer() {
+        showInterstitial {
+            // Debug: Interstitial callback triggered
+            showToast("Interstitial shown, initializing player")
+            setupPlayer()
+            setupListeners()
+            isInterstitialLoaded = true
+        }
+
+        // Fallback: If interstitial does not show within 3 seconds, initialize player anyway
+        binding.playerView.postDelayed({
+            if (!isInterstitialLoaded) {
+                showToast("Interstitial not loaded, initializing player anyway")
+                setupPlayer()
+                setupListeners()
+                isInterstitialLoaded = true
+            }
+        }, 3000)
+    }
+
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     private fun setupPlayer() {
         try {
             // Create track selector
@@ -157,6 +209,7 @@ class VideoPlayerActivity : BaseActivity() {
                 }
         } catch (e: Exception) {
             showError(getString(R.string.failed_to_initialize_player, e.localizedMessage ?: getString(R.string.unknown_error)))
+<<<<<<< HEAD
             sendErrorReport(
                 e,
                 "error",
@@ -164,6 +217,11 @@ class VideoPlayerActivity : BaseActivity() {
             )
         }
     }
+=======
+        }
+    }
+
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     private fun setupPlayerView(exoPlayer: ExoPlayer) {
         binding.playerView.player = exoPlayer
         binding.playerView.apply {
@@ -171,10 +229,13 @@ class VideoPlayerActivity : BaseActivity() {
             controllerShowTimeoutMs = 3000
             controllerHideOnTouch = true
             setShowBuffering(PlayerView.SHOW_BUFFERING_WHEN_PLAYING)
+<<<<<<< HEAD
             subtitleView?.apply {
                 setUserDefaultStyle()
                 setFixedTextSize(TypedValue.COMPLEX_UNIT_SP, 18f)
             }
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
         }
     }
 
@@ -265,7 +326,11 @@ class VideoPlayerActivity : BaseActivity() {
         }
 
         subtitleButton?.setOnClickListener {
+<<<<<<< HEAD
             pickSubtitleLauncher.launch(arrayOf("*/*"))
+=======
+            showToast(getString(R.string.subtitle_feature_coming_soon))
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
         }
     }
 
@@ -389,7 +454,11 @@ class VideoPlayerActivity : BaseActivity() {
                 }
             }
 
+<<<<<<< HEAD
             MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme)
+=======
+            MaterialAlertDialogBuilder(this)
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
                 .setTitle(getString(R.string.video_quality))
                 .setItems(qualityOptions.toTypedArray()) { dialog, which ->
                     handleQualitySelection(which, selector, qualityOptions)
@@ -424,7 +493,11 @@ class VideoPlayerActivity : BaseActivity() {
         val currentSpeed = player?.playbackParameters?.speed ?: 1.0f
         val currentIndex = speedValues.indexOfFirst { it == currentSpeed }.takeIf { it >= 0 } ?: 3
 
+<<<<<<< HEAD
         MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme)
+=======
+        MaterialAlertDialogBuilder(this)
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
             .setTitle(getString(R.string.playback_speed))
             .setSingleChoiceItems(speeds, currentIndex) { dialog, which ->
                 player?.setPlaybackSpeed(speedValues[which])
@@ -458,8 +531,11 @@ class VideoPlayerActivity : BaseActivity() {
         binding.llError.visibility = View.VISIBLE
         binding.tvErrorMessage.text = message
         binding.progressLoading.visibility = View.GONE
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     }
 
     private fun hideSystemUI() {
@@ -560,6 +636,7 @@ class VideoPlayerActivity : BaseActivity() {
 
     @SuppressLint("ClickableViewAccessibility")
     private fun setupTouchGestures() {
+<<<<<<< HEAD
         val gestureDetector =
             GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
                 override fun onDoubleTap(e: MotionEvent): Boolean {
@@ -587,6 +664,14 @@ class VideoPlayerActivity : BaseActivity() {
             gestureDetector.onTouchEvent(event)
 
             false
+=======
+        binding.playerView.setOnTouchListener { view, event ->
+            if (isLocked && event.action == MotionEvent.ACTION_DOWN) {
+                handleLockedTouch(event)
+                return@setOnTouchListener true
+            }
+            return@setOnTouchListener false
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
         }
     }
 
@@ -615,9 +700,13 @@ class VideoPlayerActivity : BaseActivity() {
     override fun onPause() {
         super.onPause()
         player?.pause()
+<<<<<<< HEAD
         showInterstitial {
             savePlaybackPosition()
         }
+=======
+        savePlaybackPosition()
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     }
 
     override fun onStop() {
@@ -645,6 +734,7 @@ class VideoPlayerActivity : BaseActivity() {
             updateFullscreenUI()
         }
     }
+<<<<<<< HEAD
 
     private val pickSubtitleLauncher = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri: Uri? ->
         uri?.let {
@@ -691,4 +781,6 @@ class VideoPlayerActivity : BaseActivity() {
             else -> MimeTypes.APPLICATION_SUBRIP
         }
     }
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 }

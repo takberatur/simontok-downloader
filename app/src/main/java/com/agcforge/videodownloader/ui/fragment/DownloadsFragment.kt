@@ -15,9 +15,15 @@ import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+<<<<<<< HEAD
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.OptIn
+=======
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.OptIn
+import androidx.annotation.RequiresApi
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
@@ -34,8 +40,13 @@ import com.agcforge.videodownloader.ui.activities.player.AudioPlayerActivity
 import com.agcforge.videodownloader.ui.activities.player.VideoPlayerActivity
 import com.agcforge.videodownloader.ui.adapter.LocalDownloadAdapter
 import com.agcforge.videodownloader.ui.component.PlayerSelectionDialog
+<<<<<<< HEAD
 import com.agcforge.videodownloader.helper.ads.NativeAdsHelper
 import com.agcforge.videodownloader.helper.ads.BillingManager
+=======
+import com.agcforge.videodownloader.helper.NativeAdsHelper
+import com.agcforge.videodownloader.helper.BillingManager
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import com.agcforge.videodownloader.utils.LocalDownloadsScanner
 import com.agcforge.videodownloader.utils.PreferenceManager
 import com.agcforge.videodownloader.utils.StorageFolderNavigator
@@ -46,6 +57,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 import androidx.core.net.toUri
+<<<<<<< HEAD
 import androidx.core.view.isVisible
 import androidx.documentfile.provider.DocumentFile
 import com.agcforge.videodownloader.helper.ads.BannerAdsHelper
@@ -57,6 +69,12 @@ import com.agcforge.videodownloader.ui.component.AppAlertDialog
 import com.agcforge.videodownloader.ui.component.ConvertSettingsDialog
 import com.agcforge.videodownloader.utils.PermissionHelper
 @UnstableApi
+=======
+import androidx.documentfile.provider.DocumentFile
+import com.agcforge.videodownloader.helper.BannerAdsHelper
+import com.agcforge.videodownloader.ui.component.AppAlertDialog
+
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 class DownloadsFragment : Fragment() {
 
     private var _binding: FragmentDownloadsBinding? = null
@@ -73,9 +91,12 @@ class DownloadsFragment : Fragment() {
 
     private var bannerAdsHelper: BannerAdsHelper? = null
 
+<<<<<<< HEAD
     private lateinit var advancedConverter: AdvancedVideoToAudioConverter
     private lateinit var conversionManager: ConversionManager
 
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     private val readPermissionsLauncher = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
     ) { _ ->
@@ -103,7 +124,10 @@ class DownloadsFragment : Fragment() {
         resetAndLoadDownloads()
 		setupAds()
 		observePremiumAdsState()
+<<<<<<< HEAD
         initializeConverters()
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     }
 
     private fun openStorageFolder() {
@@ -117,11 +141,14 @@ class DownloadsFragment : Fragment() {
 		applyPremiumAdsState(BillingManager.isPremiumNow())
     }
 
+<<<<<<< HEAD
     private fun initializeConverters() {
         advancedConverter = AdvancedVideoToAudioConverter(requireContext())
         conversionManager = ConversionManager(requireContext())
     }
 
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 	private fun observePremiumAdsState() {
 		viewLifecycleOwner.lifecycleScope.launch {
 			viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -165,6 +192,7 @@ class DownloadsFragment : Fragment() {
         adapter = LocalDownloadAdapter(
             context = requireContext(),
             onOpenClick = { item ->
+<<<<<<< HEAD
                 showInterstitialFromBase {
                     openLocalFile(item)
                 }
@@ -184,6 +212,9 @@ class DownloadsFragment : Fragment() {
                     PermissionHelper.requestMediaPermissions(requireActivity())
                 }
 
+=======
+                openLocalFile(item)
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
             },
             onDeleteClick = { item ->
                 showDeleteConfirmation(item)
@@ -388,6 +419,10 @@ class DownloadsFragment : Fragment() {
             .show()
     }
 
+<<<<<<< HEAD
+=======
+    @RequiresApi(Build.VERSION_CODES.R)
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     private fun deleteFile(item: LocalDownloadItem) {
         viewLifecycleOwner.lifecycleScope.launch {
             binding.progressBar.visibility = View.VISIBLE
@@ -644,7 +679,10 @@ class DownloadsFragment : Fragment() {
             .show()
     }
 
+<<<<<<< HEAD
     @SuppressLint("SuspiciousIndentation")
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     override fun onDestroyView() {
         super.onDestroyView()
         adapter.cancelAllThumbnailLoading()
@@ -747,6 +785,10 @@ class DownloadsFragment : Fragment() {
         }
     }
 
+<<<<<<< HEAD
+=======
+    @RequiresApi(Build.VERSION_CODES.R)
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     private fun showDeleteHelpDialog(item: LocalDownloadItem) {
 
         AppAlertDialog.Builder(requireContext())
@@ -817,6 +859,10 @@ class DownloadsFragment : Fragment() {
         }
     }
 
+<<<<<<< HEAD
+=======
+    @RequiresApi(Build.VERSION_CODES.R)
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     private fun openManageExternalStorageSettings() {
         try {
             val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
@@ -877,6 +923,7 @@ class DownloadsFragment : Fragment() {
         pendingDeleteItem = null
     }
 
+<<<<<<< HEAD
     private fun showDialogAlert(
         type: AppAlertDialog.AlertDialogType = AppAlertDialog.AlertDialogType.INFO,
         title: String? = null,
@@ -901,6 +948,8 @@ class DownloadsFragment : Fragment() {
         dialog.show()
     }
 
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     private fun deleteWithDocumentFile(documentFile: DocumentFile?, item: LocalDownloadItem) {
         if (documentFile == null) {
             requireContext().showToast(getString(R.string.access_folder_canceled))
@@ -935,6 +984,7 @@ class DownloadsFragment : Fragment() {
             }
         }
     }
+<<<<<<< HEAD
 
     private fun showConvertDialogSettings(
         item: LocalDownloadItem,
@@ -1041,4 +1091,6 @@ class DownloadsFragment : Fragment() {
     }
 
 
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 }

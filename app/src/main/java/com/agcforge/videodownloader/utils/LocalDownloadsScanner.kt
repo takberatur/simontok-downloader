@@ -649,7 +649,11 @@ object LocalDownloadsScanner {
 //        }
     }
 
+<<<<<<< HEAD
     suspend fun extractMediaMetadata(
+=======
+    private suspend fun extractMediaMetadata(
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
         context: Context,
         uri: Uri,
         filePath: String?

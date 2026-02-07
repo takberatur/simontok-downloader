@@ -1,6 +1,9 @@
 package com.agcforge.videodownloader
 
+<<<<<<< HEAD
 import android.annotation.SuppressLint
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import android.app.Activity
 import android.app.Application
 import android.content.Context
@@ -8,6 +11,7 @@ import android.os.Bundle
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
+<<<<<<< HEAD
 import com.agcforge.videodownloader.helper.ads.AppOpenAdManager
 import com.agcforge.videodownloader.helper.ads.BillingManager
 import com.agcforge.videodownloader.helper.ads.CurrentActivityTracker
@@ -22,6 +26,16 @@ import kotlinx.coroutines.launch
 
 class App : Application(), DefaultLifecycleObserver {
 	private val appScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+=======
+import com.agcforge.videodownloader.helper.AppOpenAdManager
+import com.agcforge.videodownloader.helper.BillingManager
+import com.agcforge.videodownloader.helper.CurrentActivityTracker
+import com.agcforge.videodownloader.utils.DownloadManagerCleaner
+
+
+
+class App : Application(), DefaultLifecycleObserver {
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
     companion object {
         @Volatile
@@ -46,8 +60,11 @@ class App : Application(), DefaultLifecycleObserver {
 	override fun onCreate() {
 		super<Application>.onCreate()
 		instance = this
+<<<<<<< HEAD
 		CrashReporter.install(this)
 
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
 		ProcessLifecycleOwner.get().lifecycle.addObserver(this)
 		registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {
@@ -78,18 +95,26 @@ class App : Application(), DefaultLifecycleObserver {
     override fun onStop(owner: LifecycleOwner) {
         super.onStop(owner)
         AppOpenAdManager.onAppEnteredBackground()
+<<<<<<< HEAD
 		appScope.launch {
 			PreferenceManager(this@App).removeIsOpenPremiumFeatureDialog()
 		}
     }
 
     @SuppressLint("SuspiciousIndentation")
+=======
+    }
+
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     override fun onStart(owner: LifecycleOwner) {
         super.onStart(owner)
 		CurrentActivityTracker.get()?.let {
             AppOpenAdManager.showAdIfAvailable(it)
         }
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 }

@@ -16,9 +16,12 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
+<<<<<<< HEAD
 	companion object {
 		const val ERROR_FEATURE_DISABLED = "FEATURE_DISABLED"
 	}
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
     private val repository by lazy { VideoDownloaderRepository() }
     private val centrifugoManager = CentrifugoManager.getInstance(application)
@@ -84,6 +87,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     fun createDownload(url: String, type: String) {
         viewModelScope.launch {
+<<<<<<< HEAD
 			val appConfig = preferenceManager.getApplication()
 			if (appConfig != null && !appConfig.isActive) {
 				_downloadResult.value = Resource.Error(ERROR_FEATURE_DISABLED)
@@ -91,6 +95,9 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 			}
 
 			_downloadResult.value = Resource.Loading()
+=======
+            _downloadResult.value = Resource.Loading()
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
 			val isMp3 = type.lowercase().endsWith("-to-mp3")
 			val result = if (isMp3) {

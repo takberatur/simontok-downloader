@@ -213,6 +213,7 @@
     <string name="exit">बाहर निकलना</string>
     <string name="pause_exit">रोकें और बाहर निकलें</string>
     <string name="press_back_again_to_exit">बाहर निकलने के लिए फिर से वापस दबाएँ</string>
+<<<<<<< HEAD
     <string name="convert">अनुवाद</string>
     <string name="convert_to_mp3">अनुवाद करें MP3</string>
     <string name="are_you_sure_you_want_to_convert_to_mp3">क्या आप निश्चित हैं कि आप इसे MP3 में बदलना चाहते हैं?</string>
@@ -251,4 +252,6 @@
     <string name="name_required">नाम आवश्यक</string>
     <string name="subject_minimum_length">विषय न्यूनतम 5 अक्षर</string>
     <string name="message_minimum_length">संदेश कम से कम 10 अक्षर लंबा होना चाहिए</string>
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 </resources>

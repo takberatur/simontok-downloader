@@ -1,12 +1,19 @@
 package com.agcforge.videodownloader.ui.activities
 
+<<<<<<< HEAD
 import android.annotation.SuppressLint
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.agcforge.videodownloader.databinding.ActivitySubscriptionBinding
+<<<<<<< HEAD
 import com.agcforge.videodownloader.helper.ads.BillingManager
+=======
+import com.agcforge.videodownloader.helper.BillingManager
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import com.agcforge.videodownloader.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -36,8 +43,12 @@ class SubscriptionActivity : BaseActivity() {
 		observeBillingState()
 	}
 
+<<<<<<< HEAD
 	@SuppressLint("SuspiciousIndentation")
     private fun observeBillingState() {
+=======
+	private fun observeBillingState() {
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 		lifecycleScope.launch {
 			BillingManager.isReady.collect { ready ->
 				binding.progressBar.visibility = if (ready) View.GONE else View.VISIBLE

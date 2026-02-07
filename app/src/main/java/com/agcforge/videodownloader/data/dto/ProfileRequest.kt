@@ -1,12 +1,16 @@
 package com.agcforge.videodownloader.data.dto
 
 import com.google.gson.annotations.SerializedName
+<<<<<<< HEAD
 import kotlinx.serialization.Serializable
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
 data class ProfileRequest (
     @SerializedName("full_name") val full_name: String,
     @SerializedName("email") val email: String,
 )
+<<<<<<< HEAD
 
 @Serializable
 data class FormReportError(
@@ -31,3 +35,5 @@ data class FormReportError(
         }
     }
 }
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444

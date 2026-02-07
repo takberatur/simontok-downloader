@@ -33,12 +33,16 @@ data class LocalDownloadItem(
 
     fun isVideo(): Boolean = mimeType?.startsWith("video/") == true
 
+<<<<<<< HEAD
     fun isAudio(): Boolean {
         if(mimeType?.startsWith("audio/") == true){
             return true
         }
         return false
     }
+=======
+    fun isAudio(): Boolean = mimeType?.startsWith("audio/") == true
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
     fun getResolution(): String {
         return if (width > 0 && height > 0) {

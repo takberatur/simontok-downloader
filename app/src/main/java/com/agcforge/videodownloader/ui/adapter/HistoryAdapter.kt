@@ -1,22 +1,29 @@
 package com.agcforge.videodownloader.ui.adapter
 
+<<<<<<< HEAD
 import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Build
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
+<<<<<<< HEAD
 import androidx.core.content.ContextCompat
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.agcforge.videodownloader.R
 import com.agcforge.videodownloader.data.model.DownloadTask
 import com.agcforge.videodownloader.databinding.ItemDownloadHistoryBinding
+<<<<<<< HEAD
 import com.agcforge.videodownloader.helper.ads.BannerAdsHelper
 import com.agcforge.videodownloader.helper.ads.NativeAdsHelper
 import com.agcforge.videodownloader.utils.formatDate
@@ -24,11 +31,21 @@ import com.agcforge.videodownloader.utils.formatFileSize
 import com.agcforge.videodownloader.utils.loadImage
 import java.util.Locale
 import java.util.Locale.getDefault
+=======
+import com.agcforge.videodownloader.helper.BannerAdsHelper
+import com.agcforge.videodownloader.helper.NativeAdsHelper
+import com.agcforge.videodownloader.utils.formatDate
+import com.agcforge.videodownloader.utils.formatFileSize
+import com.agcforge.videodownloader.utils.loadImage
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
 class HistoryAdapter(
 	private val onCopyClick: (DownloadTask) -> Unit,
 	private val onShareClick: (DownloadTask) -> Unit,
+<<<<<<< HEAD
     private val onReportClick: ((DownloadTask) -> Unit)? = null,
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 	private val onDeleteClick: (DownloadTask) -> Unit
 ) : ListAdapter<HistoryAdapter.HistoryListItem, RecyclerView.ViewHolder>(Diff()) {
 
@@ -128,7 +145,11 @@ class HistoryAdapter(
 			}
 			else -> {
 				val binding = ItemDownloadHistoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+<<<<<<< HEAD
 				TaskViewHolder(binding, onCopyClick, onShareClick, onReportClick, onDeleteClick)
+=======
+				TaskViewHolder(binding, onCopyClick, onShareClick, onDeleteClick)
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 			}
 		}
 	}
@@ -144,7 +165,10 @@ class HistoryAdapter(
 		private val binding: ItemDownloadHistoryBinding,
 		private val onCopyClick: (DownloadTask) -> Unit,
 		private val onShareClick: (DownloadTask) -> Unit,
+<<<<<<< HEAD
         private val onReportClick: ((DownloadTask) -> Unit)? = null,
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 		private val onDeleteClick: (DownloadTask) -> Unit
 	) : RecyclerView.ViewHolder(binding.root) {
 
@@ -164,6 +188,7 @@ class HistoryAdapter(
 			}
 			binding.tvStatus.setTextColor(binding.root.context.getColor(statusColor))
 
+<<<<<<< HEAD
             itemView.setOnClickListener { showPopupMenu(it, item) }
 			binding.btnMore.setOnClickListener { showPopupMenu(it, item) }
 		}
@@ -214,6 +239,14 @@ class HistoryAdapter(
                 }
             }
 
+=======
+			binding.btnMore.setOnClickListener { showPopupMenu(it, item) }
+		}
+
+		private fun showPopupMenu(view: View, item: DownloadTask) {
+			val popup = PopupMenu(view.context, view)
+			popup.inflate(R.menu.menu_download_action)
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 			popup.setOnMenuItemClickListener { menuItem ->
 				when (menuItem.itemId) {
 					R.id.action_copy_url -> {
@@ -224,10 +257,13 @@ class HistoryAdapter(
 						onShareClick(item)
 						true
 					}
+<<<<<<< HEAD
                     R.id.action_report -> {
                         onReportClick?.invoke(item)
                         true
                     }
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 					R.id.action_delete -> {
 						onDeleteClick(item)
 						true

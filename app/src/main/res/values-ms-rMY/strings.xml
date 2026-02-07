@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <resources xmlns:tools="http://schemas.android.com/tools">
+=======
+<resources>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="app_name">Simontok - Pemuat Turun</string>
     <string name="action_settings">tetapan</string>
     <string name="first_fragment_label">Serpihan Pertama</string>
@@ -173,7 +177,11 @@
     <string name="video_mp4">Video (MP4)</string>
     <string name="download_started_please_check_background_status_bar">Muat turun dimulakan, sila semak bar status latar belakang untuk maklumat lanjut.</string>
     <string name="no_platforms_available">Tiada platform tersedia</string>
+<<<<<<< HEAD
     <string name="copy" tools:ignore="PrivateResource">Salin</string>
+=======
+    <string name="copy">Salin</string>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="share">Kongsi</string>
     <string name="choose_action">Pilih Tindakan</string>
     <string-array name="choose_action_menu">
@@ -212,6 +220,7 @@
     <string name="exit">Keluar</string>
     <string name="pause_exit">Jeda Dan Keluar</string>
     <string name="press_back_again_to_exit">Tekan kembali sekali lagi untuk keluar</string>
+<<<<<<< HEAD
     <string name="convert">Konversi</string>
     <string name="convert_to_mp3">Konversi ke MP3</string>
     <string name="are_you_sure_you_want_to_convert_to_mp3">Adakah anda pasti mahu mengonversi ke MP3?</string>
@@ -250,4 +259,6 @@
     <string name="name_required">Nama Diperlukan</string>
     <string name="subject_minimum_length">Subjek minimum 5 aksara</string>
     <string name="message_minimum_length">Mesej mestilah sekurang-kurangnya 10 aksara</string>
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 </resources>

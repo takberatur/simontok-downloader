@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+<<<<<<< HEAD
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.agcforge.videodownloader.data.model.DownloadTask
 import com.agcforge.videodownloader.databinding.FragmentHistoryBinding
@@ -20,6 +21,16 @@ import com.agcforge.videodownloader.ui.adapter.HistoryAdapter
 import com.agcforge.videodownloader.helper.ads.BillingManager
 import com.agcforge.videodownloader.helper.ads.NativeAdsHelper
 import com.agcforge.videodownloader.ui.activities.ReportActivity
+=======
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.agcforge.videodownloader.data.model.DownloadTask
+import com.agcforge.videodownloader.databinding.FragmentHistoryBinding
+import com.agcforge.videodownloader.helper.BannerAdsHelper
+import com.agcforge.videodownloader.ui.adapter.HistoryAdapter
+import com.agcforge.videodownloader.helper.BillingManager
+import com.agcforge.videodownloader.helper.NativeAdsHelper
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import com.agcforge.videodownloader.utils.PreferenceManager
 import com.agcforge.videodownloader.utils.showToast
 import kotlinx.coroutines.flow.first
@@ -96,6 +107,7 @@ class HistoryFragment : Fragment() {
                 startActivity(shareIntent)
 
             },
+<<<<<<< HEAD
             onReportClick = {
                 val intent = Intent(requireContext(), ReportActivity::class.java).apply {
                     putExtra("EXTRA_SUBJECT", it.title)
@@ -105,6 +117,8 @@ class HistoryFragment : Fragment() {
                 }
                 startActivity(intent)
             },
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
             onDeleteClick = { task ->
                 lifecycleScope.launch {
                     preferenceManager.deleteHistoryItem(task)

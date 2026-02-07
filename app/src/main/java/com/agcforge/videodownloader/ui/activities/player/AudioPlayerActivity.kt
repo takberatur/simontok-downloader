@@ -14,17 +14,28 @@ import android.os.Looper
 import android.view.View
 import android.widget.SeekBar
 import androidx.activity.result.contract.ActivityResultContracts
+<<<<<<< HEAD
+=======
+import androidx.appcompat.app.AppCompatActivity
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import com.agcforge.videodownloader.R
 import com.agcforge.videodownloader.databinding.ActivityAudioPlayerBinding
+<<<<<<< HEAD
 import com.agcforge.videodownloader.ui.activities.BaseActivity
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import com.agcforge.videodownloader.utils.showToast
 import com.chibde.visualizer.BarVisualizer
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.util.concurrent.TimeUnit
 
+<<<<<<< HEAD
 class AudioPlayerActivity : BaseActivity() {
+=======
+class AudioPlayerActivity : AppCompatActivity() {
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
     private lateinit var binding: ActivityAudioPlayerBinding
     private var mediaPlayer: MediaPlayer? = null
@@ -170,11 +181,14 @@ class AudioPlayerActivity : BaseActivity() {
 
         } catch (e: Exception) {
             showToast("Failed to load audio: ${e.message}")
+<<<<<<< HEAD
             sendErrorReport(
                 e,
                 "error",
                 e.message
             )
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
             finish()
         }
     }
@@ -318,7 +332,11 @@ class AudioPlayerActivity : BaseActivity() {
         val speeds = arrayOf("0.5x", "0.75x", "1.0x", "1.25x", "1.5x", "2.0x")
         val speedValues = floatArrayOf(0.5f, 0.75f, 1.0f, 1.25f, 1.5f, 2.0f)
 
+<<<<<<< HEAD
         MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme)
+=======
+        MaterialAlertDialogBuilder(this)
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
             .setTitle(getString(R.string.playback_speed))
             .setItems(speeds) { dialog, which ->
                 playbackSpeed = speedValues[which]
@@ -337,7 +355,11 @@ class AudioPlayerActivity : BaseActivity() {
         val timers = arrayOf("Off", "5 minutes", "10 minutes", "15 minutes", "30 minutes", "1 hour")
         val timerMinutes = intArrayOf(0, 5, 10, 15, 30, 60)
 
+<<<<<<< HEAD
         MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme)
+=======
+        MaterialAlertDialogBuilder(this)
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
             .setTitle(getString(R.string.sleep_timer))
             .setItems(timers) { dialog, which ->
                 if (timerMinutes[which] > 0) {
@@ -370,9 +392,13 @@ class AudioPlayerActivity : BaseActivity() {
 
     override fun onPause() {
         super.onPause()
+<<<<<<< HEAD
         showInterstitial {
             currentPosition = mediaPlayer?.currentPosition ?: 0
         }
+=======
+        currentPosition = mediaPlayer?.currentPosition ?: 0
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     }
 
     override fun onDestroy() {

@@ -39,7 +39,11 @@ android {
         minSdk = 24
         targetSdk = 36
         versionCode = 1
+<<<<<<< HEAD
         versionName = "0.0.2-beta"
+=======
+        versionName = "0.0.1-beta"
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 		ndk {
@@ -135,7 +139,10 @@ dependencies {
     implementation(libs.work.runtime.ktx)
     implementation(libs.work.rxjava2)
     implementation(libs.work.gcm)
+<<<<<<< HEAD
     implementation(libs.kotlinx.serialization.json)
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     androidTestImplementation(libs.work.testing)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -145,6 +152,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+<<<<<<< HEAD
     implementation(libs.cardview)
     implementation(libs.coordinatorlayout)
     implementation(libs.drawerlayout)
@@ -158,6 +166,22 @@ dependencies {
     implementation(libs.viewpager2)
     implementation(libs.palette)
     implementation(libs.vectordrawable.animated)
+=======
+    implementation (libs.cardview)
+    implementation (libs.coordinatorlayout)
+    implementation (libs.drawerlayout)
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.fragment.compose)
+    debugImplementation(libs.androidx.fragment.testing)
+    implementation (libs.gridlayout)
+    implementation (libs.preference)
+    implementation (libs.preference.ktx)
+    implementation (libs.recyclerview)
+    implementation (libs.swiperefreshlayout)
+    implementation (libs.viewpager2)
+    implementation (libs.palette)
+    implementation (libs.vectordrawable.animated)
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     implementation(libs.androidx.foundation)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.material3.window.size.class1)
@@ -182,7 +206,10 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.gson)
     implementation(libs.glide)
+<<<<<<< HEAD
     implementation(libs.pleasewait)
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 	debugImplementation(libs.chucker)
 	releaseImplementation(libs.chucker.no.op)
     // Websocket and other
@@ -195,8 +222,11 @@ dependencies {
     implementation(libs.androidx.media3.ui)
     implementation(libs.androidx.media3.common)
     implementation(libs.androidx.media3.session)
+<<<<<<< HEAD
     implementation(libs.androidx.media3.transformer)
     implementation(libs.androidx.media3.effect)
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     // Audio Visualizer (optional - for audio visualization)
     implementation(libs.audio.visualizer)
     // Permission handling

@@ -30,8 +30,11 @@
         <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
         <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style>
+<<<<<<< HEAD
 
     <style name="ShapeAppearance.Circle" parent="">
         <item name="cornerSize">50%</item>
     </style>
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 </resources>

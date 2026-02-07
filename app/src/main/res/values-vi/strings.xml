@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <resources xmlns:tools="http://schemas.android.com/tools">
+=======
+<resources>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="app_name">Simontok - Tải xuống</string>
     <string name="action_settings">Cài đặt</string>
     <string name="first_fragment_label">Đoạn đầu tiên</string>
@@ -173,7 +177,11 @@
     <string name="video_mp4">Video (MP4)</string>
     <string name="download_started_please_check_background_status_bar">Tải xuống đã bắt đầu, vui lòng kiểm tra thanh trạng thái trong nền để biết thêm thông tin.</string>
     <string name="no_platforms_available">Không có nền tảng nào có sẵn</string>
+<<<<<<< HEAD
     <string name="copy" tools:ignore="PrivateResource">Sao chép</string>
+=======
+    <string name="copy">Sao chép</string>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="share">Chia sẻ</string>
     <string name="choose_action">Chọn hành động</string>
     <string-array name="choose_action_menu">
@@ -213,6 +221,7 @@
     <string name="exit">Ra</string>
     <string name="pause_exit">Tạm dừng và thoát</string>
     <string name="press_back_again_to_exit">Nhấn lại lần nữa để thoát</string>
+<<<<<<< HEAD
     <string name="convert">Chuyển đổi</string>
     <string name="convert_to_mp3">Chuyển đổi sang MP3</string>
     <string name="are_you_sure_you_want_to_convert_to_mp3">Bạn có chắc chắn muốn chuyển đổi sang MP3 không?</string>
@@ -251,4 +260,6 @@
     <string name="name_required">Tên bắt buộc</string>
     <string name="subject_minimum_length">Chủ đề tối thiểu 5 ký tự</string>
     <string name="message_minimum_length">Tin nhắn phải dài ít nhất 10 ký tự</string>
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 </resources>

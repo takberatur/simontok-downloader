@@ -8,5 +8,8 @@
     <external-files-path name="external_files" path="." />
     <cache-path name="cache" path="." />
     <external-cache-path name="external_cache" path="." />
+<<<<<<< HEAD
     <files-path name="shared_files" path="."/>
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 </paths>

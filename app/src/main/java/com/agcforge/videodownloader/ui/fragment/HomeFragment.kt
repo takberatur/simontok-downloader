@@ -47,9 +47,15 @@ import com.agcforge.videodownloader.ui.activities.BaseActivity
 import com.agcforge.videodownloader.ui.adapter.HistoryAdapter
 import com.agcforge.videodownloader.ui.component.AppAlertDialog
 import com.agcforge.videodownloader.ui.component.DownloadSettingsDialog
+<<<<<<< HEAD
 import com.agcforge.videodownloader.helper.ads.BannerAdsHelper
 import com.agcforge.videodownloader.helper.ads.BillingManager
 import com.agcforge.videodownloader.helper.ads.NativeAdsHelper
+=======
+import com.agcforge.videodownloader.helper.BannerAdsHelper
+import com.agcforge.videodownloader.helper.BillingManager
+import com.agcforge.videodownloader.helper.NativeAdsHelper
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
 class HomeFragment : Fragment() {
 
@@ -294,9 +300,14 @@ class HomeFragment : Fragment() {
             else -> platform.type
         }
 
+<<<<<<< HEAD
 
 		lastSubmitType = type
 		viewModel.createDownload(url, platformType)
+=======
+        lastSubmitType = type
+        viewModel.createDownload(url, platformType)
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     }
 
     private fun observeViewModel() {
@@ -381,6 +392,7 @@ class HomeFragment : Fragment() {
                         isSubmitting = false
                         binding.btnDownload.isEnabled = true
                         binding.progressBar.visibility = View.GONE
+<<<<<<< HEAD
 						if (resource.message == HomeViewModel.ERROR_FEATURE_DISABLED) {
 							showDialogStatusDownload(
 								AppAlertDialog.AlertDialogType.INFO,
@@ -390,6 +402,9 @@ class HomeFragment : Fragment() {
 						} else {
 							requireContext().showToast(resource.message ?: getString(R.string.download_failed))
 						}
+=======
+                        requireContext().showToast(resource.message ?: getString(R.string.download_failed))
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
                         updateDownloadButtonState()
                         lastSubmitType = null
                         viewModel.clearDownloadResult()
@@ -780,7 +795,11 @@ class HomeFragment : Fragment() {
     private fun handleFormatSelection(task: DownloadTask, selectedFormat: DownloadFormat) {
         val downloadUrl = buildProxyVideoUrl(task, selectedFormat)
 
+<<<<<<< HEAD
         MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme)
+=======
+        MaterialAlertDialogBuilder(requireContext())
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
             .setTitle(getString(R.string.confirm_download))
             .setMessage(getString(R.string.confirm_download_message, selectedFormat.getQualityLabel(), selectedFormat.getFormatDescription()))
             .setPositiveButton(getString(R.string.yes)) { _, _ ->

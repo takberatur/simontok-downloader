@@ -1,6 +1,9 @@
 package com.agcforge.videodownloader.data.model
 
+<<<<<<< HEAD
 import android.annotation.SuppressLint
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
@@ -29,7 +32,10 @@ data class DownloadTask(
     @SerializedName("platform") val platform: Platform? = null,
     @SerializedName("download_files") val downloadFiles: List<DownloadFile>? = null
 ) : Parcelable {
+<<<<<<< HEAD
     @SuppressLint("DefaultLocale")
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     fun getFormattedDuration(): String {
         val dur = duration ?: return "N/A"
         val minutes = dur / 60

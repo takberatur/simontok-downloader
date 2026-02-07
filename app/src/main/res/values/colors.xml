@@ -32,12 +32,15 @@
     <color name="bg_menu_primary">#FF018786</color>
     <color name="bg_menu_secondary">#FF03DAC5</color>
 
+<<<<<<< HEAD
     <color name="positive_button">#FF6200EE</color>
     <color name="positive_button_ripple">#1976D2</color>
 
     <color name="negative_button">#D81B60</color>
     <color name="negative_button_ripple">#AD1457</color>
 
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
     <color name="gold">#FFD2B48C</color>
     <color name="black">#FF000000</color>

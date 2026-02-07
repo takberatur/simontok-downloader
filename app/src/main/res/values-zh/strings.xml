@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <resources xmlns:tools="http://schemas.android.com/tools">
+=======
+<resources>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="app_name">Simontok - 下载器</string>
     <string name="action_settings">设置</string>
     <string name="first_fragment_label">第一个片段</string>
@@ -173,7 +177,11 @@
     <string name="video_mp4">视频 (MP4)</string>
     <string name="download_started_please_check_background_status_bar">下载已开始，请检查后台状态栏以获取更多信息。</string>
     <string name="no_platforms_available">没有可用的平台</string>
+<<<<<<< HEAD
     <string name="copy" tools:ignore="PrivateResource">复制</string>
+=======
+    <string name="copy">复制</string>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="share">分享</string>
     <string name="choose_action">选择操作</string>
     <string-array name="choose_action_menu">
@@ -212,6 +220,7 @@
     <string name="exit">出口</string>
     <string name="pause_exit">暂停并退出</string>
     <string name="press_back_again_to_exit">再按一次返回即可退出</string>
+<<<<<<< HEAD
     <string name="convert">转换</string>
     <string name="convert_to_mp3">转换为 MP3</string>
     <string name="are_you_sure_you_want_to_convert_to_mp3">您确定要转换为 MP3 吗？</string>
@@ -250,4 +259,6 @@
     <string name="name_required">姓名必填</string>
     <string name="subject_minimum_length">主题至少 5 个字符</string>
     <string name="message_minimum_length">消息长度必须至少 10 个字符</string>
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 </resources>

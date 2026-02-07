@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <resources xmlns:tools="http://schemas.android.com/tools">
+=======
+<resources>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="app_name">Simontok - Downloader</string>
     <string name="action_settings">Instellingen</string>
     <string name="first_fragment_label">Eerste Fragment</string>
@@ -173,7 +177,11 @@
     <string name="video_mp4">Video (MP4)</string>
     <string name="download_started_please_check_background_status_bar">Download gestart, controleer de statusbar in de achtergrond voor meer informatie.</string>
     <string name="no_platforms_available">Geen beschikbare platformen</string>
+<<<<<<< HEAD
     <string name="copy" tools:ignore="PrivateResource">Kopiëren</string>
+=======
+    <string name="copy">Kopiëren</string>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="share">Delen</string>
     <string name="choose_action">Kies actie</string>
     <string-array name="choose_action_menu">
@@ -213,6 +221,7 @@
     <string name="exit">Uitgang</string>
     <string name="pause_exit">Pauzeren en afsluiten</string>
     <string name="press_back_again_to_exit">Druk nogmaals op Terug om af te sluiten</string>
+<<<<<<< HEAD
     <string name="convert">Conversie</string>
     <string name="convert_to_mp3">Conversie naar MP3</string>
     <string name="are_you_sure_you_want_to_convert_to_mp3">Weet u zeker dat u wilt converteren naar MP3?</string>
@@ -251,4 +260,6 @@
     <string name="name_required">Naam vereist</string>
     <string name="subject_minimum_length">Onderwerp minimaal 5 tekens</string>
     <string name="message_minimum_length">Het bericht moet minimaal 10 tekens lang zijn</string>
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 </resources>

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <resources xmlns:tools="http://schemas.android.com/tools">
+=======
+<resources>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="app_name">Simontok - Téléchargeur</string>
     <string name="action_settings">Paramètres</string>
     <string name="first_fragment_label">Premier fragment</string>
@@ -86,7 +90,11 @@
     <string name="cache_cleared_fail">Échec de la suppression du cache</string>
     <string name="about_dialog_message">This app was created by %1$s as a fun project. It uses the %2$s to download videos from supported platforms.</string>
     <string name="ok">D\'ACCORD</string>
+<<<<<<< HEAD
     <string name="email_is_required">L\'e-mail est requis</string>
+=======
+    <string name="email_is_required"><L></L>\'e-mail est requis</string>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="invalid_format_email">Format d\'e-mail invalide</string>
     <string name="reset_link_sent_to_email">Lien de réinitialisation envoyé à %s</string>
     <string name="failed_to_send_reset_link">Échec de l\'envoi du lien de réinitialisation</string>
@@ -173,7 +181,11 @@
     <string name="video_mp4">Vidéo (MP4)</string>
     <string name="download_started_please_check_background_status_bar">Téléchargement commencé, veuillez vérifier la barre d\'état en arrière-plan pour plus d\'informations sur le progrès du téléchargement.</string>
     <string name="no_platforms_available">Aucune plateforme disponible</string>
+<<<<<<< HEAD
     <string name="copy" tools:ignore="PrivateResource">Copier</string>
+=======
+    <string name="copy">Copier</string>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="share">Partager</string>
     <string name="choose_action">Choisir une action</string>
     <string-array name="choose_action_menu">
@@ -213,6 +225,7 @@
     <string name="exit">Sortie</string>
     <string name="pause_exit">Pause et sortie</string>
     <string name="press_back_again_to_exit">Appuyez à nouveau pour quitter</string>
+<<<<<<< HEAD
     <string name="convert">Convertir</string>
     <string name="convert_to_mp3">Convertir en MP3</string>
     <string name="are_you_sure_you_want_to_convert_to_mp3">Êtes-vous sûr de vouloir convertir en MP3 ?</string>
@@ -251,4 +264,6 @@
     <string name="name_required">Nom requis</string>
     <string name="subject_minimum_length">Sujet minimum 5 caractères</string>
     <string name="message_minimum_length">Le message doit comporter au moins 10 caractères</string>
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 </resources>

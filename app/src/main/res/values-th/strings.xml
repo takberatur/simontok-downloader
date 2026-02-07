@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <resources xmlns:tools="http://schemas.android.com/tools">
+=======
+<resources>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="app_name">Simontok - ดาวน์โหลด</string>
     <string name="action_settings">การตั้งค่า</string>
     <string name="first_fragment_label">ชิ้นส่วนแรก</string>
@@ -173,7 +177,11 @@
     <string name="video_mp4">วิดีโอ (MP4)</string>
     <string name="download_started_please_check_background_status_bar">การดาวน์โหลดเริ่มต้นแล้ว โปรดตรวจสอบสถานะแถบดาวน์โหลดในพื้นหลังเพื่อข้อมูลเพิ่มเติม</string>
     <string name="no_platforms_available">ไม่มีแพลตฟอร์มที่พร้อมใช้งาน</string>
+<<<<<<< HEAD
     <string name="copy" tools:ignore="PrivateResource">คัดลอก</string>
+=======
+    <string name="copy">คัดลอก</string>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="share">แชร์</string>
     <string name="choose_action">เลือกการทำงาน</string>
     <string-array name="choose_action_menu">
@@ -213,6 +221,7 @@
     <string name="exit">ออก</string>
     <string name="pause_exit">หยุดชั่วคราวและออก</string>
     <string name="press_back_again_to_exit">กดกลับอีกครั้งเพื่อออก</string>
+<<<<<<< HEAD
     <string name="convert">การแปลง</string>
     <string name="convert_to_mp3">การแปลงเป็น MP3</string>
     <string name="are_you_sure_you_want_to_convert_to_mp3">คุณแน่ใจหรือไม่ที่ต้องการแปลงเป็น MP3?</string>
@@ -251,4 +260,6 @@
     <string name="name_required">จำเป็นต้องระบุชื่อ</string>
     <string name="subject_minimum_length">หัวเรื่องมีความยาวอย่างน้อย 5 ตัวอักษร</string>
     <string name="message_minimum_length">ข้อความต้องมีความยาวอย่างน้อย 10 ตัวอักษร</string>
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 </resources>

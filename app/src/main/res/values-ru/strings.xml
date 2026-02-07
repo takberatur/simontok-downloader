@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <resources xmlns:tools="http://schemas.android.com/tools">
+=======
+<resources>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="app_name">Simontok - Загрузчик</string>
     <string name="action_settings">Настройки</string>
     <string name="first_fragment_label">Первый фрагмент</string>
@@ -173,7 +177,11 @@
     <string name="video_mp4">Видео (MP4)</string>
     <string name="download_started_please_check_background_status_bar">Загрузка начата, пожалуйста, проверьте статус-бар в фоновом режиме для получения дополнительной информации.</string>
     <string name="no_platforms_available">Нет доступных платформ</string>
+<<<<<<< HEAD
     <string name="copy" tools:ignore="PrivateResource">Копировать</string>
+=======
+    <string name="copy">Копировать</string>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="share">Сhare</string>
     <string name="choose_action">Выберите действие</string>
     <string-array name="choose_action_menu">
@@ -213,6 +221,7 @@
     <string name="exit">Выход</string>
     <string name="pause_exit">Пауза и выход</string>
     <string name="press_back_again_to_exit">Нажмите назад еще раз, чтобы выйти</string>
+<<<<<<< HEAD
     <string name="convert">Конверсия</string>
     <string name="convert_to_mp3">Конверсия в MP3</string>
     <string name="are_you_sure_you_want_to_convert_to_mp3">Вы уверены, что хотите конвертировать в MP3?</string>
@@ -251,4 +260,6 @@
     <string name="name_required">Требуется имя</string>
     <string name="subject_minimum_length">Тема минимум 5 символов.</string>
     <string name="message_minimum_length">Сообщение должно быть не менее 10 символов.</string>
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 </resources>

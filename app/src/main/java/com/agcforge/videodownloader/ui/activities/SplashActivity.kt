@@ -13,10 +13,19 @@ import androidx.lifecycle.lifecycleScope
 import com.agcforge.videodownloader.data.api.ApiClient
 import com.agcforge.videodownloader.data.api.VideoDownloaderRepository
 import com.agcforge.videodownloader.databinding.ActivitySplashBinding
+<<<<<<< HEAD
 import com.agcforge.videodownloader.helper.ads.AdsConfig
 import com.agcforge.videodownloader.helper.ads.AdsInitializer
 import com.agcforge.videodownloader.utils.PreferenceManager
 import com.onesignal.OneSignal
+=======
+import com.agcforge.videodownloader.helper.AdsConfig
+import com.agcforge.videodownloader.helper.AdsInitializer
+import com.agcforge.videodownloader.utils.PreferenceManager
+import com.onesignal.OneSignal
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch

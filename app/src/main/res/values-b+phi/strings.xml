@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <resources xmlns:tools="http://schemas.android.com/tools">
+=======
+<resources>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="app_name">Simontok - Downloader</string>
     <string name="action_settings">Mga setting</string>
     <string name="first_fragment_label">Unang Fragment</string>
@@ -173,7 +177,11 @@
     <string name="video_mp4">Video (MP4)</string>
     <string name="download_started_please_check_background_status_bar">Nagsimula ang pag-download, maghantay ang status bar ng bagong layunin upang magtatawag ang pag-download.</string>
     <string name="no_platforms_available">Walang nakitang platform</string>
+<<<<<<< HEAD
     <string name="copy" tools:ignore="PrivateResource">Kopyahin</string>
+=======
+    <string name="copy">Kopyahin</string>
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="share">Bagikan</string>
     <string name="choose_action">Piliin ang aksi</string>
     <string-array name="choose_action_menu">
@@ -213,6 +221,7 @@
     <string name="exit">Lumabas</string>
     <string name="pause_exit">I-pause At Lumabas</string>
     <string name="press_back_again_to_exit">Pindutin muli upang lumabas</string>
+<<<<<<< HEAD
     <string name="convert">Konversi</string>
     <string name="convert_to_mp3">Konversi sa MP3</string>
     <string name="are_you_sure_you_want_to_convert_to_mp3">Gusto mo bang konversi sa MP3?</string>
@@ -250,4 +259,6 @@
     <string name="name_required">Kinakailangan ang Pangalan</string>
     <string name="subject_minimum_length">Ang paksa ay hindi bababa sa 5 character</string>
     <string name="message_minimum_length">Dapat na hindi bababa sa 10 character ang haba ng mensahe</string>
+=======
+>>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 </resources>
