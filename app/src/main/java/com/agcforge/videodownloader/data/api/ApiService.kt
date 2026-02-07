@@ -5,10 +5,7 @@ import com.agcforge.videodownloader.data.dto.AuthResponse
 import com.agcforge.videodownloader.data.dto.CsrfResponse
 import com.agcforge.videodownloader.data.dto.DownloadRequest
 import com.agcforge.videodownloader.data.dto.LoginRequest
-<<<<<<< HEAD
 import com.agcforge.videodownloader.data.dto.SubscriptionUpsertRequest
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import com.agcforge.videodownloader.data.dto.TokenResponse
 import com.agcforge.videodownloader.data.model.*
 import retrofit2.Response
@@ -67,7 +64,6 @@ interface ApiService {
 
     @GET("mobile-client/centrifugo/token")
     suspend fun getCentrifugoToken(): Response<TokenResponse>
-<<<<<<< HEAD
 
 	@POST("mobile-client/send-notif-error")
 	suspend fun sendNotifError(@Body request: Map<String, String>): Response<ApiResponse<Any>>
@@ -80,7 +76,5 @@ interface ApiService {
 
 	@GET("mobile-client/protected-mobile/subscriptions/current")
 	suspend fun getCurrentSubscription(): Response<ApiResponse<Subscription>>
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 }
 

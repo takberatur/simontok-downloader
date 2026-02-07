@@ -49,10 +49,7 @@ class PreferenceManager(private val context: Context) {
 		private val APPLICATION_KEY = stringPreferencesKey("application_config")
         private val HISTORY_KEY = stringPreferencesKey("history")
         private val PLATFORMS_KEY = stringPreferencesKey("platforms")
-<<<<<<< HEAD
         private val IS_OPEN_PREMIUM_FEATURE_DIALOG_KEY = booleanPreferencesKey("is_open_premium_feature_dialog")
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     }
 
     // --- Flows to observe preference changes ---
@@ -64,10 +61,7 @@ class PreferenceManager(private val context: Context) {
     val userAvatar: Flow<String?> = context.dataStore.data.map { it[USER_AVATAR_KEY] }
     val theme: Flow<String?> = context.dataStore.data.map { it[THEME_KEY] }
     val language: Flow<String?> = context.dataStore.data.map { it[LANGUAGE_KEY] }
-<<<<<<< HEAD
     val isOpenPremiumFeatureDialog: Flow<Boolean> = context.dataStore.data.map { it[IS_OPEN_PREMIUM_FEATURE_DIALOG_KEY] ?: false }
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 	val storageLocation: Flow<String?> = context.dataStore.data.map { it[STORAGE_LOCATION_KEY] }
     val applicationConfig: Flow<Application?> = context.dataStore.data
         .map { preferences ->
@@ -349,7 +343,6 @@ class PreferenceManager(private val context: Context) {
         }
     }
 
-<<<<<<< HEAD
     suspend fun setIsOpenPremiumFeatureDialog(isOpen: Boolean) {
         context.dataStore.edit { preferences ->
             preferences[IS_OPEN_PREMIUM_FEATURE_DIALOG_KEY] = isOpen
@@ -366,17 +359,12 @@ class PreferenceManager(private val context: Context) {
         }
     }
 
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
     fun getApplicationSync(): Application? = runBlocking { getApplication() }
     fun getBooleanSync(key: String): Boolean? = runBlocking { getBoolean(key) }
     fun getIntSync(key: String): Int? = runBlocking { getInt(key) }
     fun getStringSync(key: String): String? = runBlocking { getString(key) }
-<<<<<<< HEAD
 
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 }
 
 // --- General-purpose Utility Functions ---

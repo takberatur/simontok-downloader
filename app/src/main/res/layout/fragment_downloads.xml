@@ -79,10 +79,7 @@
         android:layout_height="wrap_content"
         android:indeterminate="true"
         android:visibility="gone"
-<<<<<<< HEAD
         android:progress="0"
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

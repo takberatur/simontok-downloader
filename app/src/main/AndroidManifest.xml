@@ -90,11 +90,7 @@
             android:value="@string/admob_id"/>
         <meta-data
             android:name="com.startapp.sdk.APPLICATION_ID"
-<<<<<<< HEAD
             android:value="@string/star_app_id" />
-=======
-            android:value="201372634" />
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
         <meta-data
             android:name="com.startapp.sdk.SPLASH_ENABLED"
             android:value="false" />
@@ -203,15 +199,12 @@
             </intent-filter>
         </activity>
 
-<<<<<<< HEAD
         <activity
             android:name=".ui.activities.ReportActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
 
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
         <service
             android:name=".service.WebSocketService"
             android:enabled="true"

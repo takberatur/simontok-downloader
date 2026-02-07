@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/headerNavigationView"
@@ -15,35 +14,14 @@
     >
 
     <com.google.android.material.imageview.ShapeableImageView
-=======
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/headerNavigationView"
-    android:layout_width="match_parent"
-    android:layout_height="176dp"
-    android:gravity="bottom"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:fitsSystemWindows="true"
-    android:background="@color/bg_menu_primary"
-    android:backgroundTint="@color/bg_menu_primary"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark">
-
-    <ImageView
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
         android:id="@+id/ivAvatar"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-<<<<<<< HEAD
         android:scaleType="centerCrop"
         app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle"
         android:src="@drawable/avatar" />
-=======
-        android:contentDescription="@string/user_avatar"
-        android:src="@drawable/ic_account_circle" />
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
     <TextView
         android:id="@+id/tvUserName"
@@ -54,11 +32,7 @@
         android:layout_marginEnd="10dp"
         android:text="@string/guest_user"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-<<<<<<< HEAD
         android:textColor="@color/text_primary"
-=======
-        android:textColor="@android:color/white"
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -71,10 +45,6 @@
         android:layout_marginBottom="10dp"
         android:text="@string/guest_example_com"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-<<<<<<< HEAD
         android:textColor="@color/text_secondary" />
-=======
-        android:textColor="@android:color/white" />
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
 </LinearLayout>

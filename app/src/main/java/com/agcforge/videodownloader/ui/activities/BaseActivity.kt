@@ -2,16 +2,12 @@ package com.agcforge.videodownloader.ui.activities
 
 import android.annotation.SuppressLint
 import android.content.Context
-<<<<<<< HEAD
 import android.content.Intent
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-<<<<<<< HEAD
 import com.agcforge.videodownloader.R
 import com.agcforge.videodownloader.helper.ads.BannerAdsHelper
 import com.agcforge.videodownloader.helper.ads.BillingManager
@@ -25,15 +21,6 @@ import com.agcforge.videodownloader.utils.PreferenceManager
 import com.agcforge.videodownloader.utils.applyTheme
 import com.agcforge.videodownloader.utils.showToast
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-=======
-import com.agcforge.videodownloader.helper.BannerAdsHelper
-import com.agcforge.videodownloader.helper.CurrentActivityTracker
-import com.agcforge.videodownloader.helper.InterstitialHelper
-import com.agcforge.videodownloader.helper.NativeAdsHelper
-import com.agcforge.videodownloader.helper.RewardAdsHelper
-import com.agcforge.videodownloader.utils.PreferenceManager
-import com.agcforge.videodownloader.utils.applyTheme
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -128,10 +115,7 @@ abstract class BaseActivity : AppCompatActivity() {
             },
             onAdClosed = { provider ->
                 onDismiss.invoke()
-<<<<<<< HEAD
                 showPremiumFeatureDialog()
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
             },
             onAdFailed = { provider ->
                 onDismiss.invoke()
@@ -180,7 +164,6 @@ abstract class BaseActivity : AppCompatActivity() {
 		}
 		super.onPause()
 	}
-<<<<<<< HEAD
 
     private fun showPremiumFeatureDialog() {
         lifecycleScope.launch {
@@ -214,6 +197,4 @@ abstract class BaseActivity : AppCompatActivity() {
             .setNegativeButton(getString(R.string.no), null)
             .show()
     }
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 }

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <resources xmlns:tools="http://schemas.android.com/tools">
-=======
-<resources>
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="app_name">Simontok - Downloader</string>
     <string name="action_settings">Configurações</string>
     <string name="first_fragment_label">Primeiro Fragmento</string>
@@ -177,11 +173,7 @@
     <string name="video_mp4">Vídeo (MP4)</string>
     <string name="download_started_please_check_background_status_bar">Download iniciado, por favor, verifique a barra de status em segundo plano para obter mais informações.</string>
     <string name="no_platforms_available">Nenhum plataforma disponível</string>
-<<<<<<< HEAD
     <string name="copy" tools:ignore="PrivateResource">Copiar</string>
-=======
-    <string name="copy">Copiar</string>
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="share">Compartilhar</string>
     <string name="choose_action">Escolha uma ação</string>
     <string-array name="choose_action_menu">
@@ -221,7 +213,6 @@
     <string name="exit">Saída</string>
     <string name="pause_exit">Pausar e sair</string>
     <string name="press_back_again_to_exit">Pressione voltar novamente para sair</string>
-<<<<<<< HEAD
     <string name="convert">Conversão</string>
     <string name="convert_to_mp3">Conversão para MP3</string>
     <string name="are_you_sure_you_want_to_convert_to_mp3">Tem certeza de que deseja converter para MP3?</string>
@@ -260,6 +251,6 @@
     <string name="name_required">Nome obrigatório</string>
     <string name="subject_minimum_length">Assunto mínimo 5 caracteres</string>
     <string name="message_minimum_length">A mensagem deve ter pelo menos 10 caracteres</string>
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
+    <string name="feature_currently_not_found_title">O recurso atualmente não encontrado</string>
+    <string name="feature_currently_not_found_message">Este recurso está temporariamente indisponível. </string>
 </resources>

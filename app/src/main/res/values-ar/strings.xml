@@ -212,7 +212,6 @@
     <string name="exit">مخرج</string>
     <string name="pause_exit">وقفة والخروج</string>
     <string name="press_back_again_to_exit">اضغط مرة أخرى للخروج</string>
-<<<<<<< HEAD
     <string name="convert">تحويل</string>
     <string name="convert_to_mp3">تحويل إلى MP3</string>
     <string name="are_you_sure_you_want_to_convert_to_mp3">هل أنت متأكد من أنك تريد تحويل إلى MP3؟</string>
@@ -251,7 +250,6 @@
     <string name="name_required">الاسم مطلوب</string>
     <string name="subject_minimum_length">الموضوع الحد الأدنى 5 أحرف</string>
     <string name="message_minimum_length">يجب أن لا يقل طول الرسالة عن 10 أحرف</string>
+    <string name="feature_currently_not_found_title">الميزة غير موجودة حاليًا</string>
+    <string name="feature_currently_not_found_message">هذه الميزة غير متاحة مؤقتًا. </string>
 </resources>
-=======
-</resources>
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <resources xmlns:tools="http://schemas.android.com/tools">
-=======
-<resources>
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="app_name">Simontok - Λήψη</string>
     <string name="action_settings">Ρυθμίσεις</string>
     <string name="first_fragment_label">Πρώτο Θραύσμα</string>
@@ -177,11 +173,7 @@
     <string name="video_mp4">Βίντεο (MP4)</string>
     <string name="download_started_please_check_background_status_bar">Η λήψη ξεκίνησε, παρακαλώ ελέγξτε την κατάσταση του παραθύρου στο υπόβαθρο για περισσότερες πληροφορίες για την πρόοδο της λήψης.</string>
     <string name="no_platforms_available">Δεν υπάρχουν διαθέσιμες πλατφόρμες</string>
-<<<<<<< HEAD
     <string name="copy" tools:ignore="PrivateResource">Αντιγραφή</string>
-=======
-    <string name="copy">Αντιγραφή</string>
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="share">Κοινοποίηση</string>
     <string name="choose_action">Επιλογή Ενέργειας</string>
     <string-array name="choose_action_menu">
@@ -220,7 +212,6 @@
     <string name="exit">Εξοδος</string>
     <string name="pause_exit">Παύση και έξοδος</string>
     <string name="press_back_again_to_exit">Πατήστε ξανά πίσω για έξοδο</string>
-<<<<<<< HEAD
     <string name="convert">Μετατροπή</string>
     <string name="convert_to_mp3">Μετατροπή σε MP3</string>
     <string name="are_you_sure_you_want_to_convert_to_mp3">Είστε σίγουροι ότι θέλετε να μετατρέψετε σε MP3?</string>
@@ -259,6 +250,6 @@
     <string name="name_required">Απαιτείται όνομα</string>
     <string name="subject_minimum_length">Θέμα τουλάχιστον 5 χαρακτήρες</string>
     <string name="message_minimum_length">Το μήνυμα πρέπει να αποτελείται από τουλάχιστον 10 χαρακτήρες</string>
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
+    <string name="feature_currently_not_found_title">Η λειτουργία αυτή τη στιγμή δεν βρέθηκε</string>
+    <string name="feature_currently_not_found_message">Αυτή η δυνατότητα δεν είναι προσωρινά διαθέσιμη. </string>
 </resources>

@@ -13,10 +13,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-<<<<<<< HEAD
 import androidx.core.content.ContextCompat
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.agcforge.videodownloader.R
@@ -31,10 +28,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.util.Locale
 import androidx.core.net.toUri
-<<<<<<< HEAD
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
 class SettingsFragment : Fragment() {
 
@@ -74,10 +68,7 @@ class SettingsFragment : Fragment() {
         // Load current settings
     }
 
-<<<<<<< HEAD
     @SuppressLint("SuspiciousIndentation")
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     private fun setupListeners() {
         binding.apply {
             btnQualitySettings.setOnClickListener { showQualitySettings() }
@@ -204,22 +195,13 @@ class SettingsFragment : Fragment() {
 
         val adapter = LanguageAdapter(requireContext(), languages, languageCodes)
 
-<<<<<<< HEAD
         MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme)
-=======
-        AlertDialog.Builder(requireContext())
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
             .setTitle(getString(R.string.language))
             .setSingleChoiceItems(adapter, checkedItem) { dialog, which ->
                 val selectedLangCode = languageCodes[which]
                 lifecycleScope.launch {
                     preferenceManager.saveLanguage(selectedLangCode)
                     dialog.dismiss()
-<<<<<<< HEAD
-=======
-
-                    // Restart the app to apply the new language
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
                     val intent = Intent(requireActivity(), MainActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)

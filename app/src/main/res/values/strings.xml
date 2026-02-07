@@ -6,18 +6,11 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-<<<<<<< HEAD
     <string name="admob_id" translatable="false">ca-app-pub-4603244057078716~5857131488</string>
     <string name="star_app_id" translatable="false">201372634</string>
     <string name="site_url" translatable="false">https://simontokz.com</string>
     <string name="privacy_policy_url" translatable="false">https://simontokz.com/privacy</string>
     <string name="contact_url" translatable="false">https://simontokz.com/contact</string>
-=======
-    <string name="admob_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="site_url" translatable="false">https://simontokz.com</string>
-    <string name="privacy_policy_url" translatable="false">https://simontokz.com/en/privacy</string>
-    <string name="contact_url" translatable="false">https://simontokz.com/en/contact</string>
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="paste_url_hint">Paste video URL here</string>
@@ -225,14 +218,11 @@
     <string name="exit">Exit</string>
     <string name="pause_exit">Pause And Exit</string>
     <string name="press_back_again_to_exit">Press back again to exit</string>
-<<<<<<< HEAD
     <string name="convert">Convert</string>
 	<string name="convert_to_audio">Convert to Audio</string>
 	<string name="are_you_sure_you_want_to_convert_to_audio">Are you sure you want to convert to audio?</string>
 	<string name="convert_to_mp3">Convert to Audio</string>
 	<string name="are_you_sure_you_want_to_convert_to_mp3">Are you sure you want to convert to audio?</string>
-	<string name="feature_currently_not_found_title">The Feature Currently Not Found</string>
-	<string name="feature_currently_not_found_message">This feature is temporarily unavailable. Please try again later.</string>
     <string name="processing_convert">Processing Convert</string>
     <string name="covert_successfully">Convert successfully</string>
     <string name="convert_failed">Convert failed: %s</string>
@@ -303,6 +293,6 @@
     <string name="name_required">Name Required</string>
     <string name="subject_minimum_length">Subject minimum 5 characters</string>
     <string name="message_minimum_length">Message must be at least 10 characters long</string>
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
+    <string name="feature_currently_not_found_title">The Feature Currently Not Found</string>
+    <string name="feature_currently_not_found_message">This feature is temporarily unavailable. Please try again later.</string>
 </resources>

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <resources xmlns:tools="http://schemas.android.com/tools">
-=======
-<resources>
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="app_name">Simontok - 다운로더</string>
     <string name="action_settings">설정</string>
     <string name="first_fragment_label">첫 번째 조각</string>
@@ -177,11 +173,7 @@
     <string name="video_mp4">비디오 (MP4)</string>
     <string name="download_started_please_check_background_status_bar">다운로드가 시작되었습니다. 백그라운드 상태 바를 확인하세요.</string>
     <string name="no_platforms_available">사용 가능한 플랫폼이 없습니다</string>
-<<<<<<< HEAD
     <string name="copy" tools:ignore="PrivateResource">복사</string>
-=======
-    <string name="copy">복사</string>
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="share">공유</string>
     <string name="choose_action">행동 선택</string>
     <string-array name="choose_action_menu">
@@ -221,7 +213,6 @@
     <string name="exit">출구</string>
     <string name="pause_exit">일시 정지 및 종료</string>
     <string name="press_back_again_to_exit">종료하려면 뒤로를 다시 누르세요.</string>
-<<<<<<< HEAD
     <string name="convert">변환</string>
     <string name="convert_to_mp3">MP3로 변환</string>
     <string name="are_you_sure_you_want_to_convert_to_mp3">MP3로 변환하시겠습니까?</string>
@@ -260,6 +251,6 @@
     <string name="name_required">이름 필수</string>
     <string name="subject_minimum_length">제목 최소 5자</string>
     <string name="message_minimum_length">메시지 길이는 10자 이상이어야 합니다.</string>
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
+    <string name="feature_currently_not_found_title">현재 찾을 수 없는 기능</string>
+    <string name="feature_currently_not_found_message">이 기능을 일시적으로 사용할 수 없습니다. </string>
 </resources>

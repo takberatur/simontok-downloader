@@ -29,13 +29,10 @@
         android:label="@string/settings"
         tools:layout="@layout/fragment_settings" />
 
-<<<<<<< HEAD
     <fragment
         android:id="@+id/videoConverterFragment"
         android:name="com.agcforge.videodownloader.ui.fragment.VideoConverterFragment"
         android:label="@string/video_converter"
         tools:layout="@layout/fragment_video_converter" />
 
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 </navigation>

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <resources xmlns:tools="http://schemas.android.com/tools">
-=======
-<resources>
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="app_name">Simontok Descargador</string>
     <string name="action_settings">Ajustes</string>
     <string name="first_fragment_label">Primer fragmento</string>
@@ -177,11 +173,7 @@
     <string name="video_mp4">Video (MP4)</string>
     <string name="download_started_please_check_background_status_bar">Descarga iniciada, por favor, verifique la barra de estado en el fondo para más información sobre el progreso de la descarga.</string>
     <string name="no_platforms_available">No hay plataformas disponibles</string>
-<<<<<<< HEAD
     <string name="copy" tools:ignore="PrivateResource">Copiar</string>
-=======
-    <string name="copy">Copiar</string>
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     <string name="share">Compartir</string>
     <string name="choose_action">Elegir acción</string>
     <string-array name="choose_action_menu">
@@ -221,7 +213,6 @@
     <string name="exit">Salida</string>
     <string name="pause_exit">Pausa y salida</string>
     <string name="press_back_again_to_exit">Presione Atrás nuevamente para salir.</string>
-<<<<<<< HEAD
     <string name="convert">Convertir</string>
     <string name="convert_to_mp3">Convertir a MP3</string>
     <string name="are_you_sure_you_want_to_convert_to_mp3">¿Estás seguro de que deseas convertir a MP3?</string>
@@ -260,6 +251,6 @@
     <string name="name_required">Nombre requerido</string>
     <string name="subject_minimum_length">Asunto mínimo 5 caracteres</string>
     <string name="message_minimum_length">El mensaje debe tener al menos 10 caracteres.</string>
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
+    <string name="feature_currently_not_found_title">La característica actualmente no encontrada</string>
+    <string name="feature_currently_not_found_message">Esta función no está disponible temporalmente. </string>
 </resources>

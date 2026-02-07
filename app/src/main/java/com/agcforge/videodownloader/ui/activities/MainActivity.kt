@@ -7,10 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-<<<<<<< HEAD
 import android.view.View
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
@@ -36,12 +33,9 @@ import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-<<<<<<< HEAD
 import androidx.core.net.toUri
 import androidx.navigation.NavOptions
 import com.google.android.material.imageview.ShapeableImageView
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -132,7 +126,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 in topLevelDestinations -> {
                     binding.toolbar.navigationIcon = ContextCompat.getDrawable(this, R.drawable.ic_menu)
                     binding.toolbar.setNavigationOnClickListener {
-<<<<<<< HEAD
                         toggleDrawer()
                     }
                 }
@@ -140,13 +133,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     binding.toolbar.navigationIcon = ContextCompat.getDrawable(this, androidx.appcompat.R.drawable.abc_ic_ab_back_material)
                     binding.toolbar.setNavigationOnClickListener {
                         navigateBackFromVideoConverter()
-=======
-                        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                            binding.drawerLayout.closeDrawer(GravityCompat.START)
-                        } else {
-                            binding.drawerLayout.openDrawer(GravityCompat.START)
-                        }
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
                     }
                 }
                 else -> {
@@ -156,7 +142,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     }
                 }
             }
-<<<<<<< HEAD
             when (destination.id) {
                 R.id.videoConverterFragment,
                 R.id.nav_premium -> {
@@ -166,8 +151,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     binding.bottomNavigation.visibility = View.VISIBLE
                 }
             }
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
         }
     }
 
@@ -175,7 +158,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         binding.navigationView.setNavigationItemSelectedListener(this)
     }
 
-<<<<<<< HEAD
     private fun toggleDrawer() {
         if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
             binding.drawerLayout.closeDrawer(GravityCompat.START)
@@ -187,11 +169,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     private fun updateNavigationHeader() {
         val headerView = binding.navigationView.getHeaderView(0)
         val ivAvatar = headerView.findViewById<ShapeableImageView>(R.id.ivAvatar)
-=======
-    private fun updateNavigationHeader() {
-        val headerView = binding.navigationView.getHeaderView(0)
-        val ivAvatar = headerView.findViewById<ImageView>(R.id.ivAvatar)
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
         val tvUserName = headerView.findViewById<TextView>(R.id.tvUserName)
         val tvUserEmail = headerView.findViewById<TextView>(R.id.tvUserEmail)
 
@@ -229,7 +206,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-<<<<<<< HEAD
             R.id.nav_home -> {
                 navController.navigate(R.id.homeFragment)
                 binding.bottomNavigation.selectedItemId = R.id.nav_home
@@ -258,22 +234,13 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 navController.navigate(R.id.videoConverterFragment, null, navOptions)
             }
 
-=======
-            R.id.nav_home -> navController.navigate(R.id.homeFragment)
-            R.id.nav_downloads -> navController.navigate(R.id.downloadsFragment)
-            R.id.nav_settings -> navController.navigate(R.id.settingsFragment)
-            R.id.nav_history -> navController.navigate(R.id.historyFragment)
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 			R.id.nav_premium -> startActivity(Intent(this, SubscriptionActivity::class.java))
             R.id.nav_about -> {
                 showAboutDialog()
             }
-<<<<<<< HEAD
             R.id.nav_report -> {
                 startActivity(Intent(this, ReportActivity::class.java))
             }
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
             R.id.nav_logout -> {
                 showLogoutDialog()
             }
@@ -282,11 +249,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
             R.id.nav_site -> {
                 val siteUrl = getString(R.string.site_url)
-<<<<<<< HEAD
                 val intent = Intent(Intent.ACTION_VIEW, siteUrl.toUri())
-=======
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(siteUrl))
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
                 startActivity(intent)
             }
         }
@@ -299,11 +262,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         val appCreator = "AgcForge Team"
         val librariesUsed = "Jetpack, Retrofit, and many other open source libraries"
         val formattedMessage = getString(R.string.about_dialog_message, appCreator, librariesUsed)
-<<<<<<< HEAD
         MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme)
-=======
-        MaterialAlertDialogBuilder(this)
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
             .setTitle(R.string.about)
             .setMessage(formattedMessage)
             .setPositiveButton(R.string.ok, null)
@@ -311,7 +270,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     private fun showLogoutDialog() {
-<<<<<<< HEAD
         MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme)
             .setTitle(R.string.logout)
             .setMessage(getString(R.string.logout_confirm))
@@ -319,15 +277,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 handleLogout()
             }
             .setNegativeButton(R.string.cancel, null)
-=======
-        MaterialAlertDialogBuilder(this)
-            .setTitle(R.string.logout)
-            .setMessage("Are you sure you want to logout?")
-            .setPositiveButton(R.string.logout) { _, _ ->
-                handleLogout()
-            }
-            .setNegativeButton("Cancel", null)
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
             .show()
     }
 
@@ -347,7 +296,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         }
     }
 
-<<<<<<< HEAD
     private fun navigateBackFromVideoConverter() {
 		if (!navController.popBackStack()) {
 			navController.navigate(R.id.homeFragment)
@@ -362,15 +310,10 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 true
             }
             in setOf(
-=======
-    override fun onSupportNavigateUp(): Boolean {
-        return if (navController.currentDestination?.id in setOf(
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
                 R.id.homeFragment,
                 R.id.downloadsFragment,
                 R.id.settingsFragment,
                 R.id.historyFragment
-<<<<<<< HEAD
             ) -> {
                 toggleDrawer()
                 true
@@ -389,23 +332,11 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             R.id.downloadsFragment -> binding.bottomNavigation.selectedItemId = R.id.nav_downloads
             R.id.historyFragment -> binding.bottomNavigation.selectedItemId = R.id.nav_history
             R.id.settingsFragment -> binding.bottomNavigation.selectedItemId = R.id.nav_settings
-=======
-            )) {
-            if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                binding.drawerLayout.closeDrawer(GravityCompat.START)
-            } else {
-                binding.drawerLayout.openDrawer(GravityCompat.START)
-            }
-            true
-        } else {
-            navController.navigateUp()
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
         }
     }
 
     private fun setupBackPressedCallback() {
         val callback = object : OnBackPressedCallback(true) {
-<<<<<<< HEAD
             @SuppressLint("SuspiciousIndentation")
             override fun handleOnBackPressed() {
                 if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -436,13 +367,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
 				if (!navController.popBackStack()) {
 					finish()
-=======
-            override fun handleOnBackPressed() {
-                if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                    binding.drawerLayout.closeDrawer(GravityCompat.START)
-                } else {
-                    onBackPressedDispatcher.onBackPressed()
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
                 }
             }
         }

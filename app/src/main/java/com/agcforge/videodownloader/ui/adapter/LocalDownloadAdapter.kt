@@ -2,7 +2,6 @@ package com.agcforge.videodownloader.ui.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
-<<<<<<< HEAD
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Bitmap
@@ -26,22 +25,6 @@ import com.agcforge.videodownloader.R
 import com.agcforge.videodownloader.data.model.LocalDownloadItem
 import com.agcforge.videodownloader.helper.ads.BannerAdsHelper
 import com.agcforge.videodownloader.helper.ads.NativeAdsHelper
-=======
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.drawable.Drawable
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
-import com.agcforge.videodownloader.R
-import com.agcforge.videodownloader.data.model.LocalDownloadItem
-import com.agcforge.videodownloader.helper.BannerAdsHelper
-import com.agcforge.videodownloader.helper.NativeAdsHelper
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import com.agcforge.videodownloader.utils.LocalDownloadsScanner
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -51,10 +34,6 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
-<<<<<<< HEAD
-=======
-import com.google.android.material.button.MaterialButton
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -62,18 +41,12 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.ByteArrayInputStream
-<<<<<<< HEAD
 import java.io.File
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
 class LocalDownloadAdapter(
     private val context: Context,
     private val onOpenClick: (LocalDownloadItem) -> Unit,
-<<<<<<< HEAD
     private val onConvertClick: (LocalDownloadItem) -> Unit,
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     private val onDeleteClick: (LocalDownloadItem) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -94,12 +67,8 @@ class LocalDownloadAdapter(
 	private var adSlotType: AdSlotType = AdSlotType.NATIVE_SMALL
 	private var adConfig: AdInsertionConfig? = null
 
-<<<<<<< HEAD
 	@SuppressLint("NotifyDataSetChanged")
     fun enableAds(
-=======
-	fun enableAds(
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 		nativeAdsHelper: NativeAdsHelper? = null,
 		bannerAdsHelper: BannerAdsHelper? = null,
 		slotType: AdSlotType = AdSlotType.NATIVE_SMALL,
@@ -126,10 +95,7 @@ class LocalDownloadAdapter(
         .error(R.drawable.ic_media_play)
         .frame(1000000)
 
-<<<<<<< HEAD
     @SuppressLint("NotifyDataSetChanged")
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     fun addItems(newItems: List<LocalDownloadItem>) {
 		val startPosition = items.size
 		items.addAll(newItems)
@@ -140,10 +106,7 @@ class LocalDownloadAdapter(
 		}
     }
 
-<<<<<<< HEAD
     @SuppressLint("NotifyDataSetChanged")
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     fun clearItems() {
         val itemCount = items.size
         items.clear()
@@ -159,10 +122,7 @@ class LocalDownloadAdapter(
 		}
     }
 
-<<<<<<< HEAD
     @SuppressLint("NotifyDataSetChanged")
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     fun removeItem(itemId: Long) {
         val index = items.indexOfFirst { it.id == itemId }
         if (index != -1) {
@@ -324,11 +284,7 @@ class LocalDownloadAdapter(
 		} else {
 			val view = LayoutInflater.from(parent.context)
 				.inflate(R.layout.item_local_download, parent, false)
-<<<<<<< HEAD
 			ItemViewHolder(view, onOpenClick, onConvertClick, onDeleteClick, this)
-=======
-			ItemViewHolder(view, onOpenClick, onDeleteClick, this)
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 		}
     }
 
@@ -364,10 +320,7 @@ class LocalDownloadAdapter(
     class ItemViewHolder(
         itemView: View,
         private val onOpenClick: (LocalDownloadItem) -> Unit,
-<<<<<<< HEAD
         private val onConvertClick: (LocalDownloadItem) -> Unit,
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
         private val onDeleteClick: (LocalDownloadItem) -> Unit,
         private val adapter: LocalDownloadAdapter
     ) : RecyclerView.ViewHolder(itemView) {
@@ -378,12 +331,7 @@ class LocalDownloadAdapter(
         private val tvDuration: TextView = itemView.findViewById(R.id.tvDuration)
         private val tvDate: TextView = itemView.findViewById(R.id.tvDate)
         private val ivTypeIcon: ImageView = itemView.findViewById(R.id.ivTypeIcon)
-<<<<<<< HEAD
         private val btnMore: ImageButton = itemView.findViewById(R.id.btnMore)
-=======
-        private val btnOpen: MaterialButton = itemView.findViewById(R.id.btnOpen)
-        private val btnDelete: MaterialButton = itemView.findViewById(R.id.btnDelete)
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
         private val progressBar: ProgressBar = itemView.findViewById(R.id.progressBar)
 
         private var currentItem: LocalDownloadItem? = null
@@ -405,7 +353,6 @@ class LocalDownloadAdapter(
 
             handleThumbnailWithGlide(item)
 
-<<<<<<< HEAD
             itemView.setOnClickListener { showPopupMenu(it, item) }
             btnMore.setOnClickListener { showPopupMenu(it, item) }
         }
@@ -471,12 +418,6 @@ class LocalDownloadAdapter(
                 }
             }
             popup.show()
-=======
-            itemView.setOnClickListener { onOpenClick(item) }
-            btnOpen.setOnClickListener { onOpenClick(item) }
-            btnDelete.setOnClickListener { onDeleteClick(item) }
-            btnDelete.visibility = if (item.filePath != null) View.VISIBLE else View.GONE
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
         }
 
         private fun handleThumbnailWithBytes(item: LocalDownloadItem, position: Int) {
@@ -629,7 +570,6 @@ class LocalDownloadAdapter(
             }
             adapter.thumbnailJobs[item.id] = job
         }
-<<<<<<< HEAD
 
         private fun shareFile(item: LocalDownloadItem) {
             if(!item.isVideo() && !item.isAudio()) return
@@ -652,8 +592,6 @@ class LocalDownloadAdapter(
             }
         }
 
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
     }
 
 	class AdViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

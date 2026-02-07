@@ -3,19 +3,13 @@ package com.agcforge.videodownloader.data.api
 import com.agcforge.videodownloader.data.dto.AuthResponse
 import com.agcforge.videodownloader.data.dto.DownloadRequest
 import com.agcforge.videodownloader.data.dto.LoginRequest
-<<<<<<< HEAD
 import com.agcforge.videodownloader.data.dto.SubscriptionUpsertRequest
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import com.agcforge.videodownloader.data.dto.TokenResponse
 import com.agcforge.videodownloader.data.dto.ApiResponse
 import com.agcforge.videodownloader.data.model.Application
 import com.agcforge.videodownloader.data.model.DownloadTask
 import com.agcforge.videodownloader.data.model.Platform
-<<<<<<< HEAD
 import com.agcforge.videodownloader.data.model.Subscription
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 import com.agcforge.videodownloader.data.model.User
 import kotlinx.coroutines.flow.first
 
@@ -244,7 +238,6 @@ class VideoDownloaderRepository {
             Result.failure(e)
         }
     }
-<<<<<<< HEAD
 
     suspend fun sendNotifError(request: Map<String, String>): Result<Any> {
         return try {
@@ -287,6 +280,4 @@ class VideoDownloaderRepository {
 			Result.failure(e)
 		}
 	}
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 }

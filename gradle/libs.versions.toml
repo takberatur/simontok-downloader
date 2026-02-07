@@ -17,10 +17,7 @@ kotlinStdlib = "2.3.0"
 activityCompose = "1.12.3"
 composeBom = "2026.01.01"
 kotlinxDatetime = "0.7.1"
-<<<<<<< HEAD
 kotlinxSerializationJson = "1.10.0"
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 workRuntime = "2.11.1"
 
 # General Library
@@ -47,10 +44,7 @@ material3AdaptiveNavigationSuite = "1.5.0-alpha13"
 material3WindowSizeClass = "1.4.0"
 datastorePreferences = "1.2.0"
 coreSplashscreen = "1.2.0"
-<<<<<<< HEAD
 pleasewait = "0.6.5"
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
 # Messaging, Database & Ads
 playServicesAds = "24.9.0"
@@ -58,11 +52,7 @@ androidxCredentials = "1.5.0"
 googleId = "1.2.0"
 inappSdk = "5.3.0"
 unityAds = "4.16.6"
-<<<<<<< HEAD
 oneSignal = "5.6.1"
-=======
-oneSignal = "5.1.38"
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 billing = "8.3.0"
 okhttp = "5.3.2"
 glide = "5.0.5"
@@ -75,11 +65,7 @@ centrifugeJava = "0.5.0"
 lottie = "6.7.1"
 
 # ============= MEDIA PLAYERS =============
-<<<<<<< HEAD
 exoPlayer = "1.9.2"
-=======
-exoPlayer = "1.9.1"
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 audioVisualizer = "2.2.7"
 permissionx = "1.8.1"
 
@@ -95,10 +81,7 @@ kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
-<<<<<<< HEAD
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 work-gcm = { module = "androidx.work:work-gcm", version.ref = "workRuntime" }
 work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntime" }
 work-rxjava2 = { module = "androidx.work:work-rxjava2", version.ref = "workRuntime" }
@@ -132,10 +115,7 @@ androidx-material3-window-size-class1 = { module = "androidx.compose.material3:m
 androidx-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
-<<<<<<< HEAD
 pleasewait = { module = "com.github.tashilapathum:PleaseWait", version.ref = "pleasewait" }
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 
 # Messaging, Database & Ads
 play-services-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "playServicesAds" }
@@ -166,11 +146,8 @@ androidx-media3-common = { module = "androidx.media3:media3-common", version.ref
 androidx-media3-exoplayer-dash = { module = "androidx.media3:media3-exoplayer-dash", version.ref = "exoPlayer" }
 androidx-media3-session = { module = "androidx.media3:media3-session", version.ref = "exoPlayer" }
 androidx-media3-ui = { module = "androidx.media3:media3-ui", version.ref = "exoPlayer" }
-<<<<<<< HEAD
 androidx-media3-transformer = { module = "androidx.media3:media3-transformer", version.ref = "exoPlayer" }
 androidx-media3-effect = { module = "androidx.media3:media3-effect", version.ref = "exoPlayer" }
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
 audio-visualizer = { module = "io.github.gautamchibde:audiovisualizer", version.ref = "audioVisualizer" }
 permissionx = { module = "com.guolindev.permissionx:permissionx", version.ref = "permissionx" }
 

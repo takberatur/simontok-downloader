@@ -212,7 +212,6 @@
     <string name="exit">Ausfahrt</string>
     <string name="pause_exit">Anhalten und beenden</string>
     <string name="press_back_again_to_exit">Drücken Sie erneut die Zurück-Taste, um den Vorgang zu beenden</string>
-<<<<<<< HEAD
     <string name="convert">Konvertieren</string>
     <string name="convert_to_mp3">Konvertieren Sie in MP3</string>
     <string name="are_you_sure_you_want_to_convert_to_mp3">Sind Sie sicher, dass Sie in MP3 konvertieren möchten?</string>
@@ -251,6 +250,6 @@
     <string name="name_required">Name erforderlich</string>
     <string name="subject_minimum_length">Betreff mindestens 5 Zeichen</string>
     <string name="message_minimum_length">Die Nachricht muss mindestens 10 Zeichen lang sein</string>
-=======
->>>>>>> d9441acea1800f24d98ca8ff996508019a679444
+    <string name="feature_currently_not_found_title">Die Funktion wird derzeit nicht gefunden</string>
+    <string name="feature_currently_not_found_message">Diese Funktion ist vorübergehend nicht verfügbar. </string>
 </resources>
