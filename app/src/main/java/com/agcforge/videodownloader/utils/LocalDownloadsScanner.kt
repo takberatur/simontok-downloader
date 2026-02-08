@@ -110,7 +110,7 @@ object LocalDownloadsScanner {
     suspend fun scan(context: Context, location: String): List<LocalDownloadItem> {
         return withContext(Dispatchers.IO) {
             when (location) {
-                "downloads" -> scanDownloadsFolder(context)
+                "downloads" -> scanAppStorage(context)
                 "app" -> scanAppStorage(context)
                 else -> emptyList()
             }
@@ -125,7 +125,7 @@ object LocalDownloadsScanner {
     ): PagedResult {
         return withContext(Dispatchers.IO) {
             when (location) {
-                "downloads" -> scanDownloadsFolderPaged(context, limit, offset)
+                "downloads" -> scanAppStoragePaged(context, limit, offset)
                 "app" -> scanAppStoragePaged(context, limit, offset)
                 else -> PagedResult(emptyList(), false, 0)
             }

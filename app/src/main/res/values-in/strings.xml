@@ -268,4 +268,10 @@
     <string name="desktop_mode_enabled">Mode desktop diaktifkan</string>
     <string name="mobile_mode_enabled">Mode seluler diaktifkan</string>
     <string name="confirm_clear_cache">Apakah Anda yakin ingin menghapus cache browser?</string>
+    <string name="clear">Bersihkan</string>
+		<string name="save_to_downloads">Simpan ke Unduhan</string>
+    <string name="save_to_gallery">Simpan ke Galeri</string>
+    <string name="saved_to_downloads">Disimpan ke Unduhan</string>
+    <string name="saved_to_gallery">Disimpan ke Galeri</string>
+    <string name="save_failed">Gagal menyimpan</string>
 </resources>

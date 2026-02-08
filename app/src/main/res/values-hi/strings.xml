@@ -270,4 +270,9 @@
     <string name="mobile_mode_enabled">मोबाइल मोड सक्षम</string>
     <string name="confirm_clear_cache">क्या आप वाकई ब्राउज़र कैश साफ़ करना चाहते हैं?</string>
     <string name="clear">स्पष्ट</string>
+		<string name="save_to_downloads">डाउनलोड करें</string>
+    <string name="save_to_gallery">गैलरी में सहेजें</string>
+    <string name="saved_to_downloads">डाउनलोड करे गए</string>
+    <string name="saved_to_gallery">गैलरी में सहेजे गए</string>
+    <string name="save_failed">सहेजने में त्रुटि</string>
 </resources>

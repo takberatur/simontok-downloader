@@ -32,7 +32,6 @@ import com.agcforge.videodownloader.ui.activities.BaseActivity
 import com.agcforge.videodownloader.ui.component.AppAlertDialog
 import com.agcforge.videodownloader.utils.LocalDownloadsScanner
 import com.agcforge.videodownloader.utils.MediaStorePublisher
-import com.agcforge.videodownloader.utils.PermissionHelper
 import com.agcforge.videodownloader.utils.PreferenceManager
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
@@ -187,11 +186,7 @@ class VideoConverterFragment: Fragment() {
     }
 
     private fun pickVideo() {
-        if (PermissionHelper.hasMediaPermissions(requireContext())) {
-            pickVideoLauncher.launch(arrayOf("video/*"))
-        } else {
-            PermissionHelper.requestMediaPermissions(requireActivity())
-        }
+		pickVideoLauncher.launch(arrayOf("video/*"))
     }
 
     private val pickVideoLauncher = registerForActivityResult(

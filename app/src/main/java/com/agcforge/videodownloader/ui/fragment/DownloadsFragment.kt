@@ -55,7 +55,6 @@ import com.agcforge.videodownloader.helper.converter.VideoToAudioConverter
 import com.agcforge.videodownloader.ui.activities.BaseActivity
 import com.agcforge.videodownloader.ui.component.AppAlertDialog
 import com.agcforge.videodownloader.ui.component.ConvertSettingsDialog
-import com.agcforge.videodownloader.utils.PermissionHelper
 @UnstableApi
 class DownloadsFragment : Fragment() {
 
@@ -76,11 +75,7 @@ class DownloadsFragment : Fragment() {
     private lateinit var advancedConverter: AdvancedVideoToAudioConverter
     private lateinit var conversionManager: ConversionManager
 
-    private val readPermissionsLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestMultiplePermissions()
-    ) { _ ->
-        resetAndLoadDownloads()
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -108,7 +103,8 @@ class DownloadsFragment : Fragment() {
 
     private fun openStorageFolder() {
         viewLifecycleOwner.lifecycleScope.launch {
-            val location = preferenceManager.storageLocation.first() ?: "app"
+            val rawLocation = preferenceManager.storageLocation.first() ?: "app"
+            val location = if (rawLocation == "downloads") "app" else rawLocation
             StorageFolderNavigator.openStorageFolder(requireContext(), location)
         }
     }
@@ -170,19 +166,15 @@ class DownloadsFragment : Fragment() {
                 }
             },
             onConvertClick = { item ->
-                if(PermissionHelper.hasMediaPermissions(requireContext())){
-                    showDialogAlert(
-                        type = AppAlertDialog.AlertDialogType.WARNING,
-                        title = getString(R.string.are_you_sure_you_want_to_convert_to_audio),
-                        onAction = {
-                            handlePremiumDownload {
-                                showConvertDialogSettings(item)
-                            }
-                        }
-                    )
-                }else {
-                    PermissionHelper.requestMediaPermissions(requireActivity())
-                }
+				showDialogAlert(
+					type = AppAlertDialog.AlertDialogType.WARNING,
+					title = getString(R.string.are_you_sure_you_want_to_convert_to_audio),
+					onAction = {
+						handlePremiumDownload {
+							showConvertDialogSettings(item)
+						}
+					}
+				)
 
             },
             onDeleteClick = { item ->
@@ -262,15 +254,6 @@ class DownloadsFragment : Fragment() {
             val location = preferenceManager.storageLocation.first() ?: "app"
 
             println("DEBUG: Storage location: $location")
-
-            if (location == "downloads" && !hasRequiredReadPermissions()) {
-                binding.progressBar.visibility = View.GONE
-                binding.swipeRefresh.isRefreshing = false
-                binding.tvEmpty.visibility = View.VISIBLE
-                requestReadPermissions()
-                isLoading = false
-                return@launch
-            }
 
             try {
                 println("DEBUG: Calling scanPaged with limit=$pageSize, offset=$currentOffset")
@@ -415,7 +398,7 @@ class DownloadsFragment : Fragment() {
                         showDeleteHelpDialog(item)
                     }
                 } else {
-                    requireContext().showToast(getString(R.string.manage_external_storage_permission_denied))
+                    showDeleteHelpDialog(item)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -476,7 +459,7 @@ class DownloadsFragment : Fragment() {
                 false
             }
         } catch (e: SecurityException) {
-            println("DEBUG [Delete]: SecurityException - need MANAGE_EXTERNAL_STORAGE permission")
+            println("DEBUG [Delete]: SecurityException")
             false
         } catch (e: Exception) {
             println("DEBUG [Delete]: MediaStore delete error: ${e.message}")
@@ -500,54 +483,7 @@ class DownloadsFragment : Fragment() {
                         println("DEBUG [Delete]: App storage delete result: $deleted")
                         deleted
                     } else {
-                        when {
-                            Build.VERSION.SDK_INT >= Build.VERSION_CODES.R -> {
-                                if (Environment.isExternalStorageManager()) {
-                                    val deleted = file.delete()
-                                    println("DEBUG [Delete]: Android 11+ external storage delete result: $deleted")
-                                    deleted
-                                } else {
-                                    println("DEBUG [Delete]: Need MANAGE_EXTERNAL_STORAGE permission")
-                                    false
-                                }
-                            }
-
-                            Build.VERSION.SDK_INT == Build.VERSION_CODES.Q -> {
-                                if (ContextCompat.checkSelfPermission(
-                                        requireContext(),
-                                        Manifest.permission.WRITE_EXTERNAL_STORAGE
-                                    ) == PackageManager.PERMISSION_GRANTED
-                                ) {
-                                    val deleted = file.delete()
-                                    println("DEBUG [Delete]: Android 10 external storage delete result: $deleted")
-                                    deleted
-                                } else {
-                                    println("DEBUG [Delete]: Need WRITE_EXTERNAL_STORAGE permission")
-                                    false
-                                }
-                            }
-
-                            Build.VERSION.SDK_INT >= Build.VERSION_CODES.M -> {
-                                if (ContextCompat.checkSelfPermission(
-                                        requireContext(),
-                                        Manifest.permission.WRITE_EXTERNAL_STORAGE
-                                    ) == PackageManager.PERMISSION_GRANTED
-                                ) {
-                                    val deleted = file.delete()
-                                    println("DEBUG [Delete]: Android 6-9 external storage delete result: $deleted")
-                                    deleted
-                                } else {
-                                    println("DEBUG [Delete]: Need WRITE_EXTERNAL_STORAGE permission")
-                                    false
-                                }
-                            }
-
-                            else -> {
-                                val deleted = file.delete()
-                                println("DEBUG [Delete]: Legacy external storage delete result: $deleted")
-                                deleted
-                            }
-                        }
+						false
                     }
                 } else {
                     println("DEBUG [Delete]: File doesn't exist at path")
@@ -586,29 +522,6 @@ class DownloadsFragment : Fragment() {
             false
         }
     }
-    private fun hasRequiredReadPermissions(): Boolean {
-        val result = if (android.os.Build.VERSION.SDK_INT >= 33) {
-            val videoPerm = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_MEDIA_VIDEO) == PackageManager.PERMISSION_GRANTED
-            val audioPerm = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_MEDIA_AUDIO) == PackageManager.PERMISSION_GRANTED
-            println("DEBUG Permissions: READ_MEDIA_VIDEO: $videoPerm, READ_MEDIA_AUDIO: $audioPerm")
-            videoPerm && audioPerm
-        } else {
-            val storagePerm = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-            println("DEBUG Permissions: READ_EXTERNAL_STORAGE: $storagePerm")
-            storagePerm
-        }
-        return result
-    }
-
-    private fun requestReadPermissions() {
-        val perms = if (android.os.Build.VERSION.SDK_INT >= 33) {
-            arrayOf(Manifest.permission.READ_MEDIA_VIDEO, Manifest.permission.READ_MEDIA_AUDIO)
-        } else {
-            arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
-        }
-        readPermissionsLauncher.launch(perms)
-    }
-
     @OptIn(UnstableApi::class)
     private fun openLocalFile(item: LocalDownloadItem) {
         val isVideo = item.mimeType?.startsWith("video/") == true
@@ -656,95 +569,10 @@ class DownloadsFragment : Fragment() {
         _binding = null
     }
 
-    private val requestDeletePermission =
-        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
-            if (isGranted) {
-                // Retry delete
-                pendingDeleteItem?.let { item ->
-                    deleteFile(item)
-                }
-            } else {
-                requireContext().showToast("Permission denied. Cannot delete file.")
-            }
-            pendingDeleteItem = null
-        }
-
-    private val manageExternalStorageLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            if (Environment.isExternalStorageManager()) {
-                pendingDeleteItem?.let { item ->
-                    viewLifecycleOwner.lifecycleScope.launch {
-                        val deleted = deleteFileFromStorage(item)
-                        if (deleted) {
-                            adapter.removeItem(item.id)
-                            requireContext().showToast(requireContext().getString(R.string.delete_file_success))
-
-                            if (adapter.itemCount == 0) {
-                                binding.tvEmpty.visibility = View.VISIBLE
-                                binding.rvDownloads.visibility = View.GONE
-                            }
-                        } else {
-                            requireContext().showToast(requireContext().getString(R.string.delete_file_failed))
-                        }
-                    }
-                }
-            } else {
-                requireContext().showToast(requireContext().getString(R.string.manage_external_storage_permission_denied))
-            }
-        }
-        pendingDeleteItem = null
-    }
-
     private var pendingDeleteItem: LocalDownloadItem? = null
 
     private fun checkDeletePermission(item: LocalDownloadItem): Boolean {
-        return when {
-            // Android 11+ (API 30+) - Scoped Storage
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.R -> {
-                if (Environment.isExternalStorageManager()) {
-                    true
-                } else {
-                    pendingDeleteItem = item
-                    showManageExternalStoragePermissionDialog(item)
-                    false
-                }
-            }
-
-            // Android 10 (API 29) - Request WRITE_EXTERNAL_STORAGE
-            Build.VERSION.SDK_INT == Build.VERSION_CODES.Q -> {
-                if (ContextCompat.checkSelfPermission(
-                        requireContext(),
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE
-                    ) == PackageManager.PERMISSION_GRANTED
-                ) {
-                    true
-                } else {
-                    pendingDeleteItem = item
-                    requestDeletePermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    false
-                }
-            }
-
-            // Android 6-9 (API 23-28) - Request WRITE_EXTERNAL_STORAGE
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.M -> {
-                if (ContextCompat.checkSelfPermission(
-                        requireContext(),
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE
-                    ) == PackageManager.PERMISSION_GRANTED
-                ) {
-                    true
-                } else {
-                    pendingDeleteItem = item
-                    requestDeletePermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    false
-                }
-            }
-
-            // Android < 6 - Permission auto granted
-            else -> true
-        }
+		return true
     }
 
     private fun showDeleteHelpDialog(item: LocalDownloadItem) {
@@ -766,33 +594,10 @@ class DownloadsFragment : Fragment() {
             • File location: ${item.filePath ?: "Unknown"}
             """.trimIndent()
             )
-            .setPositiveButtonText("Open File Location")
-            .setNegativeButtonText("OK")
-            .setOnPositiveClick { openManageExternalStorageSettings() }
-            .setOnNegativeClick { deleteUsingSAF(item) }
-            .show()
-    }
-
-    private fun showManageExternalStoragePermissionDialog(item: LocalDownloadItem) {
-        AppAlertDialog.Builder(requireContext())
-            .setType(AppAlertDialog.AlertDialogType.WARNING)
-            .setTitle(getString(R.string.permission_required))
-            .setMessage(
-                """
-            To delete files from the Download folder on Android 11 and above, 
-            app requires 'Manage All Files' permission'.
-            
-            Please grant this permission in system settings.
-            """.trimIndent()
-            )
-            .setPositiveButtonText("Open Settings")
-            .setNegativeButtonText("Cancel")
-            .setOnPositiveClick {
-                openManageExternalStorageSettings()
-            }
-            .setOnNegativeClick {
-                pendingDeleteItem = null
-            }
+			.setPositiveButtonText("Pilih Folder")
+			.setNegativeButtonText("OK")
+			.setOnPositiveClick { deleteUsingSAF(item) }
+			.setOnNegativeClick { pendingDeleteItem = null }
             .show()
     }
 
@@ -814,17 +619,6 @@ class DownloadsFragment : Fragment() {
             } catch (e: Exception) {
                 requireContext().showToast(getString(R.string.cannot_open_file_location))
             }
-        }
-    }
-
-    private fun openManageExternalStorageSettings() {
-        try {
-            val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
-            intent.data = "package:${requireContext().packageName}".toUri()
-            manageExternalStorageLauncher.launch(intent)
-        } catch (e: Exception) {
-            val intent = Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION)
-            manageExternalStorageLauncher.launch(intent)
         }
     }
 

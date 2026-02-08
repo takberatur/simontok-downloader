@@ -270,4 +270,9 @@
     <string name="mobile_mode_enabled">Đã bật chế độ di động</string>
     <string name="confirm_clear_cache">Bạn có chắc chắn muốn xóa bộ nhớ đệm của trình duyệt không?</string>
     <string name="clear">Thông thoáng</string>
+		<string name="save_to_downloads">Lưu vào tải xuống</string>
+    <string name="save_to_gallery">Lưu vào hình ảnh</string>
+    <string name="saved_to_downloads">Lưu vào tải xuống thành công</string>
+    <string name="saved_to_gallery">Lưu vào hình ảnh thành công</string>
+    <string name="save_failed">Lưu thất bại</string>
 </resources>

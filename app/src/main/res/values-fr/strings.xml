@@ -270,4 +270,9 @@
     <string name="mobile_mode_enabled">Mode mobile activé</string>
     <string name="confirm_clear_cache">Êtes-vous sûr de vouloir vider le cache du navigateur ?</string>
     <string name="clear">Clair</string>
+		<string name="save_to_downloads">Enregistrer dans les téléchargements</string>
+    <string name="save_to_gallery">Enregistrer dans la galerie</string>
+    <string name="saved_to_downloads">Enregistré dans les téléchargements</string>
+    <string name="saved_to_gallery">Enregistré dans la galerie</string>
+    <string name="save_failed">Échec de l\'enregistrement</string>
 </resources>

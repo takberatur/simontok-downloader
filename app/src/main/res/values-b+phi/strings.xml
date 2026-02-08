@@ -269,4 +269,9 @@
     <string name="mobile_mode_enabled">Naka-enable ang mobile mode</string>
     <string name="confirm_clear_cache">Sigurado ka bang gusto mong i-clear ang cache ng browser?</string>
     <string name="clear">Maaliwalas</string>
+		<string name="save_to_downloads">I-save sa Downloads</string>
+    <string name="save_to_gallery">I-save sa Gallery</string>
+    <string name="saved_to_downloads">I-save sa Downloads</string>
+    <string name="saved_to_gallery">I-save sa Gallery</string>
+    <string name="save_failed">Nabigong i-save</string>
 </resources>

@@ -270,4 +270,9 @@
     <string name="mobile_mode_enabled">Mobil mod etkin</string>
     <string name="confirm_clear_cache">Tarayıcı önbelleğini temizlemek istediğinizden emin misiniz?</string>
     <string name="clear">Temizlemek</string>
+		<string name="save_to_downloads">Yüklüklere Kaydet</string>
+    <string name="save_to_gallery">Galeri\'ye Kaydet</string>
+    <string name="saved_to_downloads">Yüklüklere Kaydedildi</string>
+    <string name="saved_to_gallery">Galeri\'ye Kaydedildi</string>
+    <string name="save_failed">Kaydetme Başarısız</string>
 </resources>

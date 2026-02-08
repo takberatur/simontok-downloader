@@ -20,12 +20,15 @@ import android.widget.PopupMenu
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.content.FileProvider
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.agcforge.videodownloader.R
 import com.agcforge.videodownloader.data.model.LocalDownloadItem
 import com.agcforge.videodownloader.helper.ads.BannerAdsHelper
 import com.agcforge.videodownloader.helper.ads.NativeAdsHelper
 import com.agcforge.videodownloader.utils.LocalDownloadsScanner
+import com.agcforge.videodownloader.utils.MediaStorePublisher
+import com.agcforge.videodownloader.utils.showToast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -384,6 +387,8 @@ class LocalDownloadAdapter(
                 menu.findItem(R.id.action_convert_to_mp3).isVisible = true
             }
 
+			menu.findItem(R.id.action_save_to_gallery).isVisible = item.isVideo()
+
             val deleteItem = menu.findItem(R.id.action_delete)
 
             deleteItem?.let {
@@ -410,6 +415,14 @@ class LocalDownloadAdapter(
                         shareFile(item)
                         true
                     }
+					R.id.action_save_to_downloads -> {
+						exportToDownloads(item)
+						true
+					}
+					R.id.action_save_to_gallery -> {
+						exportToGallery(item)
+						true
+					}
                     R.id.action_delete -> {
                         onDeleteClick(item)
                         true
@@ -591,6 +604,89 @@ class LocalDownloadAdapter(
                 itemView.context.startActivity(Intent.createChooser(shareIntent, itemView.context.getString(R.string.share)))
             }
         }
+
+		private fun exportToDownloads(item: LocalDownloadItem) {
+			CoroutineScope(Dispatchers.IO).launch {
+				val context = itemView.context
+				val mimeType = item.mimeType ?: when {
+					item.displayName.lowercase().endsWith(".mp4") -> "video/mp4"
+					item.displayName.lowercase().endsWith(".webm") -> "video/webm"
+					item.displayName.lowercase().endsWith(".mkv") -> "video/x-matroska"
+					item.displayName.lowercase().endsWith(".mp3") -> "audio/mpeg"
+					item.displayName.lowercase().endsWith(".m4a") -> "audio/mp4"
+					else -> "application/octet-stream"
+				}
+
+				val srcUri = runCatching {
+					item.filePath?.takeIf { it.isNotBlank() }?.let { path ->
+						val f = File(path)
+						if (f.exists()) {
+							FileProvider.getUriForFile(context, context.packageName + ".fileprovider", f)
+						} else {
+							item.uri
+						}
+					} ?: item.uri
+				}.getOrDefault(item.uri)
+
+				val outUri = if (item.isAudio()) {
+					item.filePath?.takeIf { it.isNotBlank() }?.let { path ->
+						MediaStorePublisher.publishAudioToDownloads(context, File(path), item.displayName)
+					}
+				} else {
+					MediaStorePublisher.publishToDownloads(context, srcUri, item.displayName, mimeType)
+				}
+
+				withContext(Dispatchers.Main) {
+					if (outUri != null) {
+						context.showToast(context.getString(R.string.saved_to_downloads))
+						openExportedUri(context, outUri, mimeType)
+					} else {
+						context.showToast(context.getString(R.string.save_failed))
+					}
+				}
+			}
+		}
+
+		private fun exportToGallery(item: LocalDownloadItem) {
+			if (!item.isVideo()) return
+			CoroutineScope(Dispatchers.IO).launch {
+				val context = itemView.context
+				val mimeType = item.mimeType ?: "video/mp4"
+
+				val srcUri = runCatching {
+					item.filePath?.takeIf { it.isNotBlank() }?.let { path ->
+						val f = File(path)
+						if (f.exists()) {
+							FileProvider.getUriForFile(context, context.packageName + ".fileprovider", f)
+						} else {
+							item.uri
+						}
+					} ?: item.uri
+				}.getOrDefault(item.uri)
+
+				val outUri = MediaStorePublisher.publishVideoToGallery(context, srcUri, item.displayName, mimeType)
+				withContext(Dispatchers.Main) {
+					if (outUri != null) {
+						context.showToast(context.getString(R.string.saved_to_gallery))
+						openExportedUri(context, outUri, mimeType)
+					} else {
+						context.showToast(context.getString(R.string.save_failed))
+					}
+				}
+			}
+		}
+
+		private fun openExportedUri(context: Context, uri: android.net.Uri, mimeType: String) {
+			runCatching {
+				val intent = Intent(Intent.ACTION_VIEW)
+				intent.setDataAndType(uri, mimeType)
+				intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+				context.startActivity(Intent.createChooser(intent, context.getString(R.string.open_with)))
+			}.onFailure {
+				context.showToast(it.message ?: context.getString(R.string.error_unknown))
+			}
+		}
 
     }
 

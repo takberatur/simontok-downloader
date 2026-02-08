@@ -671,21 +671,10 @@ class HomeFragment : Fragment() {
     private fun enqueueDownload(url: String) {
         viewLifecycleOwner.lifecycleScope.launch {
             DownloadManagerCleaner.clearFailedDownloads(requireContext())
-            val storageLocation = preferenceManager.storageLocation.first() ?: "app"
+            val rawStorageLocation = preferenceManager.storageLocation.first() ?: "app"
+            val storageLocation = if (rawStorageLocation == "downloads") "app" else rawStorageLocation
             val uri = url.toUri()
             val fileName = deriveDownloadFileName(uri)
-
-            if (storageLocation == "downloads" && android.os.Build.VERSION.SDK_INT < 29) {
-                val granted = ContextCompat.checkSelfPermission(
-                    requireContext(),
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                ) == PackageManager.PERMISSION_GRANTED
-                if (!granted) {
-                    pendingDownloadUrl = url
-                    storagePermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    return@launch
-                }
-            }
 
             val dm = requireContext().getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
             val request = DownloadManager.Request(uri)
@@ -695,11 +684,7 @@ class HomeFragment : Fragment() {
                 .setAllowedOverMetered(true)
                 .setAllowedOverRoaming(true)
 
-            if (storageLocation == "downloads") {
-                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, fileName)
-            } else {
-                request.setDestinationInExternalFilesDir(requireContext(), Environment.DIRECTORY_DOWNLOADS, fileName)
-            }
+            request.setDestinationInExternalFilesDir(requireContext(), Environment.DIRECTORY_DOWNLOADS, fileName)
 
             try {
                 dm.enqueue(request)

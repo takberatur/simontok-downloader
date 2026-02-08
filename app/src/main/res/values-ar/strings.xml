@@ -269,4 +269,9 @@
     <string name="mobile_mode_enabled">تم تمكين وضع الهاتف المحمول</string>
     <string name="confirm_clear_cache">هل أنت متأكد أنك تريد مسح ذاكرة التخزين المؤقت للمتصفح؟</string>
     <string name="clear">واضح</string>
+		<string name="save_to_downloads">حفظ في التنزيلات</string>
+    <string name="save_to_gallery">حفظ في المعرض</string>
+    <string name="saved_to_downloads">تم الحفظ في التنزيلات</string>
+    <string name="saved_to_gallery">تم الحفظ في المعرض</string>
+    <string name="save_failed">فشل الحفظ</string>
 </resources>

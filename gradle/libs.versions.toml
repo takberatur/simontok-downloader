@@ -68,6 +68,8 @@ lottie = "6.7.1"
 exoPlayer = "1.9.2"
 audioVisualizer = "2.2.7"
 permissionx = "1.8.1"
+guava = "33.5.0-android"
+media = "1.7.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -150,6 +152,8 @@ androidx-media3-transformer = { module = "androidx.media3:media3-transformer", v
 androidx-media3-effect = { module = "androidx.media3:media3-effect", version.ref = "exoPlayer" }
 audio-visualizer = { module = "io.github.gautamchibde:audiovisualizer", version.ref = "audioVisualizer" }
 permissionx = { module = "com.guolindev.permissionx:permissionx", version.ref = "permissionx" }
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+androidx-media = { module = "androidx.media:media", version.ref = "media" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

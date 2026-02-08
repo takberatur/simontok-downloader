@@ -270,4 +270,9 @@
     <string name="mobile_mode_enabled">เปิดใช้งานโหมดมือถือแล้ว</string>
     <string name="confirm_clear_cache">คุณแน่ใจหรือไม่ว่าต้องการล้างแคชของเบราว์เซอร์</string>
     <string name="clear">ชัดเจน</string>
+		<string name="save_to_downloads">บันทึกไปยังการดาวน์โหลด</string>
+    <string name="save_to_gallery">บันทึกไปยังกล้อง</string>
+    <string name="saved_to_downloads">บันทึกไปยังการดาวน์โหลดแล้ว</string>
+    <string name="saved_to_gallery">บันทึกไปยังกล้องแล้ว</string>
+    <string name="save_failed">การบันทึกไม่สำเร็จ</string>
 </resources>

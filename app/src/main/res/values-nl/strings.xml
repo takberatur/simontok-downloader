@@ -270,4 +270,9 @@
     <string name="mobile_mode_enabled">Mobiele modus ingeschakeld</string>
     <string name="confirm_clear_cache">Weet u zeker dat u de browsercache wilt wissen?</string>
     <string name="clear">Duidelijk</string>
+		<string name="save_to_downloads">Sla op downloaden</string>
+    <string name="save_to_gallery">Sla op galerie</string>
+    <string name="saved_to_downloads">Opgeslagen op downloaden</string>
+    <string name="saved_to_gallery">Opgeslagen op galerie</string>
+    <string name="save_failed">Fout bij opslaan</string>
 </resources>

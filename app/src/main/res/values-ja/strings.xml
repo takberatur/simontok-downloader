@@ -270,4 +270,9 @@
     <string name="mobile_mode_enabled">モバイルモードが有効になっています</string>
     <string name="confirm_clear_cache">ブラウザのキャッシュをクリアしてもよろしいですか?</string>
     <string name="clear">クリア</string>
+		<string name="save_to_downloads">ダウンロードに保存</string>
+    <string name="save_to_gallery">ギャラリーに保存</string>
+    <string name="saved_to_downloads">ダウンロードに保存されました</string>
+    <string name="saved_to_gallery">ギャラリーに保存されました</string>
+    <string name="save_failed">保存に失敗しました</string>
 </resources>

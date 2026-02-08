@@ -269,4 +269,9 @@
     <string name="mobile_mode_enabled">Modo móvil habilitado</string>
     <string name="confirm_clear_cache">¿Estás seguro de que deseas borrar el caché del navegador?</string>
     <string name="clear">Claro</string>
+		<string name="save_to_downloads">Guardar en Descargas</string>
+    <string name="save_to_gallery">Guardar en Galería</string>
+    <string name="saved_to_downloads">Guardado en Descargas</string>
+    <string name="saved_to_gallery">Guardado en Galería</string>
+    <string name="save_failed">Error al guardar</string>
 </resources>

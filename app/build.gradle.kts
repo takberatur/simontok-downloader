@@ -44,7 +44,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 		ndk {
 			//noinspection ChromeOsAbiSupport
-            abiFilters += listOf("x86", "x86_64", "riscv64", "armeabi-v7a",
+            abiFilters += listOf("x86", "x86_64", "armeabi-v7a",
                 "arm64-v8a")
 		}
     }
@@ -207,6 +207,8 @@ dependencies {
     implementation(libs.androidx.media3.session)
     implementation(libs.androidx.media3.transformer)
     implementation(libs.androidx.media3.effect)
+    implementation(libs.guava)
+    implementation(libs.androidx.media)
     // Audio Visualizer (optional - for audio visualization)
     implementation(libs.audio.visualizer)
     // Permission handling

@@ -269,5 +269,9 @@
     <string name="mobile_mode_enabled">Mobilmodus aktiviert</string>
     <string name="confirm_clear_cache">Möchten Sie den Browser-Cache wirklich löschen?</string>
     <string name="clear">Klar</string>
-
+		<string name="save_to_downloads">Speichern in Downloads</string>
+    <string name="save_to_gallery">Speichern in Galerie</string>
+    <string name="saved_to_downloads">Gespeichert in Downloads</string>
+    <string name="saved_to_gallery">Gespeichert in Galerie</string>
+    <string name="save_failed">Speichern fehlgeschlagen</string>
 </resources>

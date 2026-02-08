@@ -270,4 +270,9 @@
     <string name="mobile_mode_enabled">Мобильный режим включен</string>
     <string name="confirm_clear_cache">Вы уверены, что хотите очистить кеш браузера?</string>
     <string name="clear">Прозрачный</string>
+		<string name="save_to_downloads">Сохранить в загрузки</string>
+    <string name="save_to_gallery">Сохранить в галерею</string>
+    <string name="saved_to_downloads">Сохранено в загрузки</string>
+    <string name="saved_to_gallery">Сохранено в галерею</string>
+    <string name="save_failed">Ошибка сохранения</string>
 </resources>

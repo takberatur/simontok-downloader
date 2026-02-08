@@ -20,6 +20,18 @@
         android:visible="true"/>
 
     <item
+        android:id="@+id/action_save_to_downloads"
+        android:title="@string/save_to_downloads"
+        android:icon="@drawable/ic_download"
+        android:visible="true"/>
+
+    <item
+        android:id="@+id/action_save_to_gallery"
+        android:title="@string/save_to_gallery"
+        android:icon="@drawable/ic_folder_open"
+        android:visible="true"/>
+
+    <item
         android:id="@+id/action_delete"
         android:title="@string/delete"
         android:icon="@drawable/ic_delete"

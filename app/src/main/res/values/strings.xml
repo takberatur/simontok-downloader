@@ -313,5 +313,9 @@
     <string name="mobile_mode_enabled">Mobile mode enabled</string>
     <string name="confirm_clear_cache">Are you sure you want to clear the browser cache?</string>
     <string name="clear">Clear</string>
-
+		<string name="save_to_downloads">Save to Downloads</string>
+    <string name="save_to_gallery">Save to Gallery</string>
+    <string name="saved_to_downloads">Saved to Downloads</string>
+    <string name="saved_to_gallery">Saved to Gallery</string>
+    <string name="save_failed">Save failed</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.agcforge.videodownloader.ui.activities.player
 
 import android.annotation.SuppressLint
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
@@ -19,11 +20,11 @@ import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import androidx.lifecycle.lifecycleScope
 import androidx.media3.common.C
 import androidx.media3.common.MediaItem
 import androidx.media3.common.MimeTypes
@@ -32,21 +33,23 @@ import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.trackselection.DefaultTrackSelector
+import androidx.media3.session.MediaController
+import androidx.media3.session.SessionToken
 import androidx.media3.ui.PlayerView
 import com.agcforge.videodownloader.R
 import com.agcforge.videodownloader.databinding.ActivityVideoPlayerBinding
+import com.agcforge.videodownloader.service.MediaPlaybackService
 import com.agcforge.videodownloader.ui.activities.BaseActivity
 import com.agcforge.videodownloader.ui.component.AppAlertDialog
 import com.agcforge.videodownloader.utils.PreferenceManager
 import com.agcforge.videodownloader.utils.showToast
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
 
 @UnstableApi
 class VideoPlayerActivity : BaseActivity() {
     private lateinit var binding: ActivityVideoPlayerBinding
     private var player: ExoPlayer? = null
+
     private var trackSelector: DefaultTrackSelector? = null
 
     private lateinit var preferenceManager: PreferenceManager
@@ -134,6 +137,31 @@ class VideoPlayerActivity : BaseActivity() {
         }
     }
 
+//    private fun connectController() {
+//        val sessionToken = SessionToken(
+//            this,
+//            ComponentName(this, MediaPlaybackService::class.java)
+//        )
+//
+//        val controllerFuture =
+//            MediaController.Builder(this, sessionToken).buildAsync()
+//
+//        controllerFuture.addListener(
+//            {
+//                controller = controllerFuture.get()
+//
+//                val mediaItem = MediaItem.Builder()
+//                    .setUri(videoUri)
+//                    .setMimeType(MimeTypes.VIDEO_MP4)
+//                    .build()
+//
+//                controller.setMediaItem(mediaItem)
+//                controller.prepare()
+//                controller.play()
+//            },
+//            ContextCompat.getMainExecutor(this)
+//        )
+//    }
     private fun setupPlayer() {
         try {
             // Create track selector

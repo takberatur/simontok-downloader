@@ -270,4 +270,9 @@
     <string name="mobile_mode_enabled">Modalità mobile abilitata</string>
     <string name="confirm_clear_cache">Sei sicuro di voler svuotare la cache del browser?</string>
     <string name="clear">Chiaro</string>
+		<string name="save_to_downloads">Salva in download</string>
+    <string name="save_to_gallery">Salva in galleria</string>
+    <string name="saved_to_downloads">Salvato in download</string>
+    <string name="saved_to_gallery">Salvato in galleria</string>
+    <string name="save_failed">Errore durante il salvataggio</string>
 </resources>
