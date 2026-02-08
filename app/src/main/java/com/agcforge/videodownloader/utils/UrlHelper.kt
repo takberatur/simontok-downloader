@@ -1,9 +1,10 @@
 package com.agcforge.videodownloader.utils
 
 import com.agcforge.videodownloader.data.model.Platform
+import java.net.URLEncoder
 import java.util.regex.Pattern
 
-object UrlValidator {
+object UrlHelper {
 
     enum class PlatformType {
         YOUTUBE,
@@ -116,10 +117,6 @@ object UrlValidator {
         "pin.it",
         "clips.twitch.tv"
     )
-
-    fun isValidUrl(url: String): Boolean {
-        return url.startsWith("http://") || url.startsWith("https://")
-    }
 
     fun detectUrl(url: String): ValidatedUrl? {
         val cleanUrl = url.trim()
@@ -248,6 +245,160 @@ object UrlValidator {
             }
             // Tambahkan platform lainnya sesuai kebutuhan
             else -> detectedUrl.url
+        }
+    }
+
+    /**
+     * Search engines
+     */
+    enum class SearchEngine(val baseUrl: String) {
+        GOOGLE("https://www.google.com/search?q="),
+        BING("https://www.bing.com/search?q="),
+        DUCKDUCKGO("https://duckduckgo.com/?q="),
+        YAHOO("https://search.yahoo.com/search?p="),
+        YANDEX("https://yandex.com/search/?text=")
+    }
+
+    /**
+     * Check if text is a valid URL
+     */
+    fun isValidUrl(text: String): Boolean {
+        val urlPattern = Pattern.compile(
+            "^(https?://)?" + // Protocol (optional)
+                    "((([a-zA-Z0-9\\-]+\\.)+[a-zA-Z]{2,})|" + // Domain name
+                    "(\\d{1,3}\\.){3}\\d{1,3})" + // OR IP address
+                    "(:\\d+)?" + // Port (optional)
+                    "(/.*)?$" // Path (optional)
+        )
+        return urlPattern.matcher(text).matches()
+    }
+
+    /**
+     * Check if text looks like a domain (has dot, no spaces)
+     */
+    fun isLikelyDomain(text: String): Boolean {
+        return text.contains(".") &&
+                !text.contains(" ") &&
+                !text.startsWith(".") &&
+                !text.endsWith(".")
+    }
+
+    /**
+     * Process input - return URL or search query URL
+     */
+    fun processInput(
+        input: String,
+        searchEngine: SearchEngine = SearchEngine.GOOGLE
+    ): String {
+        return when {
+            // Already has protocol
+            input.startsWith("http://", ignoreCase = true) ||
+                    input.startsWith("https://", ignoreCase = true) -> {
+                input
+            }
+
+            // Looks like a domain
+            isLikelyDomain(input) -> {
+                "https://$input"
+            }
+
+            // Special cases - known domains without TLD
+            input.equals("localhost", ignoreCase = true) -> {
+                "http://localhost"
+            }
+
+            // Otherwise, search
+            else -> {
+                getSearchUrl(input, searchEngine)
+            }
+        }
+    }
+
+    /**
+     * Get search URL for query
+     */
+    fun getSearchUrl(query: String, searchEngine: SearchEngine = SearchEngine.GOOGLE): String {
+        val encodedQuery = URLEncoder.encode(query.trim(), "UTF-8")
+        return "${searchEngine.baseUrl}$encodedQuery"
+    }
+
+    /**
+     * Extract domain from URL
+     */
+    fun extractDomain(url: String): String? {
+        return try {
+            val uri = java.net.URI(url)
+            uri.host
+        } catch (e: Exception) {
+            null
+        }
+    }
+
+    /**
+     * Check if URL is HTTPS
+     */
+    fun isSecure(url: String): Boolean {
+        return url.startsWith("https://", ignoreCase = true)
+    }
+
+    /**
+     * Convert HTTP to HTTPS
+     */
+    fun forceHttps(url: String): String {
+        return if (url.startsWith("http://", ignoreCase = true)) {
+            url.replaceFirst("http://", "https://", ignoreCase = true)
+        } else {
+            url
+        }
+    }
+
+    /**
+     * Check if URL is a search engine result
+     */
+    fun isSearchEngineUrl(url: String): Boolean {
+        val domain = extractDomain(url)?.lowercase() ?: return false
+        return domain.contains("google.com") ||
+                domain.contains("bing.com") ||
+                domain.contains("duckduckgo.com") ||
+                domain.contains("yahoo.com") ||
+                domain.contains("yandex.com")
+    }
+
+    /**
+     * Clean URL - remove tracking parameters
+     */
+    fun cleanUrl(url: String): String {
+        return try {
+            val uri = java.net.URI(url)
+            val cleanQuery = uri.query?.split("&")
+                ?.filter { param ->
+                    // Remove tracking parameters
+                    !param.startsWith("utm_") &&
+                            !param.startsWith("fbclid=") &&
+                            !param.startsWith("gclid=")
+                }
+                ?.joinToString("&")
+
+            val builder = StringBuilder()
+            builder.append(uri.scheme).append("://")
+            builder.append(uri.host)
+
+            if (uri.port != -1) {
+                builder.append(":").append(uri.port)
+            }
+
+            if (uri.path != null) {
+                builder.append(uri.path)
+            }
+
+            if (!cleanQuery.isNullOrEmpty()) {
+                builder.append("?").append(cleanQuery)
+            }
+
+            builder.toString()
+
+        } catch (e: Exception) {
+            url
         }
     }
 }
