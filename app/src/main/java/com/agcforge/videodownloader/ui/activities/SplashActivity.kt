@@ -16,10 +16,12 @@ import com.agcforge.videodownloader.databinding.ActivitySplashBinding
 import com.agcforge.videodownloader.helper.ads.AdsConfig
 import com.agcforge.videodownloader.helper.ads.AdsInitializer
 import com.agcforge.videodownloader.utils.PreferenceManager
+import com.agcforge.videodownloader.utils.showToast
 import com.onesignal.OneSignal
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeoutOrNull
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
@@ -60,6 +62,7 @@ class SplashActivity : AppCompatActivity() {
             override fun onAnimationRepeat(animation: Animator) {}
         })
     }
+    @SuppressLint("SuspiciousIndentation")
     private fun startSplashSequence() {
 
         lifecycleScope.launch {
@@ -71,7 +74,9 @@ class SplashActivity : AppCompatActivity() {
 
             fetchData.join()
 
-            AdsConfig.isInitialized.first { it }
+			withTimeoutOrNull(2500) {
+				AdsConfig.isInitialized.first { it }
+			}
 
             AdsInitializer.initialize(application)
             initOneSignal()
@@ -94,9 +99,11 @@ class SplashActivity : AppCompatActivity() {
 			.onSuccess { app ->
 				preferenceManager.saveApplication(app)
 			}
-			.onFailure {
-				// ignore
-			}
+			.onFailure { e ->
+                {
+                    showToast(e.message ?: "Failed to fetch application")
+                }
+            }
 	}
 
 	private suspend fun initializeAuthToken() {

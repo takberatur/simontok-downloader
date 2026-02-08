@@ -46,12 +46,12 @@ object AdsConfig {
 
         Log.d("AdsConfig", "Initializing AdsConfig")
         preferenceManager = PreferenceManager(context.applicationContext)
+		_isInitialized.value = true
 
         scope.launch {
             preferenceManager?.applicationConfig?.collect { app ->
                 app?.let {
                     updateConfigs(it)
-                    _isInitialized.value = true
                     Log.d("AdsConfig", "Config Updated: Admob Enabled = ${admobConfig.enable}")
                 }
             }
