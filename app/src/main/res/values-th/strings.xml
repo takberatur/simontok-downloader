@@ -253,4 +253,21 @@
     <string name="message_minimum_length">ข้อความต้องมีความยาวอย่างน้อย 10 ตัวอักษร</string>
     <string name="feature_currently_not_found_title">ไม่พบคุณสมบัติในขณะนี้</string>
     <string name="feature_currently_not_found_message">คุณลักษณะนี้ไม่สามารถใช้งานได้ชั่วคราว </string>
+    <string name="desktop_mode">โหมดเดสก์ท็อป</string>
+    <string name="copy_url">Copy URL</string>
+    <string name="open_in_browser">เปิดในเบราว์เซอร์</string>
+    <string name="browser">เบราว์เซอร์</string>
+    <string name="clear_browser_cache">ล้างแคชเบราว์เซอร์</string>
+    <string name="whatsapp_not_installed">ไม่ได้ติดตั้ง WhatsApp</string>
+    <string name="cannot_open_file_chooser">ไม่สามารถเปิดตัวเลือกไฟล์ได้</string>
+    <string name="downloading_file">กำลังดาวน์โหลดไฟล์...</string>
+    <string name="mobile_mode">โหมดมือถือ</string>
+    <string name="webpage">หน้าเว็บ</string>
+    <string name="url_copied_to_clipboard">คัดลอก URL ไปยังคลิปบอร์ดแล้ว</string>
+    <string name="share_via">แบ่งปันผ่านทาง</string>
+    <string name="no_browser_app_found">ไม่พบแอปเบราว์เซอร์</string>
+    <string name="desktop_mode_enabled">เปิดใช้งานโหมดเดสก์ท็อปแล้ว</string>
+    <string name="mobile_mode_enabled">เปิดใช้งานโหมดมือถือแล้ว</string>
+    <string name="confirm_clear_cache">คุณแน่ใจหรือไม่ว่าต้องการล้างแคชของเบราว์เซอร์</string>
+    <string name="clear">ชัดเจน</string>
 </resources>

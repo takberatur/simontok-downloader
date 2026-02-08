@@ -205,6 +205,45 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
 
+        <activity
+            android:name=".ui.activities.web.WebViewActivity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            tools:ignore="ExtraText">
+
+            <intent-filter
+                android:autoVerify="true"
+                android:label="@string/open_with">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:host="*"
+                    tools:ignore="AppLinkUrlError" />
+            </intent-filter>
+
+            <!-- Intent filter for file HTML -->
+            <intent-filter android:label="@string/open_with">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="file" />
+                <data android:scheme="content" />
+
+                <data android:mimeType="text/html" />
+                <data android:mimeType="text/plain" />
+                <data android:mimeType="application/pdf" />
+                <data android:mimeType="application/xhtml+xml" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+
         <service
             android:name=".service.WebSocketService"
             android:enabled="true"

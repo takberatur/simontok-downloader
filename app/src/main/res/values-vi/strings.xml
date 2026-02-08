@@ -253,4 +253,21 @@
     <string name="message_minimum_length">Tin nhắn phải dài ít nhất 10 ký tự</string>
     <string name="feature_currently_not_found_title">Tính năng hiện không tìm thấy</string>
     <string name="feature_currently_not_found_message">Tính năng này tạm thời không khả dụng. </string>
+    <string name="desktop_mode">Chế độ máy tính để bàn</string>
+    <string name="copy_url">Copy URL</string>
+    <string name="open_in_browser">Mở trong trình duyệt</string>
+    <string name="browser">Trình duyệt</string>
+    <string name="clear_browser_cache">Xóa bộ nhớ đệm của trình duyệt</string>
+    <string name="whatsapp_not_installed">WhatsApp chưa được cài đặt</string>
+    <string name="cannot_open_file_chooser">Không thể mở trình chọn tệp</string>
+    <string name="downloading_file">Đang tải xuống tệp…</string>
+    <string name="mobile_mode">Chế độ di động</string>
+    <string name="webpage">Trang web</string>
+    <string name="url_copied_to_clipboard">Đã sao chép URL vào bảng nhớ tạm</string>
+    <string name="share_via">Chia sẻ qua</string>
+    <string name="no_browser_app_found">Không tìm thấy ứng dụng trình duyệt nào</string>
+    <string name="desktop_mode_enabled">Đã bật chế độ máy tính để bàn</string>
+    <string name="mobile_mode_enabled">Đã bật chế độ di động</string>
+    <string name="confirm_clear_cache">Bạn có chắc chắn muốn xóa bộ nhớ đệm của trình duyệt không?</string>
+    <string name="clear">Thông thoáng</string>
 </resources>

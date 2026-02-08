@@ -253,5 +253,21 @@
     <string name="message_minimum_length">Сообщение должно быть не менее 10 символов.</string>
     <string name="feature_currently_not_found_title">Функция в настоящее время не найдена</string>
     <string name="feature_currently_not_found_message">Эта функция временно недоступна. </string>
-
+    <string name="desktop_mode">Режим рабочего стола</string>
+    <string name="copy_url">Copy URL</string>
+    <string name="open_in_browser">Открыть в браузере</string>
+    <string name="browser">Браузер</string>
+    <string name="clear_browser_cache">Очистить кэш браузера</string>
+    <string name="whatsapp_not_installed">Ватсап не установлен</string>
+    <string name="cannot_open_file_chooser">Не могу открыть выбор файлов</string>
+    <string name="downloading_file">Загрузка файла…</string>
+    <string name="mobile_mode">Мобильный режим</string>
+    <string name="webpage">Веб-страница</string>
+    <string name="url_copied_to_clipboard">URL-адрес скопирован в буфер обмена</string>
+    <string name="share_via">Поделиться через</string>
+    <string name="no_browser_app_found">Браузерное приложение не найдено</string>
+    <string name="desktop_mode_enabled">Режим рабочего стола включен</string>
+    <string name="mobile_mode_enabled">Мобильный режим включен</string>
+    <string name="confirm_clear_cache">Вы уверены, что хотите очистить кеш браузера?</string>
+    <string name="clear">Прозрачный</string>
 </resources>

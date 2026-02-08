@@ -253,4 +253,21 @@
     <string name="message_minimum_length">Mesaj en az 10 karakter uzunluğunda olmalıdır</string>
     <string name="feature_currently_not_found_title">Özellik Şu Anda Bulunamadı</string>
     <string name="feature_currently_not_found_message">Bu özellik geçici olarak kullanılamıyor. </string>
+    <string name="desktop_mode">Masaüstü Modu</string>
+    <string name="copy_url">Copy URL</string>
+    <string name="open_in_browser">Tarayıcıda Aç</string>
+    <string name="browser">Tarayıcı</string>
+    <string name="clear_browser_cache">Tarayıcı Önbelleğini Temizle</string>
+    <string name="whatsapp_not_installed">WhatsApp yüklü değil</string>
+    <string name="cannot_open_file_chooser">Dosya seçici açılamıyor</string>
+    <string name="downloading_file">Dosya indiriliyor…</string>
+    <string name="mobile_mode">Mobil Mod</string>
+    <string name="webpage">Web sayfası</string>
+    <string name="url_copied_to_clipboard">URL panoya kopyalandı</string>
+    <string name="share_via">Şununla paylaş:</string>
+    <string name="no_browser_app_found">Tarayıcı uygulaması bulunamadı</string>
+    <string name="desktop_mode_enabled">Masaüstü modu etkin</string>
+    <string name="mobile_mode_enabled">Mobil mod etkin</string>
+    <string name="confirm_clear_cache">Tarayıcı önbelleğini temizlemek istediğinizden emin misiniz?</string>
+    <string name="clear">Temizlemek</string>
 </resources>

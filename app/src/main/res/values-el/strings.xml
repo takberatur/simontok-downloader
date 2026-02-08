@@ -252,4 +252,21 @@
     <string name="message_minimum_length">Το μήνυμα πρέπει να αποτελείται από τουλάχιστον 10 χαρακτήρες</string>
     <string name="feature_currently_not_found_title">Η λειτουργία αυτή τη στιγμή δεν βρέθηκε</string>
     <string name="feature_currently_not_found_message">Αυτή η δυνατότητα δεν είναι προσωρινά διαθέσιμη. </string>
+    <string name="desktop_mode">Modo de escritorio</string>
+    <string name="copy_url">Copy URL</string>
+    <string name="open_in_browser">Abrir en el navegador</string>
+    <string name="browser">Navegador</string>
+    <string name="clear_browser_cache">Borrar caché del navegador</string>
+    <string name="whatsapp_not_installed">WhatsApp no ​​instalado</string>
+    <string name="cannot_open_file_chooser">No se puede abrir el selector de archivos</string>
+    <string name="downloading_file">Descargando archivo…</string>
+    <string name="mobile_mode">Modo móvil</string>
+    <string name="webpage">Página web</string>
+    <string name="url_copied_to_clipboard">URL copiada al portapapeles</string>
+    <string name="share_via">Compartir vía</string>
+    <string name="no_browser_app_found">No se encontró ninguna aplicación de navegador</string>
+    <string name="desktop_mode_enabled">Modo escritorio habilitado</string>
+    <string name="mobile_mode_enabled">Modo móvil habilitado</string>
+    <string name="confirm_clear_cache">¿Estás seguro de que deseas borrar el caché del navegador?</string>
+    <string name="clear">Claro</string>
 </resources>

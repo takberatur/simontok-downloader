@@ -253,4 +253,21 @@
     <string name="message_minimum_length">Het bericht moet minimaal 10 tekens lang zijn</string>
     <string name="feature_currently_not_found_title">De functie is momenteel niet gevonden</string>
     <string name="feature_currently_not_found_message">Deze functie is tijdelijk niet beschikbaar. </string>
+    <string name="desktop_mode">Desktop-modus</string>
+    <string name="copy_url">Copy URL</string>
+    <string name="open_in_browser">Openen in browser</string>
+    <string name="browser">Browser</string>
+    <string name="clear_browser_cache">Wis browsercache</string>
+    <string name="whatsapp_not_installed">WhatsApp niet geïnstalleerd</string>
+    <string name="cannot_open_file_chooser">Kan de bestandskiezer niet openen</string>
+    <string name="downloading_file">Bestand downloaden…</string>
+    <string name="mobile_mode">Mobiele modus</string>
+    <string name="webpage">Webpagina</string>
+    <string name="url_copied_to_clipboard">URL gekopieerd naar klembord</string>
+    <string name="share_via">Deel via</string>
+    <string name="no_browser_app_found">Geen browser-app gevonden</string>
+    <string name="desktop_mode_enabled">Desktopmodus ingeschakeld</string>
+    <string name="mobile_mode_enabled">Mobiele modus ingeschakeld</string>
+    <string name="confirm_clear_cache">Weet u zeker dat u de browsercache wilt wissen?</string>
+    <string name="clear">Duidelijk</string>
 </resources>

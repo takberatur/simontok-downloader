@@ -11,7 +11,7 @@
         </pin-set> -->
 
         <!-- Allow self-signed certificates for development -->
-        <trust-anchors>\
+        <trust-anchors>
             <certificates src="system"/>
             <certificates src="user"/>
         </trust-anchors>

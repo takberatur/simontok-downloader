@@ -1,6 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.activities.web.WebViewActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/bg_menu_primary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.Material3.Light"
+        app:titleTextColor="@color/text_primary" />
+
+    <!-- Address Bar -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvAddressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/bg_menu_primary">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_lock"
+                android:contentDescription="Secure"
+                app:tint="@color/text_primary"/>
+
+            <TextView
+                android:id="@+id/tvUrl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="https://example.com"
+                android:textSize="14sp"
+                android:textColor="?attr/colorOnSurface"
+                android:maxLines="1"
+                android:ellipsize="middle"
+                app:tint="@color/text_secondary"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_edit_square"
+                android:contentDescription="Edit URL"
+                app:tint="@color/text_primary"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Progress Bar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:progressTint="@color/text_primary"
+        android:visibility="gone" />
+
+    <!-- WebView -->
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/adsBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <include
+            android:id="@+id/regular_banner_ad"
+            layout="@layout/item_banner_ad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <!-- Navigation Bar -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="0dp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Back"
+                android:src="@drawable/ic_back"
+                app:tint="@color/text_primary" />
+
+            <ImageButton
+                android:id="@+id/btnForward"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Forward"
+                android:src="@drawable/ic_forward_10"
+                app:tint="@color/text_primary" />
+
+            <ImageButton
+                android:id="@+id/btnRefresh"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Refresh"
+                android:src="@drawable/ic_refresh"
+                app:tint="@color/text_primary" />
+
+            <ImageButton
+                android:id="@+id/btnHome"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Home"
+                android:src="@drawable/ic_home"
+                app:tint="@color/text_primary" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

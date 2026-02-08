@@ -252,4 +252,21 @@
     <string name="message_minimum_length">Dapat na hindi bababa sa 10 character ang haba ng mensahe</string>
     <string name="feature_currently_not_found_title">Ang Tampok na Kasalukuyang Hindi Nahanap</string>
     <string name="feature_currently_not_found_message">Pansamantalang hindi available ang feature na ito. </string>
+    <string name="desktop_mode">Desktop Mode</string>
+    <string name="copy_url">Copy URL</string>
+    <string name="open_in_browser">Buksan sa Browser</string>
+    <string name="browser">Browser</string>
+    <string name="clear_browser_cache">I-clear ang Browser Cache</string>
+    <string name="whatsapp_not_installed">Hindi naka-install ang WhatsApp</string>
+    <string name="cannot_open_file_chooser">Hindi mabuksan ang tagapili ng file</string>
+    <string name="downloading_file">Dina-download ang file…</string>
+    <string name="mobile_mode">Mobile Mode</string>
+    <string name="webpage">Webpage</string>
+    <string name="url_copied_to_clipboard">Nakopya ang URL sa clipboard</string>
+    <string name="share_via">Ibahagi sa pamamagitan ng</string>
+    <string name="no_browser_app_found">Walang nakitang browser app</string>
+    <string name="desktop_mode_enabled">Pinagana ang desktop mode</string>
+    <string name="mobile_mode_enabled">Naka-enable ang mobile mode</string>
+    <string name="confirm_clear_cache">Sigurado ka bang gusto mong i-clear ang cache ng browser?</string>
+    <string name="clear">Maaliwalas</string>
 </resources>

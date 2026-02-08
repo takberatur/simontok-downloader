@@ -35,7 +35,9 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import androidx.core.net.toUri
 import androidx.navigation.NavOptions
+import com.agcforge.videodownloader.ui.activities.web.WebViewActivity
 import com.google.android.material.imageview.ShapeableImageView
+import com.startapp.sdk.internal.th
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -236,7 +238,11 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
 			R.id.nav_premium -> startActivity(Intent(this, SubscriptionActivity::class.java))
             R.id.nav_about -> {
-                showAboutDialog()
+                WebViewActivity.start(
+                    context = this,
+                    url = getString(R.string.about_url),
+                    desktopMode = false
+                )
             }
             R.id.nav_report -> {
                 startActivity(Intent(this, ReportActivity::class.java))
@@ -249,8 +255,13 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
             R.id.nav_site -> {
                 val siteUrl = getString(R.string.site_url)
-                val intent = Intent(Intent.ACTION_VIEW, siteUrl.toUri())
-                startActivity(intent)
+//                val intent = Intent(Intent.ACTION_VIEW, siteUrl.toUri())
+//                startActivity(intent)
+                WebViewActivity.start(
+                    context = this,
+                    url = siteUrl,
+                    desktopMode = false
+                )
             }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)

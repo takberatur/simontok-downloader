@@ -253,4 +253,21 @@
     <string name="message_minimum_length">Il messaggio deve contenere almeno 10 caratteri</string>
     <string name="feature_currently_not_found_title">La funzionalità attualmente non trovata</string>
     <string name="feature_currently_not_found_message">Questa funzionalità è temporaneamente non disponibile. </string>
+    <string name="desktop_mode">Modalità desktop</string>
+    <string name="copy_url">Copy URL</string>
+    <string name="open_in_browser">Apri nel browser</string>
+    <string name="browser">Navigatore</string>
+    <string name="clear_browser_cache">Cancella la cache del browser</string>
+    <string name="whatsapp_not_installed">WhatsApp non installato</string>
+    <string name="cannot_open_file_chooser">Impossibile aprire la selezione file</string>
+    <string name="downloading_file">Download del file…</string>
+    <string name="mobile_mode">Modalità mobile</string>
+    <string name="webpage">Pagina web</string>
+    <string name="url_copied_to_clipboard">URL copiato negli appunti</string>
+    <string name="share_via">Condividi tramite</string>
+    <string name="no_browser_app_found">Nessuna app browser trovata</string>
+    <string name="desktop_mode_enabled">Modalità desktop abilitata</string>
+    <string name="mobile_mode_enabled">Modalità mobile abilitata</string>
+    <string name="confirm_clear_cache">Sei sicuro di voler svuotare la cache del browser?</string>
+    <string name="clear">Chiaro</string>
 </resources>

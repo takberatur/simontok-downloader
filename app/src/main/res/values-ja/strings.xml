@@ -253,4 +253,21 @@
     <string name="message_minimum_length">メッセージの長さは 10 文字以上である必要があります</string>
     <string name="feature_currently_not_found_title">現在この機能は見つかりません</string>
     <string name="feature_currently_not_found_message">この機能は一時的に利用できなくなります。</string>
+    <string name="desktop_mode">デスクトップモード</string>
+    <string name="copy_url">Copy URL</string>
+    <string name="open_in_browser">ブラウザで開く</string>
+    <string name="browser">ブラウザ</string>
+    <string name="clear_browser_cache">ブラウザのキャッシュをクリアする</string>
+    <string name="whatsapp_not_installed">WhatsAppがインストールされていません</string>
+    <string name="cannot_open_file_chooser">ファイルセレクターを開けません</string>
+    <string name="downloading_file">ファイルをダウンロード中…</string>
+    <string name="mobile_mode">モバイルモード</string>
+    <string name="webpage">ウェブページ</string>
+    <string name="url_copied_to_clipboard">URLがクリップボードにコピーされました</string>
+    <string name="share_via">共有方法</string>
+    <string name="no_browser_app_found">ブラウザアプリが見つかりません</string>
+    <string name="desktop_mode_enabled">デスクトップモードが有効になっている</string>
+    <string name="mobile_mode_enabled">モバイルモードが有効になっています</string>
+    <string name="confirm_clear_cache">ブラウザのキャッシュをクリアしてもよろしいですか?</string>
+    <string name="clear">クリア</string>
 </resources>

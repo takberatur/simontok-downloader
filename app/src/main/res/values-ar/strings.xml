@@ -252,4 +252,21 @@
     <string name="message_minimum_length">يجب أن لا يقل طول الرسالة عن 10 أحرف</string>
     <string name="feature_currently_not_found_title">الميزة غير موجودة حاليًا</string>
     <string name="feature_currently_not_found_message">هذه الميزة غير متاحة مؤقتًا. </string>
+    <string name="desktop_mode">وضع سطح المكتب</string>
+    <string name="copy_url">Copy URL</string>
+    <string name="open_in_browser">فتح في المتصفح</string>
+    <string name="browser">المتصفح</string>
+    <string name="clear_browser_cache">مسح ذاكرة التخزين المؤقت للمتصفح</string>
+    <string name="whatsapp_not_installed">الواتساب غير مثبت</string>
+    <string name="cannot_open_file_chooser">لا يمكن فتح منتقي الملفات</string>
+    <string name="downloading_file">جارٍ تنزيل الملف…</string>
+    <string name="mobile_mode">وضع الجوال</string>
+    <string name="webpage">صفحة على الإنترنت</string>
+    <string name="url_copied_to_clipboard">تم نسخ عنوان URL إلى الحافظة</string>
+    <string name="share_via">شارك عبر</string>
+    <string name="no_browser_app_found">لم يتم العثور على تطبيق متصفح</string>
+    <string name="desktop_mode_enabled">تم تمكين وضع سطح المكتب</string>
+    <string name="mobile_mode_enabled">تم تمكين وضع الهاتف المحمول</string>
+    <string name="confirm_clear_cache">هل أنت متأكد أنك تريد مسح ذاكرة التخزين المؤقت للمتصفح؟</string>
+    <string name="clear">واضح</string>
 </resources>

@@ -5,7 +5,7 @@ import android.webkit.CookieManager
 import android.webkit.WebSettings
 import android.webkit.WebView
 
-object UrlHelper {
+object WebViewConfig {
 
     /**
      * Enable all standard features

@@ -28,6 +28,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.util.Locale
 import androidx.core.net.toUri
+import com.agcforge.videodownloader.ui.activities.web.WebViewActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class SettingsFragment : Fragment() {
@@ -75,7 +76,13 @@ class SettingsFragment : Fragment() {
             btnStorageSettings.setOnClickListener { showStorageSettings() }
 			btnOpenStorageFolder.setOnClickListener { openStorageFolder() }
             btnClearCache.setOnClickListener { clearCache() }
-            btnAbout.setOnClickListener { showAboutDialog() }
+            btnAbout.setOnClickListener {
+                WebViewActivity.start(
+                    context = requireContext(),
+                    url = getString(R.string.about_url),
+                    desktopMode = false
+                )
+            }
             btnLanguage.setOnClickListener { showLanguageDialog() }
             // open browser to privacy policy
             btnPrivacy.setOnClickListener { openBrowser(getString(R.string.privacy_policy_url)) }
@@ -214,8 +221,13 @@ class SettingsFragment : Fragment() {
 
     private fun openBrowser(url: String) {
         try {
-            val intent = Intent(Intent.ACTION_VIEW, url.toUri())
-            startActivity(intent)
+//            val intent = Intent(Intent.ACTION_VIEW, url.toUri())
+//            startActivity(intent)
+            WebViewActivity.start(
+                context = requireContext(),
+                url = url,
+                desktopMode = false
+            )
         } catch (e: ActivityNotFoundException) {
             requireContext().showToast(getString(R.string.no_browser_installed))
         }

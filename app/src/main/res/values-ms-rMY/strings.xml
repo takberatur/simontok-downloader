@@ -252,4 +252,21 @@
     <string name="message_minimum_length">Mesej mestilah sekurang-kurangnya 10 aksara</string>
     <string name="feature_currently_not_found_title">Ciri Pada Masa Ini Tidak Ditemui</string>
     <string name="feature_currently_not_found_message">Ciri ini tidak tersedia buat sementara waktu. </string>
+    <string name="desktop_mode">Mod Desktop</string>
+    <string name="copy_url">Copy URL</string>
+    <string name="open_in_browser">Buka dalam Pelayar</string>
+    <string name="browser">pelayar</string>
+    <string name="clear_browser_cache">Kosongkan Cache Pelayar</string>
+    <string name="whatsapp_not_installed">WhatsApp tidak dipasang</string>
+    <string name="cannot_open_file_chooser">Tidak boleh membuka pemilih fail</string>
+    <string name="downloading_file">Memuat turun fail…</string>
+    <string name="mobile_mode">Mod Mudah Alih</string>
+    <string name="webpage">halaman web</string>
+    <string name="url_copied_to_clipboard">URL disalin ke papan keratan</string>
+    <string name="share_via">Kongsi melalui</string>
+    <string name="no_browser_app_found">Tiada apl penyemak imbas ditemui</string>
+    <string name="desktop_mode_enabled">Mod desktop didayakan</string>
+    <string name="mobile_mode_enabled">Mod mudah alih didayakan</string>
+    <string name="confirm_clear_cache">Adakah anda pasti mahu mengosongkan cache penyemak imbas?</string>
+    <string name="clear">Jelas</string>
 </resources>

@@ -11,6 +11,7 @@
     <string name="site_url" translatable="false">https://simontokz.com</string>
     <string name="privacy_policy_url" translatable="false">https://simontokz.com/privacy</string>
     <string name="contact_url" translatable="false">https://simontokz.com/contact</string>
+    <string name="about_url" translatable="false">https://simontokz.com/about</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="paste_url_hint">Paste video URL here</string>
@@ -295,4 +296,22 @@
     <string name="message_minimum_length">Message must be at least 10 characters long</string>
     <string name="feature_currently_not_found_title">The Feature Currently Not Found</string>
     <string name="feature_currently_not_found_message">This feature is temporarily unavailable. Please try again later.</string>
+    <string name="desktop_mode">Desktop Mode</string>
+    <string name="copy_url">Copy URL</string>
+    <string name="open_in_browser">Open in Browser</string>
+    <string name="browser">Browser</string>
+    <string name="clear_browser_cache">Clear Browser Cache</string>
+    <string name="whatsapp_not_installed">WhatsApp not installed</string>
+    <string name="cannot_open_file_chooser">Cannot open file chooser</string>
+    <string name="downloading_file">Downloading file…</string>
+    <string name="mobile_mode">Mobile Mode</string>
+    <string name="webpage">Webpage</string>
+    <string name="url_copied_to_clipboard">URL copied to clipboard</string>
+    <string name="share_via">Share via</string>
+    <string name="no_browser_app_found">No browser app found</string>
+    <string name="desktop_mode_enabled">Desktop mode enabled</string>
+    <string name="mobile_mode_enabled">Mobile mode enabled</string>
+    <string name="confirm_clear_cache">Are you sure you want to clear the browser cache?</string>
+    <string name="clear">Clear</string>
+
 </resources>

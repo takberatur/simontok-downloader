@@ -253,4 +253,21 @@
     <string name="message_minimum_length">संदेश कम से कम 10 अक्षर लंबा होना चाहिए</string>
     <string name="feature_currently_not_found_title">फीचर फिलहाल नहीं मिला</string>
     <string name="feature_currently_not_found_message">यह सुविधा अस्थायी रूप से अनुपलब्ध है. </string>
+    <string name="desktop_mode">डेस्कटॉप मोड</string>
+    <string name="copy_url">Copy URL</string>
+    <string name="open_in_browser">ब्राउज़र में खोलें</string>
+    <string name="browser">ब्राउज़र</string>
+    <string name="clear_browser_cache">ब्राउज़र कैश साफ़ करें</string>
+    <string name="whatsapp_not_installed">व्हाट्सएप इंस्टॉल नहीं है</string>
+    <string name="cannot_open_file_chooser">फ़ाइल चयनकर्ता नहीं खोल सकता</string>
+    <string name="downloading_file">फ़ाइल डाउनलोड हो रही है...</string>
+    <string name="mobile_mode">मोबाइल मोड</string>
+    <string name="webpage">वेब पृष्ठ</string>
+    <string name="url_copied_to_clipboard">यूआरएल क्लिपबोर्ड पर कॉपी किया गया</string>
+    <string name="share_via">के माध्यम से साझा करें</string>
+    <string name="no_browser_app_found">कोई ब्राउज़र ऐप नहीं मिला</string>
+    <string name="desktop_mode_enabled">डेस्कटॉप मोड सक्षम</string>
+    <string name="mobile_mode_enabled">मोबाइल मोड सक्षम</string>
+    <string name="confirm_clear_cache">क्या आप वाकई ब्राउज़र कैश साफ़ करना चाहते हैं?</string>
+    <string name="clear">स्पष्ट</string>
 </resources>
