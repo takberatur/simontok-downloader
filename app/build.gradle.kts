@@ -20,18 +20,18 @@ android {
         version = release(36)
     }
 
-    if (keystorePropertiesFile.exists()) {
-        val keystoreProperties = Properties()
-        keystoreProperties.load(FileInputStream(keystorePropertiesFile))
-        signingConfigs {
-            create("githubPublish") {
-                keyAlias = keystoreProperties["keyAlias"].toString()
-                keyPassword = keystoreProperties["keyPassword"].toString()
-                storeFile = file(keystoreProperties["storeFile"]!!)
-                storePassword = keystoreProperties["storePassword"].toString()
-            }
-        }
-    }
+//    if (keystorePropertiesFile.exists()) {
+//        val keystoreProperties = Properties()
+//        keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+//        signingConfigs {
+//            create("githubPublish") {
+//                keyAlias = keystoreProperties["keyAlias"].toString()
+//                keyPassword = keystoreProperties["keyPassword"].toString()
+//                storeFile = file(keystoreProperties["storeFile"]!!)
+//                storePassword = keystoreProperties["storePassword"].toString()
+//            }
+//        }
+//    }
 
 
     defaultConfig {
@@ -44,11 +44,17 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 		ndk {
 			//noinspection ChromeOsAbiSupport
-			abiFilters += listOf("armeabi-v7a", "arm64-v8a")
+            abiFilters += listOf("x86", "x86_64", "riscv64", "armeabi-v7a",
+                "arm64-v8a")
 		}
-
     }
-    ndkVersion = "29.0.14033849 rc4"
+
+	val mobileApiKey =
+		providers.gradleProperty("MOBILE_API_KEY").orNull
+			?: System.getenv("MOBILE_API_KEY")
+			?: ""
+
+    ndkVersion = "29.0.14206865"
     buildFeatures {
         compose = true
         dataBinding = true
@@ -56,7 +62,11 @@ android {
         buildConfig = true
         resValues = true
     }
+
     buildTypes {
+		all {
+			buildConfigField("String", "MOBILE_API_KEY", "\"${mobileApiKey}\"")
+		}
         getByName("debug") {
             enableUnitTestCoverage = true
         }
@@ -67,15 +77,15 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            if (keystorePropertiesFile.exists()) {
-                signingConfig = signingConfigs.getByName("githubPublish")
-            }
+//            if (keystorePropertiesFile.exists()) {
+//                signingConfig = signingConfigs.getByName("githubPublish")
+//            }
         }
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
 
@@ -116,7 +126,7 @@ android {
 
 kotlin {
     compilerOptions {
-        jvmTarget = JvmTarget.JVM_11
+        jvmTarget = JvmTarget.JVM_21
         freeCompilerArgs.add("-XXLanguage:+PropertyParamAnnotationDefaultTargetMode")
         freeCompilerArgs.add("-opt-in=kotlin.RequiresOptIn")
     }
@@ -202,4 +212,3 @@ dependencies {
     // Permission handling
     implementation(libs.permissionx)
 }
-
