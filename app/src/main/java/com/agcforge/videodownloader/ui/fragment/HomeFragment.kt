@@ -642,12 +642,7 @@ class HomeFragment : Fragment() {
         task: DownloadTask,
         format: DownloadFormat
     ): String {
-        val base = AppManager.baseUrl
-        val endpoint = if (base.endsWith("/")) {
-            "${base}public-proxy/downloads/file/video"
-        } else {
-            "$base/public-proxy/downloads/file/video"
-        }
+        val endpoint = "${AppManager.baseUrl.trimEnd('/')}/public-proxy/downloads/file/video"
 
         val formatId = format.formatId
         val resolution = format.height?.let { "${it}p" }
@@ -664,12 +659,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun buildProxyMp3Url(taskId: String, filename: String): String {
-        val base = AppManager.baseUrl
-        val endpoint = if (base.endsWith("/")) {
-            "${base}public-proxy/downloads/file/mp3"
-        } else {
-            "$base/public-proxy/downloads/file/mp3"
-        }
+        val endpoint = "${AppManager.baseUrl.trimEnd('/')}/public-proxy/downloads/file/mp3"
         val finalName = if (filename.lowercase().endsWith(".mp3")) filename else "$filename.mp3"
         return endpoint.toUri().buildUpon()
             .appendQueryParameter("task_id", taskId)
