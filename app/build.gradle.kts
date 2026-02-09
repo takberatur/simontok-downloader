@@ -38,8 +38,8 @@ android {
         applicationId = "com.agcforge.videodownloader"
         minSdk = 24
         targetSdk = 36
-        versionCode = 3
-        versionName = "0.0.2-alpha"
+        versionCode = 4
+        versionName = "0.0.3-alpha"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 		ndk {
@@ -84,8 +84,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+		sourceCompatibility = JavaVersion.VERSION_17
+		targetCompatibility = JavaVersion.VERSION_17
     }
 
 
@@ -126,7 +126,7 @@ android {
 
 kotlin {
     compilerOptions {
-        jvmTarget = JvmTarget.JVM_21
+		jvmTarget = JvmTarget.JVM_17
         freeCompilerArgs.add("-XXLanguage:+PropertyParamAnnotationDefaultTargetMode")
         freeCompilerArgs.add("-opt-in=kotlin.RequiresOptIn")
     }

@@ -22,6 +22,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.enableEdgeToEdge
 import com.agcforge.videodownloader.R
 import com.agcforge.videodownloader.databinding.ActivityWebviewBinding
 import com.agcforge.videodownloader.ui.activities.BaseActivity
@@ -69,6 +70,7 @@ class WebViewActivity: BaseActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         binding = ActivityWebviewBinding.inflate(layoutInflater)
         setContentView(binding.root)

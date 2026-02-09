@@ -3,6 +3,7 @@ package com.agcforge.videodownloader.ui.activities
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import androidx.activity.enableEdgeToEdge
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.agcforge.videodownloader.databinding.ActivitySubscriptionBinding
@@ -15,6 +16,7 @@ class SubscriptionActivity : BaseActivity() {
 	private lateinit var binding: ActivitySubscriptionBinding
 
 	override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
 		super.onCreate(savedInstanceState)
 		binding = ActivitySubscriptionBinding.inflate(layoutInflater)
 		setContentView(binding.root)

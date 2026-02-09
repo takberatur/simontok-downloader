@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.agcforge.videodownloader.R
@@ -35,6 +36,7 @@ class ReportActivity: BaseActivity() {
     private var isPremium: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         _binding = ActivityReportBinding.inflate(layoutInflater)
         setContentView(binding.root)
